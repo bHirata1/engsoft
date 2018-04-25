@@ -21,7 +21,10 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DashboardAssessor.cpp">
+    <ClCompile Include="teste1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DashboardGestor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +35,10 @@
     <ClInclude Include="Login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DashboardAssessor.h">
+    <ClInclude Include="teste1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DashboardGestor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
