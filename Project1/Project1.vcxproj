@@ -144,17 +144,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CaixaDeDialogo.cpp" />
+    <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
-    <ClCompile Include="Janela4.cpp" />
-    <ClCompile Include="MyForm.cpp" />
-    <ClCompile Include="Teste.cpp" />
+    <ClCompile Include="Login.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DashboardAssessor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashboardDespachador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -167,8 +168,8 @@
     <EmbeddedResource Include="DashboardDespachador.resx">
       <DependentUpon>DashboardDespachador.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
