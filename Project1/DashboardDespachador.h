@@ -34,6 +34,13 @@ namespace Project1 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button3;
+	private: System::Windows::Forms::Button^  button4;
+
+	protected:
 
 	private:
 		/// <summary>
@@ -48,18 +55,86 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(36, 28);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(146, 31);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"InfoBuraco";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(50, 154);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(132, 49);
+			this->button1->TabIndex = 1;
+			this->button1->Text = L"Gerenciar Equipes";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &DashboardDespachador::button1_Click_1);
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(50, 227);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(132, 49);
+			this->button2->TabIndex = 2;
+			this->button2->Text = L"Gerenciar Equipamentos";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &DashboardDespachador::button2_Click);
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(50, 299);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(132, 49);
+			this->button3->TabIndex = 3;
+			this->button3->Text = L"Gerenciar Materiais";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(50, 372);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(132, 49);
+			this->button4->TabIndex = 4;
+			this->button4->Text = L"Gerenciar Custo de Mobilização";
+			this->button4->UseVisualStyleBackColor = true;
 			// 
 			// DashboardDespachador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(509, 430);
+			this->ClientSize = System::Drawing::Size(1097, 579);
+			this->Controls->Add(this->button4);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label1);
 			this->Name = L"DashboardDespachador";
 			this->Text = L"DashboardDespachador";
+			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				
+	}
+	private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
 	};
 }
