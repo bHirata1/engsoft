@@ -27,8 +27,11 @@
     <ClCompile Include="Teste.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DashboardAssessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DashboardDespachador.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -38,9 +41,15 @@
     <ClInclude Include="DashboardDespachador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DashboardAssessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardDespachador.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
