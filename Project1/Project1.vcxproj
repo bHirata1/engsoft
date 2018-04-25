@@ -169,6 +169,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DashboardAssessor.resx">
+      <DependentUpon>DashboardAssessor.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardDespachador.resx">
       <DependentUpon>DashboardDespachador.h</DependentUpon>
     </EmbeddedResource>
