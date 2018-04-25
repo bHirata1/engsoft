@@ -21,10 +21,7 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="teste1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DashboardGestor.cpp">
+    <ClCompile Include="DashboardAssessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +32,7 @@
     <ClInclude Include="Login.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="teste1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DashboardGestor.h">
+    <ClInclude Include="DashboardAssessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,6 +41,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardDespachador.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardAssessor.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardGestor.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
