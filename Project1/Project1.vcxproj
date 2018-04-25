@@ -146,16 +146,12 @@
   <ItemGroup>
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="Login.cpp" />
-    <ClCompile Include="teste1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DashboardDespachador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Login.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="teste1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
