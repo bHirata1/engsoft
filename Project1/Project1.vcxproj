@@ -147,6 +147,7 @@
     <ClCompile Include="CaixaDeDialogo.cpp" />
     <ClCompile Include="Janela4.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Teste.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CaixaDeDialogo.h">
@@ -156,6 +157,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Teste.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
