@@ -1,5 +1,5 @@
-#include "MyForm.h"
-#include "DashboardDespachador.h"
+
+#include "DashboardAssessor.h"
 namespace Project1 {
 	using namespace System;
 	using namespace System::Windows::Forms;
@@ -8,7 +8,7 @@ namespace Project1 {
 	{
 		Application::EnableVisualStyles();
 		Application::SetCompatibleTextRenderingDefault(false);
-		Application::Run(gcnew MyForm);
+		Application::Run(gcnew DashboardAssessor);
 		
 	}
 }
