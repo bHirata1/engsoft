@@ -144,10 +144,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="Login.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DashboardAssessor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashboardDespachador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
