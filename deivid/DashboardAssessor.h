@@ -372,7 +372,6 @@ namespace Project1 {
 	}
 private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
 	CadastroBuracoAssessor^ form = gcnew CadastroBuracoAssessor();
-	this->Hide();
 	form->ShowDialog();
 }
 };
