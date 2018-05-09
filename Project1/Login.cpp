@@ -1,4 +1,4 @@
-
+#include "Login.h"
 #include "DashboardAssessor.h"
 namespace Project1 {
 	using namespace System;
@@ -8,7 +8,8 @@ namespace Project1 {
 	{
 		Application::EnableVisualStyles();
 		Application::SetCompatibleTextRenderingDefault(false);
-		Application::Run(gcnew DashboardAssessor);
+		//Application::Run(gcnew DashboardAssessor);
+		Application::Run(gcnew Login)
 		
 	}
 }
