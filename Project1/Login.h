@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Janela4.h"
 #include "DashboardDespachador.h"
 
 /*
@@ -203,8 +202,8 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 	}
 
 	this->Hide();
-	DashboardDespachador^ janela = gcnew DashboardDespachador();
-	janela->ShowDialog();
+	//DashboardDespachador^ janela = gcnew DashboardDespachador();
+	//janela->ShowDialog();
 	this->Show();
 	
 }
@@ -217,8 +216,7 @@ private: System::Void sairToolStripMenuItem_Click(System::Object^  sender, Syste
 	Application::Exit();
 }
 private: System::Void aboutToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-	Janela4^ caixa = gcnew Janela4();
-	caixa->ShowDialog();
+
 }
 private: System::Void bt_janela4_Click(System::Object^  sender, System::EventArgs^  e) {
 }

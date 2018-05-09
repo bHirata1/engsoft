@@ -36,6 +36,9 @@
     <ClCompile Include="GerenciarEquipamentos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DashboardGestor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -59,6 +62,9 @@
     <ClInclude Include="DashboardDespachador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DashboardGestor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
@@ -74,6 +80,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="GerenciarEquipes.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardGestor.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

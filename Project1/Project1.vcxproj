@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
+    <ClCompile Include="DashboardGestor.cpp" />
     <ClCompile Include="GerenciarEquipamentos.cpp" />
     <ClCompile Include="GerenciarEquipes.cpp" />
     <ClCompile Include="GerenciarMateriais.cpp" />
@@ -157,6 +158,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DashboardDespachador.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DashboardGestor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GerenciarEquipamentos.h">
@@ -185,6 +189,7 @@
       <DependentUpon>DashboardAssessor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardDespachador.resx" />
+    <EmbeddedResource Include="DashboardGestor.resx" />
     <EmbeddedResource Include="GerenciarEquipes.resx" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>

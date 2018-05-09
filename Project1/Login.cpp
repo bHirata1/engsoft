@@ -1,5 +1,6 @@
 #include "Login.h"
-#include "DashboardAssessor.h"
+#include "DashboardDespachador.h"
+/*
 namespace Project1 {
 	using namespace System;
 	using namespace System::Windows::Forms;
@@ -12,4 +13,21 @@ namespace Project1 {
 		Application::Run(gcnew Login)
 		
 	}
+}
+
+*/
+
+using namespace System;
+using namespace System::Windows::Forms;
+
+
+[STAThread]
+
+void main(array<String^>^ args)
+{
+	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
+
+	InfoBuraco::DashboardDespachador form;
+	Application::Run(%form);
 }
