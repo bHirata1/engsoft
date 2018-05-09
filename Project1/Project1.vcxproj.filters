@@ -21,9 +21,6 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="teste1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DashboardAssessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -39,12 +36,15 @@
     <ClCompile Include="DashboardGestor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CadastroBuracoAssessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificacoesAssessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="teste1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DashboardAssessor.h">
@@ -65,6 +65,12 @@
     <ClInclude Include="DashboardGestor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CadastroBuracoAssessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NotificacoesAssessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
@@ -83,6 +89,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardGestor.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroBuracoAssessor.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificacoesAssessor.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

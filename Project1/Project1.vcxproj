@@ -144,6 +144,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CadastroBuracoAssessor.cpp" />
     <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
@@ -151,9 +152,12 @@
     <ClCompile Include="GerenciarEquipes.cpp" />
     <ClCompile Include="GerenciarMateriais.cpp" />
     <ClCompile Include="Login.cpp" />
-    <ClCompile Include="teste1.cpp" />
+    <ClCompile Include="NotificacoesAssessor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CadastroBuracoAssessor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashboardAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -175,7 +179,7 @@
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="teste1.h">
+    <ClInclude Include="NotificacoesAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -185,6 +189,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CadastroBuracoAssessor.resx" />
     <EmbeddedResource Include="DashboardAssessor.resx">
       <DependentUpon>DashboardAssessor.h</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +199,7 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotificacoesAssessor.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
