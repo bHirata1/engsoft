@@ -144,11 +144,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CadastroBuracoAssessor.cpp" />
     <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="NotificacoesAssessor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CadastroBuracoAssessor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DashboardAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -158,6 +163,9 @@
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="NotificacoesAssessor.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dados\dados.vcxproj">
@@ -165,6 +173,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CadastroBuracoAssessor.resx">
+      <DependentUpon>CadastroBuracoAssessor.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardAssessor.resx">
       <DependentUpon>DashboardAssessor.h</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificacoesAssessor.resx">
+      <DependentUpon>NotificacoesAssessor.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
