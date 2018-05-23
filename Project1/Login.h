@@ -5,7 +5,7 @@
 /*
 Referência: http://www.visualcplusdotnet.com/visualcplusdotnet21.html
 */
-namespace Project1 {
+namespace InfoBuraco {
 	
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -172,6 +172,7 @@ namespace Project1 {
 			this->Controls->Add(this->tb_login);
 			this->Name = L"MyForm";
 			this->Text = L"InfoBuraco2018";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -223,6 +224,8 @@ private: System::Void bt_janela4_Click(System::Object^  sender, System::EventArg
 private: System::Void exCaixaDeDialogoToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	
 
+}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

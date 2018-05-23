@@ -245,8 +245,11 @@ namespace InfoBuraco {
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
 			this->Name = L"GerenciarEquipes";
 			this->Text = L"GerenciarEquipes";
+			this->Load += gcnew System::EventHandler(this, &GerenciarEquipes::GerenciarEquipes_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTamanho))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numCusto))->EndInit();
 			this->ResumeLayout(false);
@@ -267,6 +270,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Close();
+}
+private: System::Void GerenciarEquipes_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

@@ -1,5 +1,8 @@
 #pragma once
 #include "GerenciarEquipes.h"
+#include "GerenciarEquipamentos.h"
+#include "GerenciarMateriais.h"
+#include "VerEquipe.h"
 
 namespace InfoBuraco {
 
@@ -44,7 +47,8 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::TabPage^  tpEquips;
 	private: System::Windows::Forms::TabPage^  tpMateriais;
 	private: System::Windows::Forms::TabPage^  tpCM;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+	private: System::Windows::Forms::DateTimePicker^  dtDia;
+
 
 
 
@@ -100,11 +104,22 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::PictureBox^  pictureBox5;
 	private: System::Windows::Forms::LinkLabel^  linkLabel1;
-	private: System::Windows::Forms::ComboBox^  comboBox1;
+	private: System::Windows::Forms::ComboBox^  cmbEquipe;
+
 	private: System::Windows::Forms::Label^  label16;
 	private: System::Windows::Forms::Label^  label15;
 	private: System::Windows::Forms::Label^  label14;
 	private: System::Windows::Forms::Label^  label17;
+
+
+	private: System::Windows::Forms::Label^  label18;
+	private: System::Windows::Forms::DataGridView^  dgvCSEquip;
+	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  clmEquip;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmNome;
+
+
+
+
 
 
 
@@ -147,7 +162,17 @@ namespace InfoBuraco {
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tpSaida = (gcnew System::Windows::Forms::TabPage());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dgvCSEquip = (gcnew System::Windows::Forms::DataGridView());
+			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->cmbEquipe = (gcnew System::Windows::Forms::ComboBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->dtDia = (gcnew System::Windows::Forms::DateTimePicker());
 			this->tpEquipes = (gcnew System::Windows::Forms::TabPage());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -187,16 +212,11 @@ namespace InfoBuraco {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
-			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->tpSaida->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCSEquip))->BeginInit();
 			this->tpEquipes->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipe))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
@@ -351,13 +371,15 @@ namespace InfoBuraco {
 			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->dgvCSEquip);
+			this->tpSaida->Controls->Add(this->label18);
 			this->tpSaida->Controls->Add(this->label17);
 			this->tpSaida->Controls->Add(this->linkLabel1);
-			this->tpSaida->Controls->Add(this->comboBox1);
+			this->tpSaida->Controls->Add(this->cmbEquipe);
 			this->tpSaida->Controls->Add(this->label16);
 			this->tpSaida->Controls->Add(this->label15);
 			this->tpSaida->Controls->Add(this->label14);
-			this->tpSaida->Controls->Add(this->dateTimePicker1);
+			this->tpSaida->Controls->Add(this->dtDia);
 			this->tpSaida->Location = System::Drawing::Point(4, 79);
 			this->tpSaida->Name = L"tpSaida";
 			this->tpSaida->Padding = System::Windows::Forms::Padding(3);
@@ -366,12 +388,121 @@ namespace InfoBuraco {
 			this->tpSaida->Text = L"COMPOR SAÍDA";
 			this->tpSaida->UseVisualStyleBackColor = true;
 			// 
-			// dateTimePicker1
+			// dgvCSEquip
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(203, 100);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(228, 20);
-			this->dateTimePicker1->TabIndex = 0;
+			this->dgvCSEquip->AllowUserToAddRows = false;
+			this->dgvCSEquip->AllowUserToDeleteRows = false;
+			this->dgvCSEquip->AllowUserToResizeColumns = false;
+			this->dgvCSEquip->AllowUserToResizeRows = false;
+			this->dgvCSEquip->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvCSEquip->ColumnHeadersVisible = false;
+			this->dgvCSEquip->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->clmEquip,
+					this->clmNome
+			});
+			this->dgvCSEquip->Location = System::Drawing::Point(217, 189);
+			this->dgvCSEquip->Name = L"dgvCSEquip";
+			this->dgvCSEquip->RowHeadersVisible = false;
+			this->dgvCSEquip->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dgvCSEquip->Size = System::Drawing::Size(285, 184);
+			this->dgvCSEquip->TabIndex = 12;
+			this->dgvCSEquip->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardDespachador::dataGridView1_CellContentClick_1);
+			// 
+			// clmEquip
+			// 
+			this->clmEquip->Frozen = true;
+			this->clmEquip->HeaderText = L"";
+			this->clmEquip->Name = L"clmEquip";
+			this->clmEquip->Width = 30;
+			// 
+			// clmNome
+			// 
+			this->clmNome->HeaderText = L"";
+			this->clmNome->Name = L"clmNome";
+			this->clmNome->ReadOnly = true;
+			this->clmNome->Width = 252;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label18->Location = System::Drawing::Point(639, 101);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(218, 20);
+			this->label18->TabIndex = 10;
+			this->label18->Text = L"Selecionar Ordens de Serviço";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->Location = System::Drawing::Point(7, 189);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(191, 20);
+			this->label17->TabIndex = 9;
+			this->label17->Text = L"Selecionar Equipamentos";
+			// 
+			// linkLabel1
+			// 
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->Location = System::Drawing::Point(224, 163);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(65, 13);
+			this->linkLabel1->TabIndex = 8;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"ver detalhes";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &DashboardDespachador::linkLabel1_LinkClicked);
+			// 
+			// cmbEquipe
+			// 
+			this->cmbEquipe->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbEquipe->FormattingEnabled = true;
+			this->cmbEquipe->Location = System::Drawing::Point(217, 139);
+			this->cmbEquipe->Name = L"cmbEquipe";
+			this->cmbEquipe->Size = System::Drawing::Size(285, 21);
+			this->cmbEquipe->TabIndex = 7;
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label16->Location = System::Drawing::Point(7, 137);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(138, 20);
+			this->label16->TabIndex = 6;
+			this->label16->Text = L"Selecionar Equipe";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->Location = System::Drawing::Point(7, 101);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(109, 20);
+			this->label15->TabIndex = 5;
+			this->label15->Text = L"Selecionar dia";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->Location = System::Drawing::Point(26, 40);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(278, 31);
+			this->label14->TabIndex = 3;
+			this->label14->Text = L"Composição de Saída";
+			// 
+			// dtDia
+			// 
+			this->dtDia->Location = System::Drawing::Point(217, 100);
+			this->dtDia->Name = L"dtDia";
+			this->dtDia->Size = System::Drawing::Size(214, 20);
+			this->dtDia->TabIndex = 0;
 			// 
 			// tpEquipes
 			// 
@@ -709,7 +840,7 @@ namespace InfoBuraco {
 			this->tpCM->Controls->Add(this->pictureBox5);
 			this->tpCM->Location = System::Drawing::Point(4, 79);
 			this->tpCM->Name = L"tpCM";
-			this->tpCM->Size = System::Drawing::Size(982, 408);
+			this->tpCM->Size = System::Drawing::Size(986, 408);
 			this->tpCM->TabIndex = 5;
 			this->tpCM->Text = L"MOBILIZAÇÃO";
 			this->tpCM->UseVisualStyleBackColor = true;
@@ -788,69 +919,6 @@ namespace InfoBuraco {
 			this->pictureBox5->TabIndex = 20;
 			this->pictureBox5->TabStop = false;
 			// 
-			// label14
-			// 
-			this->label14->AutoSize = true;
-			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(26, 40);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(278, 31);
-			this->label14->TabIndex = 3;
-			this->label14->Text = L"Composição de Saída";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label15->Location = System::Drawing::Point(57, 101);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(109, 20);
-			this->label15->TabIndex = 5;
-			this->label15->Text = L"Selecionar dia";
-			// 
-			// label16
-			// 
-			this->label16->AutoSize = true;
-			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label16->Location = System::Drawing::Point(28, 137);
-			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(138, 20);
-			this->label16->TabIndex = 6;
-			this->label16->Text = L"Selecionar Equipe";
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(203, 139);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(228, 21);
-			this->comboBox1->TabIndex = 7;
-			// 
-			// linkLabel1
-			// 
-			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(437, 142);
-			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(65, 13);
-			this->linkLabel1->TabIndex = 8;
-			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"ver detalhes";
-			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &DashboardDespachador::linkLabel1_LinkClicked);
-			// 
-			// label17
-			// 
-			this->label17->AutoSize = true;
-			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label17->Location = System::Drawing::Point(28, 174);
-			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(138, 20);
-			this->label17->TabIndex = 9;
-			this->label17->Text = L"Selecionar Equipe";
-			// 
 			// DashboardDespachador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -867,6 +935,7 @@ namespace InfoBuraco {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tpSaida->ResumeLayout(false);
 			this->tpSaida->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCSEquip))->EndInit();
 			this->tpEquipes->ResumeLayout(false);
 			this->tpEquipes->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipe))->EndInit();
@@ -891,7 +960,18 @@ namespace InfoBuraco {
 		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125,00");
 		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25,00");
 		
+		this->dgvCSEquip->Rows->Add(false, "BC bobcat");
+		this->dgvCSEquip->Rows->Add(false, "Equipamento 1");
+		this->dgvCSEquip->Rows->Add(false, "Equipamento 2");
+		this->dgvCSEquip->Rows->Add(false, "Equipamento 3");
+		this->cmbEquipe->Items->Add("Equipe 1");
+		this->cmbEquipe->Items->Add("Equipe 2");
+		this->cmbEquipe->Items->Add("Equipe 3");
+		this->cmbEquipe->Items->Add("Equipe 4");
 
+		if (this->cmbEquipe->Items->Count > 0)
+			cmbEquipe->SelectedIndex = 0;
+		
 	}
 
 	private: System::Void DashboardDespachador_Resize(System::Object^  sender, System::EventArgs^  e) 
@@ -926,6 +1006,13 @@ private: System::Void btnConfirmaMob_Click(System::Object^  sender, System::Even
 	btnAlteraMob->Enabled = true;
 }
 private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+	VerEquipe^ ver = gcnew VerEquipe();
+	ver->ShowDialog();
+
+}
+private: System::Void pnlEquipamentos_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
+private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
 };
 }
