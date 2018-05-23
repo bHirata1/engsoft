@@ -99,6 +99,11 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::PictureBox^  pictureBox5;
+	private: System::Windows::Forms::LinkLabel^  linkLabel1;
+	private: System::Windows::Forms::ComboBox^  comboBox1;
+	private: System::Windows::Forms::Label^  label16;
+	private: System::Windows::Forms::Label^  label15;
+	private: System::Windows::Forms::Label^  label14;
 
 
 
@@ -129,7 +134,6 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(DashboardDespachador::typeid));
 			this->tabcontrol = (gcnew System::Windows::Forms::TabControl());
 			this->tp1 = (gcnew System::Windows::Forms::TabPage());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
@@ -182,6 +186,11 @@ namespace InfoBuraco {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -309,7 +318,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox1
 			// 
-			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(61, 117);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(141, 150);
@@ -341,6 +349,11 @@ namespace InfoBuraco {
 			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->linkLabel1);
+			this->tpSaida->Controls->Add(this->comboBox1);
+			this->tpSaida->Controls->Add(this->label16);
+			this->tpSaida->Controls->Add(this->label15);
+			this->tpSaida->Controls->Add(this->label14);
 			this->tpSaida->Controls->Add(this->dateTimePicker1);
 			this->tpSaida->Location = System::Drawing::Point(4, 79);
 			this->tpSaida->Name = L"tpSaida";
@@ -352,9 +365,9 @@ namespace InfoBuraco {
 			// 
 			// dateTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(329, 102);
+			this->dateTimePicker1->Location = System::Drawing::Point(203, 100);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 20);
+			this->dateTimePicker1->Size = System::Drawing::Size(228, 20);
 			this->dateTimePicker1->TabIndex = 0;
 			// 
 			// tpEquipes
@@ -465,7 +478,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox2
 			// 
-			//this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
 			this->pictureBox2->Location = System::Drawing::Point(34, 89);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(177, 169);
@@ -571,7 +583,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox3
 			// 
-			//this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
 			this->pictureBox3->Location = System::Drawing::Point(39, 86);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(177, 169);
@@ -677,7 +688,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox4
 			// 
-			//this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
 			this->pictureBox4->Location = System::Drawing::Point(51, 86);
 			this->pictureBox4->Name = L"pictureBox4";
 			this->pictureBox4->Size = System::Drawing::Size(177, 169);
@@ -768,13 +778,63 @@ namespace InfoBuraco {
 			// 
 			// pictureBox5
 			// 
-			//this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
 			this->pictureBox5->Location = System::Drawing::Point(41, 86);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(177, 169);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox5->TabIndex = 20;
 			this->pictureBox5->TabStop = false;
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->Location = System::Drawing::Point(26, 40);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(278, 31);
+			this->label14->TabIndex = 3;
+			this->label14->Text = L"Composição de Saída";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->Location = System::Drawing::Point(57, 101);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(109, 20);
+			this->label15->TabIndex = 5;
+			this->label15->Text = L"Selecionar dia";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label16->Location = System::Drawing::Point(28, 137);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(138, 20);
+			this->label16->TabIndex = 6;
+			this->label16->Text = L"Selecionar Equipe";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(186, 139);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(245, 21);
+			this->comboBox1->TabIndex = 7;
+			// 
+			// linkLabel1
+			// 
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->Location = System::Drawing::Point(447, 142);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(65, 13);
+			this->linkLabel1->TabIndex = 8;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"ver detalhes";
 			// 
 			// DashboardDespachador
 			// 
@@ -791,6 +851,7 @@ namespace InfoBuraco {
 			this->tp1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->tpSaida->ResumeLayout(false);
+			this->tpSaida->PerformLayout();
 			this->tpEquipes->ResumeLayout(false);
 			this->tpEquipes->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipe))->EndInit();
