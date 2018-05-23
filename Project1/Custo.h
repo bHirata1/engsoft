@@ -3,13 +3,7 @@
 //Begin section for file Custo.h
 //TODO: Add definitions that you want preserved
 //End section for file Custo.h
-
-
-class Saída; //Dependency Generated Source:Custo Target:Saída
-
-
-
-
+#include "Saida.h"
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 class Custo
@@ -28,7 +22,7 @@ class Custo
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Saída * saída;
+        Saida * Saida;
 
 
 
@@ -47,25 +41,25 @@ class Custo
 
         //get valor
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline int get_valor(); 
+         int get_valor(); 
 
 
 
         //set valor
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_valor(int valor); 
+         void set_valor(int valor); 
 
 
 
-        //get saída
+        //get Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Saída * get_saída(); 
+        Saida * get_Saida(); 
 
 
 
-        //set saída
+        //set Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_saída(Saída * saída); 
+        inline void set_Saida(Saida * Saida); 
 
 
 

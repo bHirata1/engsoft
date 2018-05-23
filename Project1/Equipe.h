@@ -5,7 +5,7 @@
 //End section for file Equipe.h
 
 
-class Saída; //Dependency Generated Source:Equipe Target:Saída
+class Saida; //Dependency Generated Source:Equipe Target:Saida
 
 
 
@@ -38,7 +38,7 @@ class Equipe
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Saída * saída;
+        Saida * Saida;
 
 
 
@@ -91,15 +91,15 @@ class Equipe
 
 
 
-        //get saída
+        //get Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Saída * get_saída(); 
+        inline Saida * get_Saida(); 
 
 
 
-        //set saída
+        //set Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_saída(Saída * saída); 
+        inline void set_Saida(Saida * Saida); 
 
 
 

@@ -1,29 +1,29 @@
-#ifndef CIDADÃO_H
-#define CIDADÃO_H
-//Begin section for file Cidadão.h
+#ifndef CIDADAO_H
+#define CIDADAO_H
+//Begin section for file Cidadao.h
 //TODO: Add definitions that you want preserved
-//End section for file Cidadão.h
+//End section for file Cidadao.h
 
 
-class Notificação; //Dependency Generated Source:Cidadão Target:Notificação
+class Notificacao; //Dependency Generated Source:Cidadao Target:Notificacao
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Cidadão
+class Cidadao
 {
 
-    //Begin section for Cidadão
+    //Begin section for Cidadao
     //TODO: Add attributes that you want preserved
-    //End section for Cidadão
+    //End section for Cidadao
 
     private:
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Notificação * notificação;
+        Notificacao * Notificacao;
 
 
 
@@ -51,24 +51,24 @@ class Cidadão
     public:
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Cidadão(); 
+        Cidadao(); 
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Cidadão(); 
+        virtual ~Cidadao(); 
 
 
 
-        //get notificação
+        //get Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Notificação * get_notificação(); 
+        inline Notificacao * get_Notificacao(); 
 
 
 
-        //set notificação
+        //set Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_notificação(Notificação * notificação); 
+        inline void set_Notificacao(Notificacao * Notificacao); 
 
 
 
@@ -125,7 +125,7 @@ class Cidadão
 
 
 
-};  //end class Cidadão
+};  //end class Cidadao
 
 
 

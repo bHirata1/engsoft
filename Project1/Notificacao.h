@@ -1,28 +1,28 @@
-#ifndef NOTIFICAÇÃO_H
-#define NOTIFICAÇÃO_H
-//Begin section for file Notificação.h
+#ifndef NOTIFICACAO_H
+#define NOTIFICACAO_H
+//Begin section for file Notificacao.h
 //TODO: Add definitions that you want preserved
-//End section for file Notificação.h
+//End section for file Notificacao.h
 #include "java/sql/Time.h"
 
 
 
-class Ordem_de_Serviço; //Dependency Generated Source:Notificação Target:Ordem_de_Serviço
+class Ordem_de_Servico; //Dependency Generated Source:Notificacao Target:Ordem_de_Servico
 
 
-class Cidadão; //Dependency Generated Source:Notificação Target:Cidadão
+class Cidadao; //Dependency Generated Source:Notificacao Target:Cidadao
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Notificação
+class Notificacao
 {
 
-    //Begin section for Notificação
+    //Begin section for Notificacao
     //TODO: Add attributes that you want preserved
-    //End section for Notificação
+    //End section for Notificacao
 
     private:
 
@@ -43,22 +43,22 @@ class Notificação
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Ordem_de_Serviço * ordem_de_Serviço;
+        Ordem_de_Servico * Ordem_de_Servico;
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Notificação * notificação;
+        Notificacao * Notificacao;
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Notificação * notificação2;
+        Notificacao * Notificacao2;
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Cidadão * cidadão;
+        Cidadao * Cidadao;
 
 
 
@@ -66,12 +66,12 @@ class Notificação
     public:
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Notificação(); 
+        Notificacao(); 
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Notificação(); 
+        virtual ~Notificacao(); 
 
 
 
@@ -111,51 +111,51 @@ class Notificação
 
 
 
-        //get ordem_de_Serviço
+        //get Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Ordem_de_Serviço * get_ordem_de_Serviço(); 
+        inline Ordem_de_Servico * get_Ordem_de_Servico(); 
 
 
 
-        //set ordem_de_Serviço
+        //set Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_ordem_de_Serviço(Ordem_de_Serviço * ordem_de_Serviço); 
+        inline void set_Ordem_de_Servico(Ordem_de_Servico * Ordem_de_Servico); 
 
 
 
-        //get notificação
+        //get Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Notificação * get_notificação(); 
+        inline Notificacao * get_Notificacao(); 
 
 
 
-        //set notificação
+        //set Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_notificação(Notificação * notificação); 
+        inline void set_Notificacao(Notificacao * Notificacao); 
 
 
 
-        //get notificação2
+        //get Notificacao2
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Notificação * get_notificação2(); 
+        inline Notificacao * get_Notificacao2(); 
 
 
 
-        //set notificação2
+        //set Notificacao2
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_notificação2(Notificação * notificação2); 
+        inline void set_Notificacao2(Notificacao * Notificacao2); 
 
 
 
-        //get cidadão
+        //get Cidadao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Cidadão * get_cidadão(); 
+        inline Cidadao * get_Cidadao(); 
 
 
 
-        //set cidadão
+        //set Cidadao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_cidadão(Cidadão * cidadão); 
+        inline void set_Cidadao(Cidadao * Cidadao); 
 
 
 
@@ -164,7 +164,7 @@ class Notificação
 
 
 
-};  //end class Notificação
+};  //end class Notificacao
 
 
 

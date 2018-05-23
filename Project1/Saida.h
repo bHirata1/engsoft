@@ -1,10 +1,10 @@
-#ifndef SAÍDA_H
-#define SAÍDA_H
+#ifndef SAIDA_H
+#define SAIDA_H
 using namespace std;
 #include <string>
-//Begin section for file Saída.h
+//Begin section for file Saida.h
 //TODO: Add definitions that you want preserved
-//End section for file Saída.h
+//End section for file Saida.h
 #include "Equipe.h"
 #include "Equipamento.h"
 #include "Material.h"
@@ -13,36 +13,36 @@ using namespace std;
 
 
 
-class Ordem_de_Serviço; //Dependency Generated Source:Saída Target:Ordem_de_Serviço
+class Ordem_de_Servico; //Dependency Generated Source:Saida Target:Ordem_de_Servico
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Saída
+class Saida
 {
 
-    //Begin section for Saída
+    //Begin section for Saida
     //TODO: Add attributes that you want preserved
-    //End section for Saída
+    //End section for Saida
 
     public:
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        class Usuário : Encarregado
+        class Usuario : Encarregado
         {
 
-            //Begin section for Saída::Usuário
+            //Begin section for Saida::Usuario
             //TODO: Add attributes that you want preserved
-            //End section for Saída::Usuário
+            //End section for Saida::Usuario
 
             private:
 
 
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                 login;
+            string     login;
 
 
 
@@ -55,12 +55,12 @@ class Saída
             public:
 
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                Usuário(); 
+                Usuario(); 
 
 
 
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                virtual ~Usuário(); 
+                virtual ~Usuario(); 
 
 
 
@@ -88,7 +88,7 @@ class Saída
 
 
 
-        };  //end class Usuário
+        };  //end class Usuario
 
 
     private:
@@ -120,7 +120,7 @@ class Saída
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Ordem_de_Serviço * ordem_de_Serviço;
+        Ordem_de_Servico * Ordem_de_Servico;
 
 
 
@@ -148,12 +148,12 @@ class Saída
     public:
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Saída(); 
+        Saida(); 
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Saída(); 
+        virtual ~Saida(); 
 
 
 
@@ -217,15 +217,15 @@ class Saída
 
 
 
-        //get ordem_de_Serviço
+        //get Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Ordem_de_Serviço * get_ordem_de_Serviço(); 
+        inline Ordem_de_Servico * get_Ordem_de_Servico(); 
 
 
 
-        //set ordem_de_Serviço
+        //set Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_ordem_de_Serviço(Ordem_de_Serviço * ordem_de_Serviço); 
+        inline void set_Ordem_de_Servico(Ordem_de_Servico * Ordem_de_Servico); 
 
 
 
@@ -282,7 +282,7 @@ class Saída
 
 
 
-};  //end class Saída
+};  //end class Saida
 
 
 

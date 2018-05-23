@@ -1,19 +1,19 @@
-#ifndef USUÁRIO_H
-#define USUÁRIO_H
-//Begin section for file Usuário.h
+#ifndef USUARIO_H
+#define USUARIO_H
+//Begin section for file Usuario.h
 //TODO: Add definitions that you want preserved
-//End section for file Usuário.h
+//End section for file Usuario.h
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Usuário
+class Usuario
 {
 
-    //Begin section for Usuário
+    //Begin section for Usuario
     //TODO: Add attributes that you want preserved
-    //End section for Usuário
+    //End section for Usuario
 
     private:
 
@@ -32,12 +32,12 @@ class Usuário
     public:
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Usuário(); 
+        Usuario(); 
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Usuário(); 
+        virtual ~Usuario(); 
 
 
 
@@ -66,11 +66,11 @@ class Usuário
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        void obterUsuário_login_senha_(); 
+        void obterUsuario_login_senha_(); 
 
 
 
-};  //end class Usuário
+};  //end class Usuario
 
 
 

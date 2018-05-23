@@ -28,13 +28,13 @@ void Custo::set_valor(int valor)
     this->valor = valor;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Saída * Custo::get_saída() 
+Saida * Custo::get_Saida() 
 {
     //TODO Auto-generated method stub
-    return saída;
+    return Saida;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Custo::set_saída(Saída * saída) 
+void Custo::set_Saida(Saida * Saida) 
 {
     //TODO Auto-generated method stub
 }

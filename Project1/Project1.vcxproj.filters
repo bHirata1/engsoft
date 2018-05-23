@@ -54,9 +54,6 @@
     <ClCompile Include="Buraco.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cidadão.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Custo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,9 +90,6 @@
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Notificação.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Ordem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -105,25 +99,31 @@
     <ClCompile Include="Ordem_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ordem_de_Serviço.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Saída.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SaidaOS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Tela_Inicial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Usuário.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MySQLDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MaterialDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cidadao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Notificacao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Saida.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ordem_de_Servico.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,9 +167,6 @@
     <ClInclude Include="Buraco.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cidadão.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Custo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -206,9 +203,6 @@
     <ClInclude Include="Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Notificação.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Ordem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -218,25 +212,31 @@
     <ClInclude Include="Ordem_1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ordem_de_Serviço.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Saída.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SaidaOS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tela_Inicial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Usuário.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MySQLDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MaterialDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Saida.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Notificacao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cidadao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ordem_de_Servico.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuario.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

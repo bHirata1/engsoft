@@ -1,102 +1,81 @@
-#include "Notificação.h"
-//Begin section for file Notificação.cpp
+#include "Cidadao.h"
+//Begin section for file Cidadao.cpp
 //TODO: Add definitions that you want preserved
-//End section for file Notificação.cpp
+//End section for file Cidadao.cpp
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Notificação::Notificação() 
+Cidadao::Cidadao() 
 {
     //TODO Auto-generated method stub
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Notificação::~Notificação() 
+Cidadao::~Cidadao() 
 {
     //TODO Auto-generated method stub
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-string Notificação::get_data() 
+Notificacao * Cidadao::get_Notificacao() 
 {
     //TODO Auto-generated method stub
-    return data;
+    return Notificacao;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_data(string data) 
-{
-    //TODO Auto-generated method stub
-    this->data = data;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Time Notificação::get_hora() 
-{
-    //TODO Auto-generated method stub
-    return hora;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_hora(Time hora) 
-{
-    //TODO Auto-generated method stub
-    this->hora = hora;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-char Notificação::get_status() 
-{
-    //TODO Auto-generated method stub
-    return status;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_status(char status) 
-{
-    //TODO Auto-generated method stub
-    this->status = status;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Ordem_de_Serviço * Notificação::get_ordem_de_Serviço() 
-{
-    //TODO Auto-generated method stub
-    return ordem_de_Serviço;
-}
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_ordem_de_Serviço(Ordem_de_Serviço * ordem_de_Serviço) 
+void Cidadao::set_Notificacao(Notificacao * Notificacao) 
 {
     //TODO Auto-generated method stub
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Notificação * Notificação::get_notificação() 
+char Cidadao::get_Nome() 
 {
     //TODO Auto-generated method stub
-    return notificação;
+    return Nome;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_notificação(Notificação * notificação) 
+void Cidadao::set_Nome(char Nome) 
 {
     //TODO Auto-generated method stub
+    this->Nome = Nome;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Notificação * Notificação::get_notificação2() 
+char Cidadao::get_Canal() 
 {
     //TODO Auto-generated method stub
-    return notificação2;
+    return Canal;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_notificação2(Notificação * notificação2) 
+void Cidadao::set_Canal(char Canal) 
 {
     //TODO Auto-generated method stub
+    this->Canal = Canal;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Cidadão * Notificação::get_cidadão() 
+int Cidadao::get_Contato() 
 {
     //TODO Auto-generated method stub
-    return cidadão;
+    return Contato;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_cidadão(Cidadão * cidadão) 
+void Cidadao::set_Contato(int Contato) 
 {
     //TODO Auto-generated method stub
+    this->Contato = Contato;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::gravar_dados_() 
+int Cidadao::get_CPF() 
+{
+    //TODO Auto-generated method stub
+    return CPF;
+}
+//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
+void Cidadao::set_CPF(int CPF) 
+{
+    //TODO Auto-generated method stub
+    this->CPF = CPF;
+}
+//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
+void Cidadao::gravar_dados_() 
 {
     //TODO Auto-generated method stub
     return;

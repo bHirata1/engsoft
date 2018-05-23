@@ -363,7 +363,7 @@ namespace InfoBuraco {
 			this->tpSaida->Padding = System::Windows::Forms::Padding(3);
 			this->tpSaida->Size = System::Drawing::Size(982, 408);
 			this->tpSaida->TabIndex = 1;
-			this->tpSaida->Text = L"COMPOR SAÍDA";
+			this->tpSaida->Text = L"COMPOR Saida";
 			this->tpSaida->UseVisualStyleBackColor = true;
 			// 
 			// stringTimePicker1
@@ -797,7 +797,7 @@ namespace InfoBuraco {
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(278, 31);
 			this->label14->TabIndex = 3;
-			this->label14->Text = L"Composição de Saída";
+			this->label14->Text = L"Composição de Saida";
 			// 
 			// label15
 			// 

@@ -1,3 +1,5 @@
+using namespace std;
+#include <iostream>
 #include "Login.h"
 #include "DashboardDespachador.h"
 /*
@@ -23,7 +25,7 @@ using namespace System::Windows::Forms;
 
 [STAThread]
 
-void main(array<string^>^ args)
+void main()
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

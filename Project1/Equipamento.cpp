@@ -40,13 +40,13 @@ void Equipamento::set_nome(char nome)
     this->nome = nome;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Saída * Equipamento::get_saída() 
+Saida * Equipamento::get_Saida() 
 {
     //TODO Auto-generated method stub
-    return saída;
+    return Saida;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipamento::set_saída(Saída * saída) 
+void Equipamento::set_Saida(Saida * Saida) 
 {
     //TODO Auto-generated method stub
 }

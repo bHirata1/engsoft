@@ -150,7 +150,7 @@
     <ClCompile Include="Association_Class1_0.cpp" />
     <ClCompile Include="Buraco.cpp" />
     <ClCompile Include="CadastroBuracoAssessor.cpp" />
-    <ClCompile Include="Cidadão.cpp" />
+    <ClCompile Include="Cidadao.cpp" />
     <ClCompile Include="Custo.cpp" />
     <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
@@ -173,15 +173,15 @@
     <ClCompile Include="MaterialDAO.cpp" />
     <ClCompile Include="MySQLDAO.cpp" />
     <ClCompile Include="NotificacoesAssessor.cpp" />
-    <ClCompile Include="Notificação.cpp" />
+    <ClCompile Include="Notificacao.cpp" />
     <ClCompile Include="Ordem.cpp" />
     <ClCompile Include="Ordem_0.cpp" />
     <ClCompile Include="Ordem_1.cpp" />
-    <ClCompile Include="Ordem_de_Serviço.cpp" />
+    <ClCompile Include="Ordem_de_Servico.cpp" />
     <ClCompile Include="SaidaOS.cpp" />
-    <ClCompile Include="Saída.cpp" />
+    <ClCompile Include="Saida.cpp" />
     <ClCompile Include="Tela_Inicial.cpp" />
-    <ClCompile Include="Usuário.cpp" />
+    <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assessor.h" />
@@ -191,7 +191,7 @@
     <ClInclude Include="CadastroBuracoAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Cidadão.h" />
+    <ClInclude Include="Cidadao.h" />
     <ClInclude Include="Custo.h" />
     <ClInclude Include="DashboardAssessor.h">
       <FileType>CppForm</FileType>
@@ -230,15 +230,15 @@
     <ClInclude Include="NotificacoesAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Notificação.h" />
+    <ClInclude Include="Notificacao.h" />
     <ClInclude Include="Ordem.h" />
     <ClInclude Include="Ordem_0.h" />
     <ClInclude Include="Ordem_1.h" />
-    <ClInclude Include="Ordem_de_Serviço.h" />
+    <ClInclude Include="Ordem_de_Servico.h" />
     <ClInclude Include="SaidaOS.h" />
-    <ClInclude Include="Saída.h" />
+    <ClInclude Include="Saida.h" />
     <ClInclude Include="Tela_Inicial.h" />
-    <ClInclude Include="Usuário.h" />
+    <ClInclude Include="Usuario.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dados\dados.vcxproj">

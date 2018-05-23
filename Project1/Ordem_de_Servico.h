@@ -1,33 +1,33 @@
-#ifndef ORDEM_DE_SERVIÇO_H
-#define ORDEM_DE_SERVIÇO_H
-//Begin section for file Ordem_de_Serviço.h
+#ifndef ORDEM_DE_SERVICO_H
+#define ORDEM_DE_SERVICO_H
+//Begin section for file Ordem_de_Servico.h
 //TODO: Add definitions that you want preserved
-//End section for file Ordem_de_Serviço.h
+//End section for file Ordem_de_Servico.h
 #include "XSDDataTypes/time.h"
 #include "Material.h"
 #include "java/sql/Time.h"
 
 
 
-class Notificação; //Dependency Generated Source:Ordem_de_Serviço Target:Notificação
+class Notificacao; //Dependency Generated Source:Ordem_de_Servico Target:Notificacao
 
 
-class Saída; //Dependency Generated Source:Ordem_de_Serviço Target:Saída
+class Saida; //Dependency Generated Source:Ordem_de_Servico Target:Saida
 
 
-class Encarregado; //Dependency Generated Source:Ordem_de_Serviço Target:Encarregado
+class Encarregado; //Dependency Generated Source:Ordem_de_Servico Target:Encarregado
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Ordem_de_Serviço
+class Ordem_de_Servico
 {
 
-    //Begin section for Ordem_de_Serviço
+    //Begin section for Ordem_de_Servico
     //TODO: Add attributes that you want preserved
-    //End section for Ordem_de_Serviço
+    //End section for Ordem_de_Servico
 
     private:
 
@@ -88,12 +88,12 @@ class Ordem_de_Serviço
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Notificação * notificação;
+        Notificacao * Notificacao;
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Saída * saída;
+        Saida * Saida;
 
 
 
@@ -106,12 +106,12 @@ class Ordem_de_Serviço
     public:
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Ordem_de_Serviço(); 
+        Ordem_de_Servico(); 
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Ordem_de_Serviço(); 
+        virtual ~Ordem_de_Servico(); 
 
 
 
@@ -247,27 +247,27 @@ class Ordem_de_Serviço
 
 
 
-        //get notificação
+        //get Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Notificação * get_notificação(); 
+        inline Notificacao * get_Notificacao(); 
 
 
 
-        //set notificação
+        //set Notificacao
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_notificação(Notificação * notificação); 
+        inline void set_Notificacao(Notificacao * Notificacao); 
 
 
 
-        //get saída
+        //get Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Saída * get_saída(); 
+        inline Saida * get_Saida(); 
 
 
 
-        //set saída
+        //set Saida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_saída(Saída * saída); 
+        inline void set_Saida(Saida * Saida); 
 
 
 
@@ -288,7 +288,7 @@ class Ordem_de_Serviço
 
 
 
-};  //end class Ordem_de_Serviço
+};  //end class Ordem_de_Servico
 
 
 

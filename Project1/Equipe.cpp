@@ -52,13 +52,13 @@ void Equipe::set_custo(int custo)
     this->custo = custo;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Saída * Equipe::get_saída() 
+Saida * Equipe::get_Saida() 
 {
     //TODO Auto-generated method stub
-    return saída;
+    return Saida;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Equipe::set_saída(Saída * saída) 
+void Equipe::set_Saida(Saida * Saida) 
 {
     //TODO Auto-generated method stub
 }

@@ -52,13 +52,13 @@ void Material::set_custo(int custo)
     this->custo = custo;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Saída * Material::get_saída() 
+Saida * Material::get_Saida() 
 {
     //TODO Auto-generated method stub
-    return saída;
+    return Saida;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Material::set_saída(Saída * saída) 
+void Material::set_Saida(Saida * Saida) 
 {
     //TODO Auto-generated method stub
 }

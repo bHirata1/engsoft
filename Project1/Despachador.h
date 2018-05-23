@@ -3,15 +3,15 @@
 //Begin section for file Despachador.h
 //TODO: Add definitions that you want preserved
 //End section for file Despachador.h
-#include "Saída.h"
-#include "Usuário.h"
+#include "Saida.h"
+#include "Usuario.h"
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Despachador : Saída::Usuário, Usuário
+class Despachador : Saida::Usuario, Usuario
 {
 
     //Begin section for Despachador
