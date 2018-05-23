@@ -145,21 +145,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Buraco.cpp" />
     <ClCompile Include="CadastroBuracoAssessor.cpp" />
+    <ClCompile Include="Cidadao.cpp" />
+    <ClCompile Include="Custo.cpp" />
     <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
+    <ClCompile Include="Equipamento.cpp" />
+    <ClCompile Include="Equipe.cpp" />
     <ClCompile Include="GerenciarEquipamentos.cpp" />
     <ClCompile Include="GerenciarEquipes.cpp" />
     <ClCompile Include="GerenciarMateriais.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Notificacao.cpp" />
     <ClCompile Include="NotificacoesAssessor.cpp" />
+    <ClCompile Include="Ordem_de_Servico.cpp" />
+    <ClCompile Include="Saida.cpp" />
+    <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="VerEquipe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buraco.h" />
     <ClInclude Include="CadastroBuracoAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Cidadao.h" />
+    <ClInclude Include="Custo.h" />
     <ClInclude Include="DashboardAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -169,6 +182,9 @@
     <ClInclude Include="DashboardGestor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Despachador.h" />
+    <ClInclude Include="Equipamento.h" />
+    <ClInclude Include="Equipe.h" />
     <ClInclude Include="GerenciarEquipamentos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -181,9 +197,15 @@
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Notificacao.h" />
     <ClInclude Include="NotificacoesAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Ordem_de_Servico.h" />
+    <ClInclude Include="Saida.h" />
+    <ClInclude Include="SaidaOS.h" />
+    <ClInclude Include="Usuario.h" />
     <ClInclude Include="VerEquipe.h">
       <FileType>CppForm</FileType>
     </ClInclude>
