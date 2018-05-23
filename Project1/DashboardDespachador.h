@@ -44,7 +44,7 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::TabPage^  tpEquips;
 	private: System::Windows::Forms::TabPage^  tpMateriais;
 	private: System::Windows::Forms::TabPage^  tpCM;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+	private: System::Windows::Forms::stringTimePicker^  stringTimePicker1;
 
 
 
@@ -147,7 +147,7 @@ namespace InfoBuraco {
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tpSaida = (gcnew System::Windows::Forms::TabPage());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->stringTimePicker1 = (gcnew System::Windows::Forms::stringTimePicker());
 			this->tpEquipes = (gcnew System::Windows::Forms::TabPage());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -357,7 +357,7 @@ namespace InfoBuraco {
 			this->tpSaida->Controls->Add(this->label16);
 			this->tpSaida->Controls->Add(this->label15);
 			this->tpSaida->Controls->Add(this->label14);
-			this->tpSaida->Controls->Add(this->dateTimePicker1);
+			this->tpSaida->Controls->Add(this->stringTimePicker1);
 			this->tpSaida->Location = System::Drawing::Point(4, 79);
 			this->tpSaida->Name = L"tpSaida";
 			this->tpSaida->Padding = System::Windows::Forms::Padding(3);
@@ -366,12 +366,12 @@ namespace InfoBuraco {
 			this->tpSaida->Text = L"COMPOR SAÍDA";
 			this->tpSaida->UseVisualStyleBackColor = true;
 			// 
-			// dateTimePicker1
+			// stringTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(203, 100);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(228, 20);
-			this->dateTimePicker1->TabIndex = 0;
+			this->stringTimePicker1->Location = System::Drawing::Point(203, 100);
+			this->stringTimePicker1->Name = L"stringTimePicker1";
+			this->stringTimePicker1->Size = System::Drawing::Size(228, 20);
+			this->stringTimePicker1->TabIndex = 0;
 			// 
 			// tpEquipes
 			// 

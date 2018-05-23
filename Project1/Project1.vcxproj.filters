@@ -120,6 +120,12 @@
     <ClCompile Include="Usuário.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MySQLDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -225,6 +231,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Usuário.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySQLDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

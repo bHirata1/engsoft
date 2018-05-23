@@ -16,13 +16,13 @@ Notificação::~Notificação()
     //TODO Auto-generated method stub
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Date Notificação::get_data() 
+string Notificação::get_data() 
 {
     //TODO Auto-generated method stub
     return data;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Notificação::set_data(Date data) 
+void Notificação::set_data(string data) 
 {
     //TODO Auto-generated method stub
     this->data = data;

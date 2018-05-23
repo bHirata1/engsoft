@@ -104,7 +104,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <AdditionalIncludeDirectories>D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit;D:\pcs3443\boost_1_67_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\pcs3443\mysql-connector-c++-8.0.11-windows-x86-64bit\include\jdbc;D:\pcs3443\boost_1_67_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>mysqlcppconn.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -170,6 +170,8 @@
     <ClCompile Include="Interface1.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialDAO.cpp" />
+    <ClCompile Include="MySQLDAO.cpp" />
     <ClCompile Include="NotificacoesAssessor.cpp" />
     <ClCompile Include="Notificação.cpp" />
     <ClCompile Include="Ordem.cpp" />
@@ -223,6 +225,8 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialDAO.h" />
+    <ClInclude Include="MySQLDAO.h" />
     <ClInclude Include="NotificacoesAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>

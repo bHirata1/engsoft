@@ -1,5 +1,7 @@
 #ifndef SAÍDA_H
 #define SAÍDA_H
+using namespace std;
+#include <string>
 //Begin section for file Saída.h
 //TODO: Add definitions that you want preserved
 //End section for file Saída.h
@@ -64,25 +66,25 @@ class Saída
 
                 //get login
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                inline  get_login(); 
+                inline string get_login(); 
 
 
 
                 //set login
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                inline void set_login( login); 
+                inline void set_login(string login); 
 
 
 
                 //get senha
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                inline  get_senha(); 
+                inline string get_senha(); 
 
 
 
                 //set senha
                 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-                inline void set_senha( senha); 
+                inline void set_senha(int senha); 
 
 
 
@@ -98,7 +100,7 @@ class Saída
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Date data;
+        string data;
 
 
 
@@ -169,13 +171,13 @@ class Saída
 
         //get data
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Date get_data(); 
+        inline string get_data(); 
 
 
 
         //set data
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_data(Date data); 
+        inline void set_data(string data); 
 
 
 

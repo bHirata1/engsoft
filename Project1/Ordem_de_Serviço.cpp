@@ -64,13 +64,13 @@ void Ordem_de_Serviço::set_horaEquipamento(Time horaEquipamento)
     this->horaEquipamento = horaEquipamento;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Date Ordem_de_Serviço::get_data() 
+string Ordem_de_Serviço::get_data() 
 {
     //TODO Auto-generated method stub
     return data;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Ordem_de_Serviço::set_data(Date data) 
+void Ordem_de_Serviço::set_data(string data) 
 {
     //TODO Auto-generated method stub
     this->data = data;

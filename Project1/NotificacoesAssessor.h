@@ -52,8 +52,8 @@ namespace Project1 {
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	private: System::Windows::Forms::ComboBox^  comboBox1;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker2;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+	private: System::Windows::Forms::stringTimePicker^  stringTimePicker2;
+	private: System::Windows::Forms::stringTimePicker^  stringTimePicker1;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label3;
@@ -96,8 +96,8 @@ namespace Project1 {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->stringTimePicker2 = (gcnew System::Windows::Forms::stringTimePicker());
+			this->stringTimePicker1 = (gcnew System::Windows::Forms::stringTimePicker());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -275,20 +275,20 @@ namespace Project1 {
 			this->comboBox1->Size = System::Drawing::Size(121, 21);
 			this->comboBox1->TabIndex = 18;
 			// 
-			// dateTimePicker2
+			// stringTimePicker2
 			// 
-			this->dateTimePicker2->Location = System::Drawing::Point(353, 161);
-			this->dateTimePicker2->Name = L"dateTimePicker2";
-			this->dateTimePicker2->Size = System::Drawing::Size(209, 20);
-			this->dateTimePicker2->TabIndex = 17;
+			this->stringTimePicker2->Location = System::Drawing::Point(353, 161);
+			this->stringTimePicker2->Name = L"stringTimePicker2";
+			this->stringTimePicker2->Size = System::Drawing::Size(209, 20);
+			this->stringTimePicker2->TabIndex = 17;
 			// 
-			// dateTimePicker1
+			// stringTimePicker1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(100, 161);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(209, 20);
-			this->dateTimePicker1->TabIndex = 16;
-			this->dateTimePicker1->Value = System::DateTime(2018, 4, 1, 0, 0, 0, 0);
+			this->stringTimePicker1->Location = System::Drawing::Point(100, 161);
+			this->stringTimePicker1->Name = L"stringTimePicker1";
+			this->stringTimePicker1->Size = System::Drawing::Size(209, 20);
+			this->stringTimePicker1->TabIndex = 16;
+			this->stringTimePicker1->Value = System::stringTime(2018, 4, 1, 0, 0, 0, 0);
 			// 
 			// label4
 			// 
@@ -418,8 +418,8 @@ namespace Project1 {
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->dateTimePicker2);
-			this->Controls->Add(this->dateTimePicker1);
+			this->Controls->Add(this->stringTimePicker2);
+			this->Controls->Add(this->stringTimePicker1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label3);

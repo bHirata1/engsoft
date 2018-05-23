@@ -28,7 +28,7 @@ class Notificação
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Date data;
+        string data;
 
 
 
@@ -77,13 +77,13 @@ class Notificação
 
         //get data
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Date get_data(); 
+        inline string get_data(); 
 
 
 
         //set data
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_data(Date data); 
+        inline void set_data(string data); 
 
 
 

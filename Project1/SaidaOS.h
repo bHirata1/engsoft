@@ -28,7 +28,7 @@ class SaidaOS
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-         prioridade;
+         int prioridade;
 
 
 
@@ -44,13 +44,13 @@ class SaidaOS
 
         //get prioridade
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline  get_prioridade(); 
+        inline  int get_prioridade(); 
 
 
 
         //set prioridade
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_prioridade( prioridade); 
+        inline void set_prioridade(int prioridade); 
 
 
 

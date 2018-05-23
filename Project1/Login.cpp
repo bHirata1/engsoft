@@ -23,7 +23,7 @@ using namespace System::Windows::Forms;
 
 [STAThread]
 
-void main(array<String^>^ args)
+void main(array<string^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

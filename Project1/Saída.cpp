@@ -1,4 +1,6 @@
 #include "Saída.h"
+using namespace std;
+#include <string>
 //Begin section for file Saída.cpp
 //TODO: Add definitions that you want preserved
 //End section for file Saída.cpp
@@ -22,7 +24,7 @@ Saída::Usuário::~Usuário()
     return login;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Saída::Usuário::set_login( login) 
+void Saída::Usuário::set_login(string login) 
 {
     //TODO Auto-generated method stub
     this->login = login;
@@ -34,7 +36,7 @@ void Saída::Usuário::set_login( login)
     return senha;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Saída::Usuário::set_senha( senha) 
+void Saída::Usuário::set_senha(string senha)
 {
     //TODO Auto-generated method stub
     this->senha = senha;
@@ -62,13 +64,13 @@ void Saída::set_equipe(Equipe equipe)
     this->equipe = equipe;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Date Saída::get_data() 
+string Saída::get_data() 
 {
     //TODO Auto-generated method stub
     return data;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Saída::set_data(Date data) 
+void Saída::set_data(string data) 
 {
     //TODO Auto-generated method stub
     this->data = data;

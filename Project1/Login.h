@@ -187,16 +187,16 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((this->tb_login->Text == String::Empty) && (this -> tb_senha->Text == String::Empty)) {
+	if ((this->tb_login->Text == string::Empty) && (this -> tb_senha->Text == string::Empty)) {
 		
 		tb_login->BackColor = System::Drawing::Color::Yellow;
 		tb_senha->BackColor = System::Drawing::Color::Yellow;
 		MessageBox::Show("Preencha o login e senha!");
 	}
-	else if (this->tb_login->Text == String::Empty) {
+	else if (this->tb_login->Text == string::Empty) {
 		tb_senha->BackColor = System::Drawing::Color::Yellow;
 	}
-	else if (this->tb_senha->Text == String::Empty) {
+	else if (this->tb_senha->Text == string::Empty) {
 		tb_senha->BackColor = System::Drawing::Color::Yellow;
 		
 	}
