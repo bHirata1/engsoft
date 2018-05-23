@@ -3,19 +3,19 @@
 //Begin section for file Encarregado.h
 //TODO: Add definitions that you want preserved
 //End section for file Encarregado.h
-#include "Saída.h"
-#include "Usuário.h"
+#include "Saida.h"
+#include "Usuario.h"
 
 
 
-class Ordem_de_Serviço; //Dependency Generated Source:Encarregado Target:Ordem_de_Serviço
+class Ordem_de_Servico; //Dependency Generated Source:Encarregado Target:Ordem_de_Servico
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Encarregado : Saída::Usuário, Usuário
+class Encarregado : Saida::Usuario, Usuario
 {
 
     //Begin section for Encarregado
@@ -26,7 +26,7 @@ class Encarregado : Saída::Usuário, Usuário
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Ordem_de_Serviço * ordem_de_Serviço;
+        Ordem_de_Servico * Ordem_de_Servico;
 
 
 
@@ -43,15 +43,15 @@ class Encarregado : Saída::Usuário, Usuário
 
 
 
-        //get ordem_de_Serviço
+        //get Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Ordem_de_Serviço * get_ordem_de_Serviço(); 
+        inline Ordem_de_Servico * get_Ordem_de_Servico(); 
 
 
 
-        //set ordem_de_Serviço
+        //set Ordem_de_Servico
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_ordem_de_Serviço(Ordem_de_Serviço * ordem_de_Serviço); 
+        inline void set_Ordem_de_Servico(Ordem_de_Servico * Ordem_de_Servico); 
 
 
 
