@@ -104,6 +104,7 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label16;
 	private: System::Windows::Forms::Label^  label15;
 	private: System::Windows::Forms::Label^  label14;
+	private: System::Windows::Forms::Label^  label17;
 
 
 
@@ -191,6 +192,7 @@ namespace InfoBuraco {
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -349,6 +351,7 @@ namespace InfoBuraco {
 			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->label17);
 			this->tpSaida->Controls->Add(this->linkLabel1);
 			this->tpSaida->Controls->Add(this->comboBox1);
 			this->tpSaida->Controls->Add(this->label16);
@@ -821,20 +824,32 @@ namespace InfoBuraco {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(186, 139);
+			this->comboBox1->Location = System::Drawing::Point(203, 139);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(245, 21);
+			this->comboBox1->Size = System::Drawing::Size(228, 21);
 			this->comboBox1->TabIndex = 7;
 			// 
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(447, 142);
+			this->linkLabel1->Location = System::Drawing::Point(437, 142);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(65, 13);
 			this->linkLabel1->TabIndex = 8;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"ver detalhes";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &DashboardDespachador::linkLabel1_LinkClicked);
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->Location = System::Drawing::Point(28, 174);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(138, 20);
+			this->label17->TabIndex = 9;
+			this->label17->Text = L"Selecionar Equipe";
 			// 
 			// DashboardDespachador
 			// 
@@ -909,6 +924,8 @@ private: System::Void btnConfirmaMob_Click(System::Object^  sender, System::Even
 	txtCusto->Enabled = false;
 	btnConfirmaMob->Enabled = false;
 	btnAlteraMob->Enabled = true;
+}
+private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
 }
 };
 }
