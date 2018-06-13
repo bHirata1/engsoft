@@ -145,6 +145,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Desktop\CANON\EquipeDAO.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\MaterialDAO.cpp" />
     <ClCompile Include="Adicionar_Ordem.cpp" />
     <ClCompile Include="Buraco.cpp" />
     <ClCompile Include="Cidadao.cpp" />
@@ -166,6 +168,8 @@
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Desktop\CANON\EquipeDAO.h" />
+    <ClInclude Include="..\..\..\..\Desktop\MaterialDAO.h" />
     <ClInclude Include="Adicionar_Ordem.h">
       <FileType>CppForm</FileType>
     </ClInclude>
