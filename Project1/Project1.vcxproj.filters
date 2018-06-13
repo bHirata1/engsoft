@@ -78,6 +78,9 @@
     <ClCompile Include="BuracoDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EquipamentoDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -156,6 +159,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BuracoDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipamentoDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

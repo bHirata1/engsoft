@@ -153,6 +153,7 @@
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
     <ClCompile Include="Equipamento.cpp" />
+    <ClCompile Include="EquipamentoDAO.cpp" />
     <ClCompile Include="Equipe.cpp" />
     <ClCompile Include="EquipeDAO.cpp" />
     <ClCompile Include="GerenciarEquipamentos.cpp" />
@@ -185,6 +186,7 @@
     </ClInclude>
     <ClInclude Include="Despachador.h" />
     <ClInclude Include="Equipamento.h" />
+    <ClInclude Include="EquipamentoDAO.h" />
     <ClInclude Include="Equipe.h" />
     <ClInclude Include="EquipeDAO.h" />
     <ClInclude Include="GerenciarEquipamentos.h">

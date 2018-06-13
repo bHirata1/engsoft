@@ -68,7 +68,7 @@ void BuracoDAO::editarBuraco(int idburaco, string nomerua, int numero, string po
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("UPDATE Buraco SSET nomerua = ?, SET numero = ?, SET posrel = ?, SET regional = ?, SET reclamacoes = ?, SET idordem = ?, SET tamanho = ? WHERE idburaco = ?");
+		preparedStatement = connection->prepareStatement("UPDATE Buraco SET nomerua = ?, numero = ?, posrel = ?, regional = ?, reclamacoes = ?, idordem = ?, tamanho = ? WHERE idburaco = ?");
 
 		preparedStatement->setString(1, nomerua.c_str());
 		preparedStatement->setInt(2, numero);
