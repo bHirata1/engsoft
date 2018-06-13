@@ -8,7 +8,7 @@ EquipamentoDAO::EquipamentoDAO()
 {
 }
 
-void EquipamentoDAO::criarEquipamento(string nome, float custo)
+void EquipamentoDAO::criarEquipamento(string id, string nome, float custo)
 {
 	string log;
 	sql::Connection * connection;
@@ -18,10 +18,10 @@ void EquipamentoDAO::criarEquipamento(string nome, float custo)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("INSERT INTO Equipamento (nome, custo) VALUES (?,?)");
-
-		preparedStatement->setString(1, nome.c_str());
-		preparedStatement->setDouble(2, custo);
+		preparedStatement = connection->prepareStatement("INSERT INTO Equipamento (idequipamento, nome, custo) VALUES (?,?,?)");
+		preparedStatement->setString(1, id.c_str());
+		preparedStatement->setString(2, nome.c_str());
+		preparedStatement->setDouble(3, custo);
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -31,7 +31,7 @@ void EquipamentoDAO::criarEquipamento(string nome, float custo)
 	}
 }
 
-void EquipamentoDAO::deletarEquipamento(int idequipamento)
+void EquipamentoDAO::deletarEquipamento(string idequipamento)
 {
 	string log;
 	sql::Connection * connection;
@@ -43,7 +43,7 @@ void EquipamentoDAO::deletarEquipamento(int idequipamento)
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("DELETE FROM Equipamento WHERE idequipamento = ?");
 
-		preparedStatement->setInt(1, idequipamento);
+		preparedStatement->setString(1, idequipamento.c_str());
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -53,7 +53,7 @@ void EquipamentoDAO::deletarEquipamento(int idequipamento)
 	}
 }
 
-void EquipamentoDAO::editarEquipamento(string nome, float custo, int idequipamento)
+void EquipamentoDAO::editarEquipamento(string nome, float custo, string idequipamento)
 {
 	string log;
 	sql::Connection * connection;
@@ -67,7 +67,7 @@ void EquipamentoDAO::editarEquipamento(string nome, float custo, int idequipamen
 
 		preparedStatement->setString(1, nome.c_str());
 		preparedStatement->setDouble(2, custo);
-		preparedStatement->setInt(3, idequipamento);
+		preparedStatement->setString(3, idequipamento.c_str());
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -77,7 +77,7 @@ void EquipamentoDAO::editarEquipamento(string nome, float custo, int idequipamen
 	}
 }
 
-Equipamento* EquipamentoDAO::buscarEquipamento(int idequipamento)
+Equipamento* EquipamentoDAO::buscarEquipamento(string idequipamento)
 {
 	string log;
 	Equipamento * equipamento;
@@ -90,7 +90,7 @@ Equipamento* EquipamentoDAO::buscarEquipamento(int idequipamento)
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("SELECT nome, custo FROM Equipamento WHERE idequipamento = ?");
 
-		preparedStatement->setInt(1, idequipamento);
+		preparedStatement->setString(1, idequipamento.c_str());
 		resultSet = preparedStatement->executeQuery();
 
 		if (resultSet->next()) {
@@ -119,15 +119,16 @@ Equipamento** EquipamentoDAO::SelecionarTudo()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nome, custo FROM Equipamento");
+		preparedStatement = connection->prepareStatement("SELECT idequipamento,nome, custo FROM Equipamento");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		equipamento = new Equipamento*[t];
 		while (resultSet->next()) {
 
 			equipamento[i] = new Equipamento();
-			equipamento[i]->setnome(resultSet->getString(1).c_str());
-			equipamento[i]->setcusto(resultSet->getDouble(2));
+			equipamento[i]->setid(resultSet->getString(1).c_str());
+			equipamento[i]->setnome(resultSet->getString(2).c_str());
+			equipamento[i]->setcusto(resultSet->getDouble(3));
 			i++;
 		}
 		equipamento[i] = NULL;
