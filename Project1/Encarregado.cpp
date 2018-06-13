@@ -16,13 +16,13 @@ Encarregado::~Encarregado()
     //TODO Auto-generated method stub
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-Ordem_de_Serviço * Encarregado::get_ordem_de_Serviço() 
+Ordem_de_Servico * Encarregado::get_Ordem_de_Servico() 
 {
     //TODO Auto-generated method stub
-    return ordem_de_Serviço;
+    return Ordem_de_Servico;
 }
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-void Encarregado::set_ordem_de_Serviço(Ordem_de_Serviço * ordem_de_Serviço) 
+void Encarregado::set_Ordem_de_Servico(Ordem_de_Servico * Ordem_de_Servico) 
 {
-    //TODO Auto-generated method stub
+    this->Ordem
 }

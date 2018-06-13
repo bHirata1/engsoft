@@ -5,7 +5,7 @@
 /*
 Referência: http://www.visualcplusdotnet.com/visualcplusdotnet21.html
 */
-namespace Project1 {
+namespace InfoBuraco {
 	
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -80,7 +80,6 @@ namespace Project1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tb_login = (gcnew System::Windows::Forms::TextBox());
 			this->lb_login = (gcnew System::Windows::Forms::Label());
 			this->lb_senha = (gcnew System::Windows::Forms::Label());
@@ -126,6 +125,8 @@ namespace Project1 {
 			this->tb_senha->Size = System::Drawing::Size(100, 20);
 			this->tb_senha->TabIndex = 7;
 			this->tb_senha->UseSystemPasswordChar = true;
+			this->tb_senha->TextChanged += gcnew System::EventHandler(this, &MyForm::tb_senha_TextChanged);
+			this->tb_senha->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::tb_senha_KeyPress);
 			// 
 			// bt_validar
 			// 
@@ -149,7 +150,6 @@ namespace Project1 {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(23, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(368, 382);
@@ -172,6 +172,7 @@ namespace Project1 {
 			this->Controls->Add(this->tb_login);
 			this->Name = L"MyForm";
 			this->Text = L"InfoBuraco2018";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -187,25 +188,14 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((this->tb_login->Text == string::Empty) && (this -> tb_senha->Text == string::Empty)) {
-		
-		tb_login->BackColor = System::Drawing::Color::Yellow;
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-		MessageBox::Show("Preencha o login e senha!");
-	}
-	else if (this->tb_login->Text == string::Empty) {
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-	}
-	else if (this->tb_senha->Text == string::Empty) {
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-		
-	}
-
-	this->Hide();
-	//DashboardDespachador^ janela = gcnew DashboardDespachador();
-	//janela->ShowDialog();
-	this->Show();
 	
+	if (tb_senha->Text == "admin" && tb_login->Text == "admin")
+	{
+		this->Hide();
+		DashboardDespachador^ janela = gcnew DashboardDespachador();
+		janela->ShowDialog();
+		this->Close();
+	}
 }
 private: System::Void bt_janela2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -223,6 +213,14 @@ private: System::Void bt_janela4_Click(System::Object^  sender, System::EventArg
 private: System::Void exCaixaDeDialogoToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 	
 
+}
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void tb_senha_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void tb_senha_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+	if (e->KeyChar == (wchar_t)Keys::Enter)
+		bt_validar_Click(sender, (EventArgs^)e);
 }
 };
 }

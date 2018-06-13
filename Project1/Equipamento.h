@@ -1,98 +1,28 @@
 #ifndef EQUIPAMENTO_H
 #define EQUIPAMENTO_H
-//Begin section for file Equipamento.h
-//TODO: Add definitions that you want preserved
-//End section for file Equipamento.h
+#include <string>
+#include <iostream>
+using namespace std;
 
-
-class Saída; //Dependency Generated Source:Equipamento Target:Saída
-
-
-
-
-
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 class Equipamento
 {
+private:
+	float custo;
+	string id;
+	string nome;
 
-    //Begin section for Equipamento
-    //TODO: Add attributes that you want preserved
-    //End section for Equipamento
+public:
+	Equipamento();
+	virtual ~Equipamento();
 
-    private:
+	float getcusto();
+	void setcusto(float c);
 
+	string getnome();
+	void setnome(string nome);
 
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        int id;
-
-
-
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        char nome;
-
-
-
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Saída * saída;
-
-
-
-
-    public:
-
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        Equipamento(); 
-
-
-
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        virtual ~Equipamento(); 
-
-
-
-        //get id
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline int get_id(); 
-
-
-
-        //set id
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_id(int id); 
-
-
-
-        //get nome
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline char get_nome(); 
-
-
-
-        //set nome
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_nome(char nome); 
-
-
-
-        //get saída
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline Saída * get_saída(); 
-
-
-
-        //set saída
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_saída(Saída * saída); 
-
-
-
-        //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        void data(); 
-
-
-
-};  //end class Equipamento
-
-
+	string getid();
+	void setid(string id);
+};
 
 #endif

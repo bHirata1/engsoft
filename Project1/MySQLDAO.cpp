@@ -33,7 +33,7 @@ MySQLDAO::MySQLDAO()
 
 	//TODO Auto-generated method stub
 }
-//@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
+//@generated "UML to C++ (com.ibm.xtools.transf	orm.uml2.cpp.CPPTransformation)"
 MySQLDAO::~MySQLDAO()
 {
 	//TODO Auto-generated method stub

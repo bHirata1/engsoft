@@ -175,7 +175,7 @@ namespace Project1 {
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(61, 13);
 			this->label6->TabIndex = 29;
-			this->label6->Text = L"Notificação";
+			this->label6->Text = L"Notificacao";
 			// 
 			// button6
 			// 
@@ -327,7 +327,7 @@ namespace Project1 {
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(61, 13);
 			this->label7->TabIndex = 29;
-			this->label7->Text = L"Notificação";
+			this->label7->Text = L"Notificacao";
 			// 
 			// label8
 			// 
@@ -336,7 +336,7 @@ namespace Project1 {
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(61, 13);
 			this->label8->TabIndex = 29;
-			this->label8->Text = L"Notificação";
+			this->label8->Text = L"Notificacao";
 			// 
 			// button7
 			// 

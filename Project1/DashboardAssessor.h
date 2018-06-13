@@ -79,9 +79,9 @@ namespace Project1 {
 			this->linkLabel3 = (gcnew System::Windows::Forms::LinkLabel());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->stringTimePicker1 = (gcnew System::Windows::Forms::stringTimePicker());
+			//this->stringTimePicker1 = (gcnew System::Windows::Forms::stringTimePicker());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->stringTimePicker2 = (gcnew System::Windows::Forms::stringTimePicker());
+			//this->stringTimePicker2 = (gcnew System::Windows::Forms::stringTimePicker());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());

@@ -3,15 +3,15 @@
 //Begin section for file Gestor.h
 //TODO: Add definitions that you want preserved
 //End section for file Gestor.h
-#include "Saída.h"
-#include "Usuário.h"
+#include "Saida.h"
+#include "Usuario.h"
 
 
 
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Gestor : Saída::Usuário, Usuário
+class Gestor : Saida::Usuario, Usuario
 {
 
     //Begin section for Gestor

@@ -21,9 +21,6 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DashboardAssessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GerenciarMateriais.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,102 +33,45 @@
     <ClCompile Include="DashboardGestor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CadastroBuracoAssessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NotificacoesAssessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Assessor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Association_Class1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Association_Class1_0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Buraco.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Cidadão.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Custo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dashboard_Despachador.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dashboard_Encarregado.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dashboard_Regional.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Despachador.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Encarregado.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Equipamento.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Equipe.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Foto.cpp">
+    <ClCompile Include="Saida.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gestor.cpp">
+    <ClCompile Include="Usuario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interface1.cpp">
+    <ClCompile Include="Cidadao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Notificação.cpp">
+    <ClCompile Include="Custo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ordem.cpp">
+    <ClCompile Include="Ordem_de_Servico.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ordem_0.cpp">
+    <ClCompile Include="Equipamento.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ordem_1.cpp">
+    <ClCompile Include="Notificacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ordem_de_Serviço.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Saída.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SaidaOS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Tela_Inicial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Usuário.cpp">
+    <ClCompile Include="Adicionar_Ordem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MySQLDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MaterialDAO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DashboardAssessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GerenciarEquipamentos.h">
@@ -149,102 +89,60 @@
     <ClInclude Include="DashboardGestor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CadastroBuracoAssessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NotificacoesAssessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Assessor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Association_Class1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Association_Class1_0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Buraco.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cidadão.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Custo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dashboard_Despachador.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dashboard_Encarregado.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dashboard_Regional.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Despachador.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Encarregado.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipamento.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Foto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Gestor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Interface1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Notificação.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ordem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ordem_0.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ordem_1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ordem_de_Serviço.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Saída.h">
+    <ClInclude Include="VerEquipe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SaidaOS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tela_Inicial.h">
+    <ClInclude Include="Equipamento.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Usuário.h">
+    <ClInclude Include="Saida.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DashboardAssessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Buraco.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cidadao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Custo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Despachador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Notificacao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ordem_de_Servico.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Adicionar_Ordem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MySQLDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MaterialDAO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DashboardAssessor.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardDespachador.resx">
@@ -263,6 +161,18 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="NotificacoesAssessor.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerenciarEquipamentos.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GerenciarMateriais.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerEquipe.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adicionar_Ordem.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
