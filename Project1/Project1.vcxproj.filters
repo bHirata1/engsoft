@@ -84,6 +84,9 @@
     <ClCompile Include="UsuarioDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ordem_de_ServicoDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -168,6 +171,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UsuarioDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ordem_de_ServicoDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
