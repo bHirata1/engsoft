@@ -918,6 +918,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnMatDel->TabIndex = 20;
 			this->btnMatDel->Text = L"Deletar";
 			this->btnMatDel->UseVisualStyleBackColor = true;
+			this->btnMatDel->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnMatDel_Click);
 			// 
 			// btnMatEdit
 			// 
@@ -1129,6 +1130,10 @@ private: System::Windows::Forms::Button^  btnSaida;
 #pragma endregion
 	private: System::Void DashboardDespachador_Load(System::Object^  sender, System::EventArgs^  e) {
 		int i = 0;
+		dgvEquipamento->Rows->Clear();
+		dgvEquipe->Rows->Clear();
+		dgvMaterial->Rows->Clear();
+
 		this->dgvEquipe->Rows->Add("Alpha", "Joãozinho", "5", "75.00");
 		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125.00");
 		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25.00");
@@ -1151,9 +1156,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			i++;
 		}
 
-		//this->dgvMaterial->Rows->Add("Cimento", "Kg", "10.00");
-		//this->dgvMaterial->Rows->Add("Água", "Litro", "3.00");
-		//this->dgvMaterial->Rows->Add("Areia", "Metro Cúbico", "4.50");
 
 		if (this->cmbEquipe->Items->Count > 0)
 			cmbEquipe->SelectedIndex = 0;
@@ -1291,14 +1293,9 @@ private: System::Void btnMatEdit_Click(System::Object^  sender, System::EventArg
 		ger->Close();
 		if (m != NULL)
 		{
-			String^ str = gcnew String(m->getnomematerial().c_str());
-			dgvMaterial->SelectedRows[0]->Cells[0]->Value = str;
-			str = gcnew String(m->getunidademedida().c_str());
-			dgvMaterial->SelectedRows[0]->Cells[1]->Value = str;
-			dgvMaterial->SelectedRows[0]->Cells[2]->Value = m->getcusto().ToString();
 			MaterialDAO::editarMaterial(m->getnomematerial(), m->getunidademedida(), m->getcusto());
-
 		}
+		this->DashboardDespachador_Load(sender, e);
 	}
 }
 private: System::Void btnMatNovo_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1308,16 +1305,8 @@ private: System::Void btnMatNovo_Click(System::Object^  sender, System::EventArg
 	m = ger->retorno();
 	ger->Close();
 	if (m != NULL)
-	{
-
-		String^ str1 = gcnew String(m->getnomematerial().c_str());
-		String^ str2 = gcnew String(m->getunidademedida().c_str());
-		dgvMaterial->Rows->Add(str1, str2, m->getcusto().ToString());
-		//MaterialDAO * mdao = new MaterialDAO();
-		//mdao->criarMaterial(m->getnomematerial, m->getunidademedida, m->getcusto());
 		MaterialDAO::criarMaterial(m->getnomematerial(), m->getunidademedida(), m->getcusto());
-
-	}
+	this->DashboardDespachador_Load(sender, e);
 }
 private: System::Void btnEqNovo_Click(System::Object^  sender, System::EventArgs^  e) {
 	Equipamento * eq = new Equipamento();
@@ -1328,14 +1317,8 @@ private: System::Void btnEqNovo_Click(System::Object^  sender, System::EventArgs
 	if (eq != NULL)
 	{
 
-		String^ str1 = gcnew String(eq->getid().c_str());
-		String^ str2 = gcnew String(eq->getnome().c_str());
-		dgvEquipamento->Rows->Add(str1, str2, eq->getcusto().ToString());
-		//dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
-		//str = gcnew String(eq->getnome().c_str());
-		//dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
-		//dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();{
 	}
+	this->DashboardDespachador_Load(sender, e);
 }
 
 private: System::Void btnEqEdit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1351,12 +1334,10 @@ private: System::Void btnEqEdit_Click(System::Object^  sender, System::EventArgs
 		ger->Close();
 		if (eq != NULL)
 		{
-			String^ str = gcnew String(eq->getid().c_str());
-			dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
-			str = gcnew String(eq->getnome().c_str());
-			dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
-			dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();
+
 		}
+
+		this->DashboardDespachador_Load(sender, e);
 	}
 }
 private: System::Void btnEqpEdit_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1374,14 +1355,9 @@ private: System::Void btnEqpEdit_Click(System::Object^  sender, System::EventArg
 		ger->Close();
 		if (eq != NULL)
 		{
-			String^ str = gcnew String(eq->getnomeequipe().c_str());
-			dgvEquipe->SelectedRows[0]->Cells[0]->Value = str;
-			str = gcnew String(eq->getencarregado().c_str());
-			dgvEquipe->SelectedRows[0]->Cells[1]->Value = str;
-			dgvEquipe->SelectedRows[0]->Cells[2]->Value = eq->gettamanho().ToString();
 
-			dgvEquipe->SelectedRows[0]->Cells[3]->Value = eq->getcusto().ToString();
 		}
+		this->DashboardDespachador_Load(sender, e);
 	}
 }
 private: System::Void btnEqpNovo_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1394,14 +1370,16 @@ private: System::Void btnEqpNovo_Click(System::Object^  sender, System::EventArg
 	if (eq != NULL)
 	{
 
-		String^ str1 = gcnew String(eq->getnomeequipe().c_str());
-		String^ str2 = gcnew String(eq->getencarregado().c_str());
-		dgvEquipe->Rows->Add(str1, str2, eq->gettamanho().ToString(), eq->getcusto().ToString());
-		//dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
-		//str = gcnew String(eq->getnome().c_str());
-		//dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
-		//dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();{
 	}
+
+	this->DashboardDespachador_Load(sender, e);
+
+}
+private: System::Void btnMatDel_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	MaterialDAO::deletarMaterial(msclr::interop::marshal_as<std::string>(dgvMaterial->SelectedRows[0]->Cells[0]->Value->ToString()));
+	this->DashboardDespachador_Load(sender, e);
+
 }
 };
 }
