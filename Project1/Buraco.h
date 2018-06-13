@@ -15,6 +15,7 @@ private:
 	string regional;
 	int reclamacoes;
 	int idordem;
+	int tamanho;
 		   
 public:
 	Buraco();
@@ -22,6 +23,9 @@ public:
 	
 	int getidburaco();
 	void setidburaco(int id);
+
+	int gettamanho();
+	void settamanho(int tamanho);
 
 	string getnomerua();
 	void setnomerua(string nome);

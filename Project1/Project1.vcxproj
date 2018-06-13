@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClCompile Include="Adicionar_Ordem.cpp" />
     <ClCompile Include="Buraco.cpp" />
+    <ClCompile Include="BuracoDAO.cpp" />
     <ClCompile Include="Cidadao.cpp" />
     <ClCompile Include="Custo.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
@@ -171,6 +172,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Buraco.h" />
+    <ClInclude Include="BuracoDAO.h" />
     <ClInclude Include="Cidadao.h" />
     <ClInclude Include="Conv.h" />
     <ClInclude Include="Custo.h" />

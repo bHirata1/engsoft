@@ -26,6 +26,16 @@ void Buraco::setidburaco(int id)
 	this->idburaco = id;
 }
 
+int Buraco::gettamanho()
+{
+	return this->tamanho;
+}
+
+void Buraco::settamanho(int tamanho)
+{
+	this->tamanho = tamanho;
+}
+
 string Buraco::getnomerua()
 {
 	return this->nomerua;
