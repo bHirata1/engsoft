@@ -1,4 +1,6 @@
 #pragma once
+#include "Equipe.h"
+#include <msclr\marshal_cppstd.h>
 
 namespace InfoBuraco {
 
@@ -23,9 +25,16 @@ namespace InfoBuraco {
 			//
 		}
 
-		GerenciarEquipes(int a)
+		GerenciarEquipes(Equipe * e)
 		{
-			
+			InitializeComponent();
+			String ^str = gcnew String(e->getnomeequipe().c_str());
+			txtNome->Text = str;
+			str = gcnew String(e->getencarregado().c_str());
+			txtEncarregado->Text = str;
+			numCusto->Value = (System::Decimal)e->getcusto();
+			numTamanho->Value = e->gettamanho();
+			txtNome->Enabled = false;
 		}
 
 	protected:
@@ -39,6 +48,11 @@ namespace InfoBuraco {
 				delete components;
 			}
 		}
+	private: Equipe * eq = NULL;
+	public: Equipe * retorno()
+	{
+		return eq;
+	}
 	private: System::Windows::Forms::Label^  label1;
 	protected:
 	private: System::Windows::Forms::Label^  label2;
@@ -161,7 +175,6 @@ namespace InfoBuraco {
 			// 
 			// txtEncarregado
 			// 
-			this->txtEncarregado->Enabled = false;
 			this->txtEncarregado->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtEncarregado->Location = System::Drawing::Point(167, 120);
@@ -190,6 +203,7 @@ namespace InfoBuraco {
 			// numCusto
 			// 
 			this->numCusto->Location = System::Drawing::Point(455, 154);
+			this->numCusto->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1000, 0, 0, 0 });
 			this->numCusto->Name = L"numCusto";
 			this->numCusto->Size = System::Drawing::Size(120, 26);
 			this->numCusto->TabIndex = 9;
@@ -269,6 +283,12 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	numTamanho->Text = "0";
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	eq = new Equipe();
+	eq->setnomeequipe(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
+	eq->setencarregado(msclr::interop::marshal_as<std::string>(this->txtEncarregado->Text));
+	eq->setcusto(Convert::ToDouble(numCusto->Value));
+	eq->settamanho(Convert::ToInt32(numTamanho->Value));
 	this->Close();
 }
 private: System::Void GerenciarEquipes_Load(System::Object^  sender, System::EventArgs^  e) {

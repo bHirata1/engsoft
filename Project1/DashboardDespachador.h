@@ -40,6 +40,12 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Button^  btnEqNovo;
 	private: System::Windows::Forms::Button^  btnEqDel;
 	private: System::Windows::Forms::Button^  btnEqEdit;
+	private: System::Windows::Forms::Button^  btnEqpNovo;
+	private: System::Windows::Forms::Button^  btnEqpDel;
+
+
+	private: System::Windows::Forms::Button^  btnEqpEdit;
+
 
 	private: Equipe * equipe;
 
@@ -85,8 +91,8 @@ namespace InfoBuraco {
 
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Button^  button2;
+
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colNome;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colEncarregado;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colNumProf;
@@ -192,8 +198,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->dtDia = (gcnew System::Windows::Forms::DateTimePicker());
 			this->tpEquipes = (gcnew System::Windows::Forms::TabPage());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->btnEqpNovo = (gcnew System::Windows::Forms::Button());
+			this->btnEqpDel = (gcnew System::Windows::Forms::Button());
+			this->btnEqpEdit = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->dgvEquipe = (gcnew System::Windows::Forms::DataGridView());
 			this->colNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -635,8 +642,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// tpEquipes
 			// 
-			this->tpEquipes->Controls->Add(this->button1);
-			this->tpEquipes->Controls->Add(this->button2);
+			this->tpEquipes->Controls->Add(this->btnEqpNovo);
+			this->tpEquipes->Controls->Add(this->btnEqpDel);
+			this->tpEquipes->Controls->Add(this->btnEqpEdit);
 			this->tpEquipes->Controls->Add(this->label6);
 			this->tpEquipes->Controls->Add(this->dgvEquipe);
 			this->tpEquipes->Controls->Add(this->label2);
@@ -649,25 +657,34 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tpEquipes->UseVisualStyleBackColor = true;
 			this->tpEquipes->Click += gcnew System::EventHandler(this, &DashboardDespachador::tpEquipes_Click);
 			// 
-			// button1
+			// btnEqpNovo
 			// 
-			this->button1->Location = System::Drawing::Point(381, 343);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(105, 38);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Visualizar";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &DashboardDespachador::button1_Click);
+			this->btnEqpNovo->Location = System::Drawing::Point(257, 343);
+			this->btnEqpNovo->Name = L"btnEqpNovo";
+			this->btnEqpNovo->Size = System::Drawing::Size(105, 38);
+			this->btnEqpNovo->TabIndex = 27;
+			this->btnEqpNovo->Text = L"Novo";
+			this->btnEqpNovo->UseVisualStyleBackColor = true;
+			this->btnEqpNovo->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqpNovo_Click);
 			// 
-			// button2
+			// btnEqpDel
 			// 
-			this->button2->Location = System::Drawing::Point(257, 343);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(105, 38);
-			this->button2->TabIndex = 6;
-			this->button2->Text = L"Novo";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &DashboardDespachador::button2_Click);
+			this->btnEqpDel->Location = System::Drawing::Point(479, 343);
+			this->btnEqpDel->Name = L"btnEqpDel";
+			this->btnEqpDel->Size = System::Drawing::Size(105, 38);
+			this->btnEqpDel->TabIndex = 26;
+			this->btnEqpDel->Text = L"Deletar";
+			this->btnEqpDel->UseVisualStyleBackColor = true;
+			// 
+			// btnEqpEdit
+			// 
+			this->btnEqpEdit->Location = System::Drawing::Point(368, 343);
+			this->btnEqpEdit->Name = L"btnEqpEdit";
+			this->btnEqpEdit->Size = System::Drawing::Size(105, 38);
+			this->btnEqpEdit->TabIndex = 25;
+			this->btnEqpEdit->Text = L"Editar";
+			this->btnEqpEdit->UseVisualStyleBackColor = true;
+			this->btnEqpEdit->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqpEdit_Click);
 			// 
 			// label6
 			// 
@@ -1145,13 +1162,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		GerenciarEquipes^ cadastrar = gcnew GerenciarEquipes();
-		cadastrar->ShowDialog();
+	
 	}
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		GerenciarEquipes^ edit = gcnew GerenciarEquipes(2);
-		edit->ShowDialog();
-	}
+
 	private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
 		txtCusto->Enabled = true;
 		btnConfirmaMob->Enabled = true;
@@ -1326,6 +1339,50 @@ private: System::Void btnEqEdit_Click(System::Object^  sender, System::EventArgs
 			dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
 			dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();
 		}
+	}
+}
+private: System::Void btnEqpEdit_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	if (dgvEquipe->SelectedRows->Count == 1) {
+		Equipe * eq = new Equipe();
+		eq->setcusto(Convert::ToDouble(dgvEquipe->SelectedRows[0]->Cells[3]->Value->ToString()));
+		//m->setcusto(4);
+		eq->setnomeequipe(msclr::interop::marshal_as<std::string>(dgvEquipe->SelectedRows[0]->Cells[0]->Value->ToString()));
+		eq->setencarregado(msclr::interop::marshal_as<std::string>(dgvEquipe->SelectedRows[0]->Cells[1]->Value->ToString()));
+		eq->settamanho(Convert::ToInt32(dgvEquipe->SelectedRows[0]->Cells[2]->Value->ToString()));
+		GerenciarEquipes^ ger = gcnew GerenciarEquipes(eq);
+		ger->ShowDialog();
+		eq = ger->retorno();
+		ger->Close();
+		if (eq != NULL)
+		{
+			String^ str = gcnew String(eq->getnomeequipe().c_str());
+			dgvEquipe->SelectedRows[0]->Cells[0]->Value = str;
+			str = gcnew String(eq->getencarregado().c_str());
+			dgvEquipe->SelectedRows[0]->Cells[1]->Value = str;
+			dgvEquipe->SelectedRows[0]->Cells[2]->Value = eq->gettamanho().ToString();
+
+			dgvEquipe->SelectedRows[0]->Cells[3]->Value = eq->getcusto().ToString();
+		}
+	}
+}
+private: System::Void btnEqpNovo_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	Equipe * eq = new Equipe();
+	GerenciarEquipes^ ger = gcnew GerenciarEquipes();
+	ger->ShowDialog();
+	eq = ger->retorno();
+	ger->Close();
+	if (eq != NULL)
+	{
+
+		String^ str1 = gcnew String(eq->getnomeequipe().c_str());
+		String^ str2 = gcnew String(eq->getencarregado().c_str());
+		dgvEquipe->Rows->Add(str1, str2, eq->gettamanho().ToString(), eq->getcusto().ToString());
+		//dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
+		//str = gcnew String(eq->getnome().c_str());
+		//dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
+		//dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();{
 	}
 }
 };
