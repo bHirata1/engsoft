@@ -136,7 +136,7 @@ Buraco** BuracoDAO::SelecionarTudo()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, reclamacoes, idordem, tamanho from Buraco");
+		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, reclamacoes, idordem, tamanho, idburaco from Buraco");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		buraco = new Buraco*[t];
@@ -150,6 +150,7 @@ Buraco** BuracoDAO::SelecionarTudo()
 			buraco[i]->setreclamacoes(resultSet->getInt(5));
 			buraco[i]->setidordem(resultSet->getInt(6));
 			buraco[i]->settamanho(resultSet->getInt(7));
+			buraco[i]->setidburaco(resultSet->getInt(8));
 			i++;
 		}
 		buraco[i] = NULL;

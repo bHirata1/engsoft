@@ -123,16 +123,17 @@ Usuario** UsuarioDAO::SelecionarTudo()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT senha, tipo, regional FROM Usuario");
+		preparedStatement = connection->prepareStatement("SELECT login, senha, tipo, regional FROM Usuario");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		usuario = new Usuario*[t];
 		while (resultSet->next()) {
 
 			usuario[i] = new Usuario();
-			usuario[i]->setsenha(resultSet->getString(1).c_str());
-			usuario[i]->settipo(resultSet->getInt(2));
-			usuario[i]->setregional(resultSet->getString(3).c_str());
+			usuario[i]->setlogin(resultSet->getString(1).c_str());
+			usuario[i]->setsenha(resultSet->getString(2).c_str());
+			usuario[i]->settipo(resultSet->getInt(3));
+			usuario[i]->setregional(resultSet->getString(4).c_str());
 			i++;
 		}
 		usuario[i] = NULL;
