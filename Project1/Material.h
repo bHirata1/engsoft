@@ -1,5 +1,7 @@
-#ifndef MATERIAL_H
+
 #define MATERIAL_H
+#include <stdio.h>
+using namespace std;
 //Begin section for file Material.h
 //TODO: Add definitions that you want preserved
 //End section for file Material.h
@@ -28,17 +30,19 @@ class Material
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        char unidadeMedida;
+        char unidademedidaMedida;
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        int custo;
+        int custo;	
 
 
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
         Saída * saída;
+
+		string nomematerial;
 
 
 
@@ -47,6 +51,8 @@ class Material
 
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
         Material(); 
+		virtual ~Material();
+		Material(string nomematerial, int unidademedida, int custo);
 
 
 
@@ -67,15 +73,15 @@ class Material
 
 
 
-        //get unidadeMedida
+        //get unidademedidaMedida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline char get_unidadeMedida(); 
+        inline char get_unidademedidaMedida(); 
 
 
 
-        //set unidadeMedida
+        //set unidademedidaMedida
         //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-        inline void set_unidadeMedida(char unidadeMedida); 
+        inline void set_unidademedidaMedida(char unidademedidaMedida); 
 
 
 
