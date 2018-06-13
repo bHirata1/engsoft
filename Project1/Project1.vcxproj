@@ -145,8 +145,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\CANON\EquipeDAO.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\MaterialDAO.cpp" />
     <ClCompile Include="Adicionar_Ordem.cpp" />
     <ClCompile Include="Buraco.cpp" />
     <ClCompile Include="Cidadao.cpp" />
@@ -155,6 +153,7 @@
     <ClCompile Include="DashboardGestor.cpp" />
     <ClCompile Include="Equipamento.cpp" />
     <ClCompile Include="Equipe.cpp" />
+    <ClCompile Include="EquipeDAO.cpp" />
     <ClCompile Include="GerenciarEquipamentos.cpp" />
     <ClCompile Include="GerenciarEquipes.cpp" />
     <ClCompile Include="GerenciarMateriais.cpp" />
@@ -168,8 +167,6 @@
     <ClCompile Include="Usuario.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\CANON\EquipeDAO.h" />
-    <ClInclude Include="..\..\..\..\Desktop\MaterialDAO.h" />
     <ClInclude Include="Adicionar_Ordem.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -187,6 +184,7 @@
     <ClInclude Include="Despachador.h" />
     <ClInclude Include="Equipamento.h" />
     <ClInclude Include="Equipe.h" />
+    <ClInclude Include="EquipeDAO.h" />
     <ClInclude Include="GerenciarEquipamentos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
