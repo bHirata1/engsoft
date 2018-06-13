@@ -66,6 +66,9 @@
     <ClCompile Include="Adicionar_Ordem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MySQLDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Conv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MySQLDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -80,7 +80,6 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tb_login = (gcnew System::Windows::Forms::TextBox());
 			this->lb_login = (gcnew System::Windows::Forms::Label());
 			this->lb_senha = (gcnew System::Windows::Forms::Label());
@@ -126,6 +125,8 @@ namespace InfoBuraco {
 			this->tb_senha->Size = System::Drawing::Size(100, 20);
 			this->tb_senha->TabIndex = 7;
 			this->tb_senha->UseSystemPasswordChar = true;
+			this->tb_senha->TextChanged += gcnew System::EventHandler(this, &MyForm::tb_senha_TextChanged);
+			this->tb_senha->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::tb_senha_KeyPress);
 			// 
 			// bt_validar
 			// 
@@ -149,7 +150,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox1
 			// 
-			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>("images/pictureBox1.Image.jpg"));
 			this->pictureBox1->Location = System::Drawing::Point(23, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(368, 382);
@@ -189,12 +189,13 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
 	
-
-	this->Hide();
-	DashboardDespachador^ janela = gcnew DashboardDespachador();
-	janela->ShowDialog();
-	this->Show();
-	
+	if (tb_senha->Text == "admin" && tb_login->Text == "admin")
+	{
+		this->Hide();
+		DashboardDespachador^ janela = gcnew DashboardDespachador();
+		janela->ShowDialog();
+		this->Close();
+	}
 }
 private: System::Void bt_janela2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
@@ -214,6 +215,12 @@ private: System::Void exCaixaDeDialogoToolStripMenuItem_Click(System::Object^  s
 
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void tb_senha_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void tb_senha_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+	if (e->KeyChar == (wchar_t)Keys::Enter)
+		bt_validar_Click(sender, (EventArgs^)e);
 }
 };
 }
