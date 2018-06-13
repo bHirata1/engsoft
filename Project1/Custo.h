@@ -2,9 +2,10 @@
 #define CUSTO_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Custo()
+class Custo
 {
 private:
 	float valor;
@@ -15,6 +16,6 @@ public:
 
 	float getvalor();
 	void setvalor(float valor);
-}
+};
 
 #endif

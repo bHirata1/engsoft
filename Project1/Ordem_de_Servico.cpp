@@ -30,7 +30,7 @@ void Ordem_de_Servico::sethorapessoal(int hora)
 	this->horapessoal = hora;
 }
 
-time_t Ordem_de_Servico::getdata();
+time_t Ordem_de_Servico::getdata()
 {
 	return this->data;
 }

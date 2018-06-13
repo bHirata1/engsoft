@@ -149,7 +149,7 @@ namespace InfoBuraco {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>("images/pictureBox1.Image.jpg"));
 			this->pictureBox1->Location = System::Drawing::Point(23, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(368, 382);
@@ -188,23 +188,11 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
-	if ((this->tb_login->Text == string::Empty) && (this -> tb_senha->Text == string::Empty)) {
-		
-		tb_login->BackColor = System::Drawing::Color::Yellow;
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-		MessageBox::Show("Preencha o login e senha!");
-	}
-	else if (this->tb_login->Text == string::Empty) {
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-	}
-	else if (this->tb_senha->Text == string::Empty) {
-		tb_senha->BackColor = System::Drawing::Color::Yellow;
-		
-	}
+	
 
 	this->Hide();
-	//DashboardDespachador^ janela = gcnew DashboardDespachador();
-	//janela->ShowDialog();
+	DashboardDespachador^ janela = gcnew DashboardDespachador();
+	janela->ShowDialog();
 	this->Show();
 	
 }

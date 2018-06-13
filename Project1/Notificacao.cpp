@@ -12,17 +12,17 @@ Notificacao::~Notificacao()
 
 time_t Notificacao::getdata()
 {
-	return this->getdata;
+	return this->data;
 }
 
 void Notificacao::setdata(time_t data)
 {
-	this->getdata = data;
+	this->data = data;
 }
 
 time_t Notificacao::gethora()
 {
-	return this->gethora;
+	return this->hora;
 }
 
 void Notificacao::sethora(time_t hora)
@@ -42,19 +42,19 @@ void Notificacao::setstatus(int status)
 
 Cidadao Notificacao::getcpf()
 {
-	return this->cpf;
+	return this->cidadao;
 }
 void Notificacao::setcpf(Cidadao cpf)
 {
-	this->cpf = cpf;
+	this->cidadao = cpf;
 }
 
 Ordem_de_Servico Notificacao::getidordem()
 {
-	return this->idordem;
+	return this->ordem;
 }
 
 void Notificacao::setidordem(Ordem_de_Servico idordem)
 {
-	this->idordem = idordem;
+	this->ordem = idordem;
 }

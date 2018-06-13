@@ -10,12 +10,12 @@ Custo::~Custo()
 
 }
 
-float getvalor()
+float Custo::getvalor()
 {
 	return this->valor;
 }
 
-void setvalor(float valor)
+void Custo::setvalor(float valor)
 {
 	this->valor = valor;
 }

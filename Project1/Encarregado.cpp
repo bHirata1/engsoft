@@ -24,5 +24,5 @@ Ordem_de_Servico * Encarregado::get_Ordem_de_Servico()
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
 void Encarregado::set_Ordem_de_Servico(Ordem_de_Servico * Ordem_de_Servico) 
 {
-    //TODO Auto-generated method stub
+    this->Ordem
 }

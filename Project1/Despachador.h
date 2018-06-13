@@ -11,7 +11,7 @@
 
 
 //@generated "UML to C++ (com.ibm.xtools.transform.uml2.cpp.CPPTransformation)"
-class Despachador : Saida::Usuario, Usuario
+class Despachador
 {
 
     //Begin section for Despachador

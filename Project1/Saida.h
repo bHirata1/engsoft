@@ -1,12 +1,12 @@
 #ifndef SAIDA_H
 #define SAIDA_H
+
 using namespace std;
 #include <string>
 #include "Equipe.h"
 #include "Equipamento.h"
 #include "Material.h"
 #include "Custo.h"
-#include "Encarregado.h"
 #include <ctime>
 using namespace std;
 
@@ -16,7 +16,7 @@ private:
 	int idsaida;
 	time_t data;
 	float distanciapercorrida;
-	Equipe nomeequipe;
+	string nomeequipe;
 
 public:
 	Saida();
@@ -31,7 +31,9 @@ public:
 	float getdistanciapercorrida();
 	void setdistanciapercorrida(float distancia);
 
-	Equipe getnomeequipe();
-	void setnomeequipe(Equipe nome);
+	string getnomeequipe();
+	void setnomeequipe(string nome);
 };
+
+
 #endif

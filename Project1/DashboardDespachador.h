@@ -3,7 +3,11 @@
 #include "GerenciarEquipamentos.h"
 #include "GerenciarMateriais.h"
 #include "VerEquipe.h"
-
+#include "Saida.h"
+#include "Adicionar_Ordem.h"
+#include "Conv.h"
+#include "Ordem_de_Servico.h"
+#include <msclr\marshal_cppstd.h>
 namespace InfoBuraco {
 
 	using namespace System;
@@ -26,6 +30,18 @@ namespace InfoBuraco {
 			//TODO: Add the constructor code here
 			//
 		}
+	private: System::Windows::Forms::Label^  label20;
+	public:
+	private: System::Windows::Forms::Label^  label19;
+	private: System::Windows::Forms::ListBox^  ltbDetalhes;
+	private: System::Windows::Forms::Button^  btnMatDel;
+	private: System::Windows::Forms::Button^  btnMatEdit;
+	private: System::Windows::Forms::Button^  btnMatNovo;
+	private: System::Windows::Forms::Button^  btnEqNovo;
+	private: System::Windows::Forms::Button^  btnEqDel;
+	private: System::Windows::Forms::Button^  btnEqEdit;
+
+	private: Equipe * equipe;
 
 	protected:
 		/// <summary>
@@ -75,8 +91,8 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colEncarregado;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colNumProf;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colCusto;
-	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::Button^  button4;
+
+
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::DataGridView^  dgvEquipamento;
 
@@ -85,10 +101,11 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn4;
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
-	private: System::Windows::Forms::Button^  button5;
-	private: System::Windows::Forms::Button^  button6;
+
+
 	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::DataGridView^  dataGridView2;
+	private: System::Windows::Forms::DataGridView^  dgvMaterial;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
@@ -116,21 +133,13 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridView^  dgvCSEquip;
 	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  clmEquip;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmNome;
+	private: System::Windows::Forms::ListBox^  ltbOrdem;
+	private: System::Windows::Forms::Button^  btnDown;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	private: System::Windows::Forms::Button^  btnUp;
+	private: System::Windows::Forms::Button^  button7;
+private: System::Windows::Forms::Button^  button8;
+private: System::Windows::Forms::Button^  btnSaida;
 
 
 	protected:
@@ -162,6 +171,15 @@ namespace InfoBuraco {
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tpSaida = (gcnew System::Windows::Forms::TabPage());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->label19 = (gcnew System::Windows::Forms::Label());
+			this->ltbDetalhes = (gcnew System::Windows::Forms::ListBox());
+			this->btnSaida = (gcnew System::Windows::Forms::Button());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->btnDown = (gcnew System::Windows::Forms::Button());
+			this->btnUp = (gcnew System::Windows::Forms::Button());
+			this->ltbOrdem = (gcnew System::Windows::Forms::ListBox());
 			this->dgvCSEquip = (gcnew System::Windows::Forms::DataGridView());
 			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
 			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -185,8 +203,9 @@ namespace InfoBuraco {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->tpEquips = (gcnew System::Windows::Forms::TabPage());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->btnEqNovo = (gcnew System::Windows::Forms::Button());
+			this->btnEqDel = (gcnew System::Windows::Forms::Button());
+			this->btnEqEdit = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->dgvEquipamento = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -195,10 +214,11 @@ namespace InfoBuraco {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->tpMateriais = (gcnew System::Windows::Forms::TabPage());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->btnMatNovo = (gcnew System::Windows::Forms::Button());
+			this->btnMatDel = (gcnew System::Windows::Forms::Button());
+			this->btnMatEdit = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvMaterial = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -224,7 +244,7 @@ namespace InfoBuraco {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipamento))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->tpMateriais->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->tpCM->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
@@ -244,7 +264,7 @@ namespace InfoBuraco {
 			this->tabcontrol->Multiline = true;
 			this->tabcontrol->Name = L"tabcontrol";
 			this->tabcontrol->SelectedIndex = 0;
-			this->tabcontrol->Size = System::Drawing::Size(990, 491);
+			this->tabcontrol->Size = System::Drawing::Size(990, 503);
 			this->tabcontrol->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
 			this->tabcontrol->TabIndex = 0;
 			// 
@@ -262,7 +282,7 @@ namespace InfoBuraco {
 			this->tp1->Location = System::Drawing::Point(4, 79);
 			this->tp1->Name = L"tp1";
 			this->tp1->Padding = System::Windows::Forms::Padding(3);
-			this->tp1->Size = System::Drawing::Size(982, 408);
+			this->tp1->Size = System::Drawing::Size(982, 420);
 			this->tp1->TabIndex = 0;
 			this->tp1->Text = L"DASHBOARD";
 			this->tp1->UseVisualStyleBackColor = true;
@@ -371,6 +391,15 @@ namespace InfoBuraco {
 			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->label20);
+			this->tpSaida->Controls->Add(this->label19);
+			this->tpSaida->Controls->Add(this->ltbDetalhes);
+			this->tpSaida->Controls->Add(this->btnSaida);
+			this->tpSaida->Controls->Add(this->button8);
+			this->tpSaida->Controls->Add(this->button7);
+			this->tpSaida->Controls->Add(this->btnDown);
+			this->tpSaida->Controls->Add(this->btnUp);
+			this->tpSaida->Controls->Add(this->ltbOrdem);
 			this->tpSaida->Controls->Add(this->dgvCSEquip);
 			this->tpSaida->Controls->Add(this->label18);
 			this->tpSaida->Controls->Add(this->label17);
@@ -383,10 +412,110 @@ namespace InfoBuraco {
 			this->tpSaida->Location = System::Drawing::Point(4, 79);
 			this->tpSaida->Name = L"tpSaida";
 			this->tpSaida->Padding = System::Windows::Forms::Padding(3);
-			this->tpSaida->Size = System::Drawing::Size(982, 408);
+			this->tpSaida->Size = System::Drawing::Size(982, 420);
 			this->tpSaida->TabIndex = 1;
 			this->tpSaida->Text = L"COMPOR SAÍDA";
 			this->tpSaida->UseVisualStyleBackColor = true;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label20->Location = System::Drawing::Point(619, 137);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(73, 20);
+			this->label20->TabIndex = 21;
+			this->label20->Text = L"Detalhes";
+			// 
+			// label19
+			// 
+			this->label19->AutoSize = true;
+			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label19->Location = System::Drawing::Point(562, 137);
+			this->label19->Name = L"label19";
+			this->label19->Size = System::Drawing::Size(23, 20);
+			this->label19->TabIndex = 20;
+			this->label19->Text = L"Id";
+			// 
+			// ltbDetalhes
+			// 
+			this->ltbDetalhes->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ltbDetalhes->FormattingEnabled = true;
+			this->ltbDetalhes->ItemHeight = 20;
+			this->ltbDetalhes->Location = System::Drawing::Point(623, 169);
+			this->ltbDetalhes->Name = L"ltbDetalhes";
+			this->ltbDetalhes->Size = System::Drawing::Size(244, 164);
+			this->ltbDetalhes->TabIndex = 19;
+			this->ltbDetalhes->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardDespachador::ltbDetalhes_SelectedIndexChanged);
+			// 
+			// btnSaida
+			// 
+			this->btnSaida->Location = System::Drawing::Point(11, 377);
+			this->btnSaida->Name = L"btnSaida";
+			this->btnSaida->Size = System::Drawing::Size(152, 34);
+			this->btnSaida->TabIndex = 18;
+			this->btnSaida->Text = L"Fechar o Rolê";
+			this->btnSaida->UseVisualStyleBackColor = true;
+			this->btnSaida->Click += gcnew System::EventHandler(this, &DashboardDespachador::button9_Click);
+			// 
+			// button8
+			// 
+			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button8->Location = System::Drawing::Point(873, 221);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(29, 29);
+			this->button8->TabIndex = 17;
+			this->button8->Text = L"-";
+			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &DashboardDespachador::button8_Click);
+			// 
+			// button7
+			// 
+			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->Location = System::Drawing::Point(873, 178);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(29, 29);
+			this->button7->TabIndex = 16;
+			this->button7->Text = L"+";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &DashboardDespachador::button7_Click_1);
+			// 
+			// btnDown
+			// 
+			this->btnDown->Location = System::Drawing::Point(873, 313);
+			this->btnDown->Name = L"btnDown";
+			this->btnDown->Size = System::Drawing::Size(29, 29);
+			this->btnDown->TabIndex = 15;
+			this->btnDown->Text = L"\\/";
+			this->btnDown->UseVisualStyleBackColor = true;
+			this->btnDown->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnDown_Click);
+			// 
+			// btnUp
+			// 
+			this->btnUp->Location = System::Drawing::Point(873, 268);
+			this->btnUp->Name = L"btnUp";
+			this->btnUp->Size = System::Drawing::Size(29, 29);
+			this->btnUp->TabIndex = 14;
+			this->btnUp->Text = L"/\\";
+			this->btnUp->UseVisualStyleBackColor = true;
+			this->btnUp->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnUp_Click);
+			// 
+			// ltbOrdem
+			// 
+			this->ltbOrdem->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ltbOrdem->FormattingEnabled = true;
+			this->ltbOrdem->ItemHeight = 20;
+			this->ltbOrdem->Location = System::Drawing::Point(561, 169);
+			this->ltbOrdem->Name = L"ltbOrdem";
+			this->ltbOrdem->Size = System::Drawing::Size(56, 164);
+			this->ltbOrdem->TabIndex = 13;
+			this->ltbOrdem->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardDespachador::ltbOrdem_SelectedIndexChanged);
 			// 
 			// dgvCSEquip
 			// 
@@ -404,7 +533,7 @@ namespace InfoBuraco {
 			this->dgvCSEquip->Name = L"dgvCSEquip";
 			this->dgvCSEquip->RowHeadersVisible = false;
 			this->dgvCSEquip->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dgvCSEquip->Size = System::Drawing::Size(285, 184);
+			this->dgvCSEquip->Size = System::Drawing::Size(285, 167);
 			this->dgvCSEquip->TabIndex = 12;
 			this->dgvCSEquip->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardDespachador::dataGridView1_CellContentClick_1);
 			// 
@@ -427,7 +556,7 @@ namespace InfoBuraco {
 			this->label18->AutoSize = true;
 			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label18->Location = System::Drawing::Point(639, 101);
+			this->label18->Location = System::Drawing::Point(557, 100);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(218, 20);
 			this->label18->TabIndex = 10;
@@ -491,7 +620,7 @@ namespace InfoBuraco {
 			this->label14->AutoSize = true;
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(26, 40);
+			this->label14->Location = System::Drawing::Point(27, 31);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(278, 31);
 			this->label14->TabIndex = 3;
@@ -514,7 +643,7 @@ namespace InfoBuraco {
 			this->tpEquipes->Controls->Add(this->pictureBox2);
 			this->tpEquipes->Location = System::Drawing::Point(4, 79);
 			this->tpEquipes->Name = L"tpEquipes";
-			this->tpEquipes->Size = System::Drawing::Size(982, 408);
+			this->tpEquipes->Size = System::Drawing::Size(982, 420);
 			this->tpEquipes->TabIndex = 2;
 			this->tpEquipes->Text = L"EQUIPES";
 			this->tpEquipes->UseVisualStyleBackColor = true;
@@ -621,36 +750,48 @@ namespace InfoBuraco {
 			// 
 			// tpEquips
 			// 
-			this->tpEquips->Controls->Add(this->button3);
-			this->tpEquips->Controls->Add(this->button4);
+			this->tpEquips->Controls->Add(this->btnEqNovo);
+			this->tpEquips->Controls->Add(this->btnEqDel);
+			this->tpEquips->Controls->Add(this->btnEqEdit);
 			this->tpEquips->Controls->Add(this->label7);
 			this->tpEquips->Controls->Add(this->dgvEquipamento);
 			this->tpEquips->Controls->Add(this->label8);
 			this->tpEquips->Controls->Add(this->pictureBox3);
 			this->tpEquips->Location = System::Drawing::Point(4, 79);
 			this->tpEquips->Name = L"tpEquips";
-			this->tpEquips->Size = System::Drawing::Size(982, 408);
+			this->tpEquips->Size = System::Drawing::Size(982, 420);
 			this->tpEquips->TabIndex = 3;
 			this->tpEquips->Text = L"EQUIPAMENTOS";
 			this->tpEquips->UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// btnEqNovo
 			// 
-			this->button3->Location = System::Drawing::Point(386, 340);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(105, 38);
-			this->button3->TabIndex = 13;
-			this->button3->Text = L"Visualizar";
-			this->button3->UseVisualStyleBackColor = true;
+			this->btnEqNovo->Location = System::Drawing::Point(275, 340);
+			this->btnEqNovo->Name = L"btnEqNovo";
+			this->btnEqNovo->Size = System::Drawing::Size(105, 38);
+			this->btnEqNovo->TabIndex = 24;
+			this->btnEqNovo->Text = L"Novo";
+			this->btnEqNovo->UseVisualStyleBackColor = true;
+			this->btnEqNovo->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqNovo_Click);
 			// 
-			// button4
+			// btnEqDel
 			// 
-			this->button4->Location = System::Drawing::Point(262, 340);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(105, 38);
-			this->button4->TabIndex = 12;
-			this->button4->Text = L"Novo";
-			this->button4->UseVisualStyleBackColor = true;
+			this->btnEqDel->Location = System::Drawing::Point(497, 340);
+			this->btnEqDel->Name = L"btnEqDel";
+			this->btnEqDel->Size = System::Drawing::Size(105, 38);
+			this->btnEqDel->TabIndex = 23;
+			this->btnEqDel->Text = L"Deletar";
+			this->btnEqDel->UseVisualStyleBackColor = true;
+			// 
+			// btnEqEdit
+			// 
+			this->btnEqEdit->Location = System::Drawing::Point(386, 340);
+			this->btnEqEdit->Name = L"btnEqEdit";
+			this->btnEqEdit->Size = System::Drawing::Size(105, 38);
+			this->btnEqEdit->TabIndex = 22;
+			this->btnEqEdit->Text = L"Editar";
+			this->btnEqEdit->UseVisualStyleBackColor = true;
+			this->btnEqEdit->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqEdit_Click);
 			// 
 			// label7
 			// 
@@ -726,36 +867,48 @@ namespace InfoBuraco {
 			// 
 			// tpMateriais
 			// 
-			this->tpMateriais->Controls->Add(this->button5);
-			this->tpMateriais->Controls->Add(this->button6);
+			this->tpMateriais->Controls->Add(this->btnMatNovo);
+			this->tpMateriais->Controls->Add(this->btnMatDel);
+			this->tpMateriais->Controls->Add(this->btnMatEdit);
 			this->tpMateriais->Controls->Add(this->label9);
-			this->tpMateriais->Controls->Add(this->dataGridView2);
+			this->tpMateriais->Controls->Add(this->dgvMaterial);
 			this->tpMateriais->Controls->Add(this->label10);
 			this->tpMateriais->Controls->Add(this->pictureBox4);
 			this->tpMateriais->Location = System::Drawing::Point(4, 79);
 			this->tpMateriais->Name = L"tpMateriais";
-			this->tpMateriais->Size = System::Drawing::Size(982, 408);
+			this->tpMateriais->Size = System::Drawing::Size(982, 420);
 			this->tpMateriais->TabIndex = 4;
 			this->tpMateriais->Text = L"MATERIAIS";
 			this->tpMateriais->UseVisualStyleBackColor = true;
 			// 
-			// button5
+			// btnMatNovo
 			// 
-			this->button5->Location = System::Drawing::Point(398, 340);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(105, 38);
-			this->button5->TabIndex = 19;
-			this->button5->Text = L"Visualizar";
-			this->button5->UseVisualStyleBackColor = true;
+			this->btnMatNovo->Location = System::Drawing::Point(274, 340);
+			this->btnMatNovo->Name = L"btnMatNovo";
+			this->btnMatNovo->Size = System::Drawing::Size(105, 38);
+			this->btnMatNovo->TabIndex = 21;
+			this->btnMatNovo->Text = L"Novo";
+			this->btnMatNovo->UseVisualStyleBackColor = true;
+			this->btnMatNovo->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnMatNovo_Click);
 			// 
-			// button6
+			// btnMatDel
 			// 
-			this->button6->Location = System::Drawing::Point(274, 340);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(105, 38);
-			this->button6->TabIndex = 18;
-			this->button6->Text = L"Novo";
-			this->button6->UseVisualStyleBackColor = true;
+			this->btnMatDel->Location = System::Drawing::Point(496, 340);
+			this->btnMatDel->Name = L"btnMatDel";
+			this->btnMatDel->Size = System::Drawing::Size(105, 38);
+			this->btnMatDel->TabIndex = 20;
+			this->btnMatDel->Text = L"Deletar";
+			this->btnMatDel->UseVisualStyleBackColor = true;
+			// 
+			// btnMatEdit
+			// 
+			this->btnMatEdit->Location = System::Drawing::Point(385, 340);
+			this->btnMatEdit->Name = L"btnMatEdit";
+			this->btnMatEdit->Size = System::Drawing::Size(105, 38);
+			this->btnMatEdit->TabIndex = 19;
+			this->btnMatEdit->Text = L"Editar";
+			this->btnMatEdit->UseVisualStyleBackColor = true;
+			this->btnMatEdit->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnMatEdit_Click);
 			// 
 			// label9
 			// 
@@ -768,25 +921,25 @@ namespace InfoBuraco {
 			this->label9->TabIndex = 17;
 			this->label9->Text = L"Consulta";
 			// 
-			// dataGridView2
+			// dgvMaterial
 			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->AllowUserToDeleteRows = false;
-			this->dataGridView2->AllowUserToResizeColumns = false;
-			this->dataGridView2->AllowUserToResizeRows = false;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
+			this->dgvMaterial->AllowUserToAddRows = false;
+			this->dgvMaterial->AllowUserToDeleteRows = false;
+			this->dgvMaterial->AllowUserToResizeColumns = false;
+			this->dgvMaterial->AllowUserToResizeRows = false;
+			this->dgvMaterial->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvMaterial->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
 				this->dataGridViewTextBoxColumn3,
 					this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6
 			});
-			this->dataGridView2->Location = System::Drawing::Point(260, 109);
-			this->dataGridView2->MultiSelect = false;
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->ReadOnly = true;
-			this->dataGridView2->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView2->ShowEditingIcon = false;
-			this->dataGridView2->Size = System::Drawing::Size(544, 225);
-			this->dataGridView2->TabIndex = 16;
+			this->dgvMaterial->Location = System::Drawing::Point(264, 109);
+			this->dgvMaterial->MultiSelect = false;
+			this->dgvMaterial->Name = L"dgvMaterial";
+			this->dgvMaterial->ReadOnly = true;
+			this->dgvMaterial->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dgvMaterial->ShowEditingIcon = false;
+			this->dgvMaterial->Size = System::Drawing::Size(544, 225);
+			this->dgvMaterial->TabIndex = 16;
 			// 
 			// dataGridViewTextBoxColumn3
 			// 
@@ -840,7 +993,7 @@ namespace InfoBuraco {
 			this->tpCM->Controls->Add(this->pictureBox5);
 			this->tpCM->Location = System::Drawing::Point(4, 79);
 			this->tpCM->Name = L"tpCM";
-			this->tpCM->Size = System::Drawing::Size(986, 408);
+			this->tpCM->Size = System::Drawing::Size(982, 420);
 			this->tpCM->TabIndex = 5;
 			this->tpCM->Text = L"MOBILIZAÇÃO";
 			this->tpCM->UseVisualStyleBackColor = true;
@@ -923,7 +1076,7 @@ namespace InfoBuraco {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(986, 487);
+			this->ClientSize = System::Drawing::Size(986, 503);
 			this->Controls->Add(this->tabcontrol);
 			this->Name = L"DashboardDespachador";
 			this->Text = L"DashboardDespachador";
@@ -946,7 +1099,7 @@ namespace InfoBuraco {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->tpMateriais->ResumeLayout(false);
 			this->tpMateriais->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->tpCM->ResumeLayout(false);
 			this->tpCM->PerformLayout();
@@ -956,10 +1109,10 @@ namespace InfoBuraco {
 		}
 #pragma endregion
 	private: System::Void DashboardDespachador_Load(System::Object^  sender, System::EventArgs^  e) {
-		this->dgvEquipe->Rows->Add("Alpha", "Joãozinho", "5", "75,00");
-		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125,00");
-		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25,00");
-		
+		this->dgvEquipe->Rows->Add("Alpha", "Joãozinho", "5", "75.00");
+		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125.00");
+		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25.00");
+
 		this->dgvCSEquip->Rows->Add(false, "BC bobcat");
 		this->dgvCSEquip->Rows->Add(false, "Equipamento 1");
 		this->dgvCSEquip->Rows->Add(false, "Equipamento 2");
@@ -969,50 +1122,211 @@ namespace InfoBuraco {
 		this->cmbEquipe->Items->Add("Equipe 3");
 		this->cmbEquipe->Items->Add("Equipe 4");
 
+		this->dgvMaterial->Rows->Add("Cimento", "Kg", "10.00");
+		this->dgvMaterial->Rows->Add("Água", "Litro", "3.00");
+		this->dgvMaterial->Rows->Add("Areia", "Metro Cúbico", "4.50");
+
 		if (this->cmbEquipe->Items->Count > 0)
 			cmbEquipe->SelectedIndex = 0;
-		
+
 	}
 
-	private: System::Void DashboardDespachador_Resize(System::Object^  sender, System::EventArgs^  e) 
+	private: System::Void DashboardDespachador_Resize(System::Object^  sender, System::EventArgs^  e)
 	{
 		tabcontrol->Size = this->Size;
 	}
-private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void tp1_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
-}
-private: System::Void tpEquipes_Click(System::Object^  sender, System::EventArgs^  e) {
-}
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void tp1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+	}
+	private: System::Void tpEquipes_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	GerenciarEquipes^ cadastrar = gcnew GerenciarEquipes();
-	cadastrar->ShowDialog();
-}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	GerenciarEquipes^ edit = gcnew GerenciarEquipes(2);
-	edit->ShowDialog();
-}
-private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
-	txtCusto->Enabled = true;
-	btnConfirmaMob->Enabled = true;
-	btnAlteraMob->Enabled = false;
-}
-private: System::Void btnConfirmaMob_Click(System::Object^  sender, System::EventArgs^  e) {
-	txtCusto->Enabled = false;
-	btnConfirmaMob->Enabled = false;
-	btnAlteraMob->Enabled = true;
-}
-private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-	VerEquipe^ ver = gcnew VerEquipe();
-	ver->ShowDialog();
+		GerenciarEquipes^ cadastrar = gcnew GerenciarEquipes();
+		cadastrar->ShowDialog();
+	}
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		GerenciarEquipes^ edit = gcnew GerenciarEquipes(2);
+		edit->ShowDialog();
+	}
+	private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+		txtCusto->Enabled = true;
+		btnConfirmaMob->Enabled = true;
+		btnAlteraMob->Enabled = false;
+	}
+	private: System::Void btnConfirmaMob_Click(System::Object^  sender, System::EventArgs^  e) {
+		txtCusto->Enabled = false;
+		btnConfirmaMob->Enabled = false;
+		btnAlteraMob->Enabled = true;
+	}
+	private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
+		Equipe * equipe = new Equipe();
+		equipe->setcusto(45);
+		equipe->setnomeequipe("Jorger");
+		equipe->settamanho(50);
+		equipe->setencarregado("João");
+		VerEquipe^ ver = gcnew VerEquipe(equipe);
+		ver->ShowDialog();
+		ver->Close();
 
+	}
+	private: System::Void pnlEquipamentos_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+	}
+	private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+	}
+	private: System::Void btnUp_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (ltbOrdem->SelectedIndex != 0 && ltbOrdem->Items->Count >= 2)
+		{
+			System::Object^ obj = ltbOrdem->SelectedItem;
+			int i = ltbOrdem->SelectedIndex;
+			ltbOrdem->Items[i] = ltbOrdem->Items[i - 1];
+			ltbOrdem->Items[i - 1] = obj;
+			ltbOrdem->SelectedIndex = i - 1;
+			obj = ltbDetalhes->Items[i];
+			ltbDetalhes->Items[i] = ltbDetalhes->Items[i - 1];
+			ltbDetalhes->Items[i - 1] = obj;
+			ltbDetalhes->SelectedIndex = i - 1;
+
+		}
+	}
+	private: System::Void btnDown_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (ltbOrdem->SelectedIndex != ltbOrdem->Items->Count - 1 && ltbOrdem->Items->Count >= 2)
+		{
+			System::Object^ obj = ltbOrdem->SelectedItem;
+			int i = ltbOrdem->SelectedIndex;
+			ltbOrdem->Items[i] = ltbOrdem->Items[i + 1];
+			ltbOrdem->Items[i + 1] = obj;
+			ltbOrdem->SelectedIndex = i + 1;
+
+			obj = ltbDetalhes->Items[i];
+			ltbDetalhes->Items[i] = ltbDetalhes->Items[i + 1];
+			ltbDetalhes->Items[i + 1] = obj;
+			ltbDetalhes->SelectedIndex = i + 1;
+		}
+	}
+	private: System::Void button7_Click_1(System::Object^  sender, System::EventArgs^  e) {
+		Project1::Adicionar_Ordem^ add = gcnew Project1::Adicionar_Ordem();
+		add->ShowDialog();
+		ltbOrdem->Items->Add(add->id());
+		ltbDetalhes->Items->Add(add->detalhes());
+		add->Close();
+	}
+	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (ltbOrdem->SelectedIndex >= 0)
+		{
+			int i = ltbOrdem->SelectedIndex;
+			ltbOrdem->Items->RemoveAt(i);
+			ltbDetalhes->Items->RemoveAt(i);
+		}
+	}
+private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+	
+	/*SaidaDAO->criarSaida() ;
+	for each(System::String^ item in ltbOrdem->Items)
+	{
+		SaidaOS_DAO->criarSaidaOS(saida->getid(),int::Parse(item)); 
+		Ordem_de_Servico * os = OrdemDAO->buscarOrdem(int::Parse(item));
+		OrdemDAO->editarOrdem( alterar status p agendado) ;	
+	}
+	foreach(
+	
+	*/
+	for each  (DataGridViewRow^ row in dgvCSEquip->Rows)
+	{
+		int i = 1;
+		if ((bool)row->Cells[0]->Value)
+			 // EquipeOS_DAO->Criar(nomeequipe,id_ordem, i)
+			i++;
+	}
+	
 }
-private: System::Void pnlEquipamentos_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+private: System::Void ltbDetalhes_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	ltbOrdem->SelectedIndex = ltbDetalhes->SelectedIndex;
 }
-private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+private: System::Void ltbOrdem_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	ltbDetalhes->SelectedIndex = ltbOrdem->SelectedIndex;
+}
+
+private: System::Void btnMatEdit_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (dgvMaterial->SelectedRows->Count == 1)
+	{
+		Material * m = new Material();
+		m->setcusto(Convert::ToDouble(dgvMaterial->SelectedRows[0]->Cells[2]->Value->ToString()));
+		//m->setcusto(4);
+		m->setnomematerial(msclr::interop::marshal_as<std::string>(dgvMaterial->SelectedRows[0]->Cells[0]->Value->ToString()));
+		m->setunidademedida(msclr::interop::marshal_as<std::string>(dgvMaterial->SelectedRows[0]->Cells[1]->Value->ToString()));
+		GerenciarMateriais^ ger = gcnew GerenciarMateriais(m);
+		ger->ShowDialog();
+
+
+		m = ger->retorno();
+		ger->Close();
+		if (m != NULL)
+		{
+			String^ str = gcnew String(m->getnomematerial().c_str());
+			dgvMaterial->SelectedRows[0]->Cells[0]->Value = str;
+			str = gcnew String(m->getunidademedida().c_str());
+			dgvMaterial->SelectedRows[0]->Cells[1]->Value = str;
+			dgvMaterial->SelectedRows[0]->Cells[2]->Value = m->getcusto().ToString();
+		}
+	}
+}
+private: System::Void btnMatNovo_Click(System::Object^  sender, System::EventArgs^  e) {
+	Material * m;
+	GerenciarMateriais^ ger = gcnew GerenciarMateriais();
+	ger->ShowDialog();
+	m = ger->retorno();
+	ger->Close();
+	if (m != NULL)
+	{
+
+		String^ str1 = gcnew String(m->getnomematerial().c_str());
+		String^ str2 = gcnew String(m->getunidademedida().c_str());
+		dgvMaterial->Rows->Add(str1, str2, m->getcusto().ToString());
+	}
+}
+private: System::Void btnEqNovo_Click(System::Object^  sender, System::EventArgs^  e) {
+	Equipamento * eq = new Equipamento();
+	GerenciarEquipamentos^ ger = gcnew GerenciarEquipamentos();
+	ger->ShowDialog();
+	eq = ger->retorno();
+	ger->Close();
+	if (eq != NULL)
+	{
+
+		String^ str1 = gcnew String(eq->getid().c_str());
+		String^ str2 = gcnew String(eq->getnome().c_str());
+		dgvEquipamento->Rows->Add(str1, str2, eq->getcusto().ToString());
+		//dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
+		//str = gcnew String(eq->getnome().c_str());
+		//dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
+		//dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();{
+	}
+}
+
+private: System::Void btnEqEdit_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (dgvEquipamento->SelectedRows->Count == 1) {
+		Equipamento * eq = new Equipamento();
+		eq->setcusto(Convert::ToDouble(dgvEquipamento->SelectedRows[0]->Cells[2]->Value->ToString()));
+		//m->setcusto(4);
+		eq->setid(msclr::interop::marshal_as<std::string>(dgvEquipamento->SelectedRows[0]->Cells[0]->Value->ToString()));
+		eq->setnome(msclr::interop::marshal_as<std::string>(dgvEquipamento->SelectedRows[0]->Cells[1]->Value->ToString()));
+		GerenciarEquipamentos^ ger = gcnew GerenciarEquipamentos(eq);
+		ger->ShowDialog();
+		eq = ger->retorno();
+		ger->Close();
+		if (eq != NULL)
+		{
+			String^ str = gcnew String(eq->getid().c_str());
+			dgvEquipamento->SelectedRows[0]->Cells[0]->Value = str;
+			str = gcnew String(eq->getnome().c_str());
+			dgvEquipamento->SelectedRows[0]->Cells[1]->Value = str;
+			dgvEquipamento->SelectedRows[0]->Cells[2]->Value = eq->getcusto().ToString();
+		}
+	}
 }
 };
 }

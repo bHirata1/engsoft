@@ -28,6 +28,6 @@ public:
 
 	string getcontato();
 	void setcontato(string contato);
-}
+};
 
 #endif

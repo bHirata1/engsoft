@@ -42,12 +42,12 @@ void Saida::setdistanciapercorrida(float distancia)
 	this->distanciapercorrida = distancia;
 }
 
-Equipe Saida::getnomeequipe()
+string Saida::getnomeequipe()
 {
 	return this->nomeequipe;
 }
 
-void Saida::setnomeequipe(Equipe nome)
+void Saida::setnomeequipe(string nome)
 {
 	this->nomeequipe = nome;
 }

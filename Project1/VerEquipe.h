@@ -1,4 +1,6 @@
 #pragma once
+#include "Equipe.h"
+#include <vcclr.h>
 
 namespace InfoBuraco {
 
@@ -15,12 +17,15 @@ namespace InfoBuraco {
 	public ref class VerEquipe : public System::Windows::Forms::Form
 	{
 	public:
-		VerEquipe(void)
+		VerEquipe(Equipe * equipe)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			lblCusto->Text = equipe->getcusto().ToString();
+			String ^str = gcnew String(equipe->getencarregado().c_str());
+			lblEnc->Text = str;
+			str = gcnew String(equipe->getnomeequipe().c_str());
+			lblNome->Text = str;
+			lblTam->Text = equipe->gettamanho().ToString();
 		}
 
 	protected:
@@ -34,14 +39,19 @@ namespace InfoBuraco {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  lblNome;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Label^  lblEnc;
+	private: System::Windows::Forms::Label^  lblTam;
+	private: System::Windows::Forms::Label^  lblCusto;
+
+
+
 	private: System::Windows::Forms::Button^  button1;
 
 	private:
@@ -57,27 +67,27 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->lblEnc = (gcnew System::Windows::Forms::Label());
+			this->lblTam = (gcnew System::Windows::Forms::Label());
+			this->lblCusto = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
-			// label1
+			// lblNome
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblNome->AutoSize = true;
+			this->lblNome->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(13, 21);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(164, 25);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"nome_da_equipe";
+			this->lblNome->Location = System::Drawing::Point(13, 21);
+			this->lblNome->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblNome->Name = L"lblNome";
+			this->lblNome->Size = System::Drawing::Size(164, 25);
+			this->lblNome->TabIndex = 0;
+			this->lblNome->Text = L"nome_da_equipe";
 			// 
 			// label2
 			// 
@@ -116,41 +126,41 @@ namespace InfoBuraco {
 			this->label4->Text = L"Custo";
 			this->label4->Click += gcnew System::EventHandler(this, &VerEquipe::label4_Click);
 			// 
-			// label5
+			// lblEnc
 			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblEnc->AutoSize = true;
+			this->lblEnc->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(146, 86);
-			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(175, 20);
-			this->label5->TabIndex = 4;
-			this->label5->Text = L"nome_do_encarregado";
+			this->lblEnc->Location = System::Drawing::Point(146, 86);
+			this->lblEnc->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblEnc->Name = L"lblEnc";
+			this->lblEnc->Size = System::Drawing::Size(175, 20);
+			this->lblEnc->TabIndex = 4;
+			this->lblEnc->Text = L"nome_do_encarregado";
 			// 
-			// label6
+			// lblTam
 			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblTam->AutoSize = true;
+			this->lblTam->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(146, 131);
-			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(156, 20);
-			this->label6->TabIndex = 5;
-			this->label6->Text = L"tamanho_da_equipe";
+			this->lblTam->Location = System::Drawing::Point(146, 131);
+			this->lblTam->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblTam->Name = L"lblTam";
+			this->lblTam->Size = System::Drawing::Size(156, 20);
+			this->lblTam->TabIndex = 5;
+			this->lblTam->Text = L"tamanho_da_equipe";
 			// 
-			// label7
+			// lblCusto
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->lblCusto->AutoSize = true;
+			this->lblCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(146, 174);
-			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(193, 20);
-			this->label7->TabIndex = 6;
-			this->label7->Text = L"custo_da_equipe R$/hora";
+			this->lblCusto->Location = System::Drawing::Point(146, 174);
+			this->lblCusto->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->lblCusto->Name = L"lblCusto";
+			this->lblCusto->Size = System::Drawing::Size(193, 20);
+			this->lblCusto->TabIndex = 6;
+			this->lblCusto->Text = L"custo_da_equipe R$/hora";
 			// 
 			// button1
 			// 
@@ -167,19 +177,20 @@ namespace InfoBuraco {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(358, 299);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
+			this->Controls->Add(this->lblCusto);
+			this->Controls->Add(this->lblTam);
+			this->Controls->Add(this->lblEnc);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->lblNome);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"VerEquipe";
+			this->Load += gcnew System::EventHandler(this, &VerEquipe::VerEquipe_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -189,6 +200,8 @@ namespace InfoBuraco {
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	this->Close();
+}
+private: System::Void VerEquipe_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

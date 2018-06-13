@@ -24,6 +24,6 @@ public:
 
 	float getcusto();
 	void setcusto(float custo);
-}
+};
 
 #endif

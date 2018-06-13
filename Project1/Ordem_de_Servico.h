@@ -1,12 +1,12 @@
 #ifndef ORDEM_DE_SERVICO_H
 #define ORDEM_DE_SERVICO_H
 
-#include "XSDDataTypes/time.h"
 #include "Material.h"
 #include "Buraco.h"
-#include "java/sql/Time.h"
 #include <iostream>
 #include <ctime>
+#include <string>
+
 using namespace std;
 
 class Ordem_de_Servico
@@ -17,7 +17,7 @@ private:
 	time_t data;
 	int prioridade;
 	string status;
-	Buraco buraco;
+protected:	Buraco buraco;
 
 public:
 	Ordem_de_Servico();
@@ -40,7 +40,7 @@ public:
 
 	Buraco getburaco();
 	void setburaco(Buraco buraco);
-}
+};
 
 #endif
 

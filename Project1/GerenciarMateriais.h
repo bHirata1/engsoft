@@ -1,6 +1,7 @@
 #pragma once
 //#include "MaterialDAO.h"
 //#include "MySQLDAO.h"
+#include "Material.h"
 
 #include <msclr\marshal_cppstd.h>
 
@@ -22,9 +23,20 @@ namespace InfoBuraco {
 		GerenciarMateriais(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+		
+			novo = true;
+		}
+
+		GerenciarMateriais(Material* material)
+		{
+			InitializeComponent();
+			String ^teste = gcnew String(material->getnomematerial().c_str()); 
+			txtNome->Enabled = false; // https: //msdn.microsoft.com/en-us/library/ms235631.aspx
+			txtNome->Text = teste;
+			teste = gcnew String(material->getunidademedida().c_str());
+			txtUM->Text = teste;
+			numCusto->Value = (System::Decimal)material->getcusto();
+			novo = false;
 		}
 
 	protected:
@@ -40,6 +52,12 @@ namespace InfoBuraco {
 		}
 	private: System::Windows::Forms::Button^  button4;
 	protected:
+	private: bool novo;
+	public: Material * retorno()
+	{
+		return mat;
+	}
+	private: Material * mat = NULL;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::NumericUpDown^  numCusto;
@@ -109,8 +127,10 @@ namespace InfoBuraco {
 			// 
 			// numCusto
 			// 
+			this->numCusto->DecimalPlaces = 2;
 			this->numCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->numCusto->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 65536 });
 			this->numCusto->Location = System::Drawing::Point(170, 141);
 			this->numCusto->Name = L"numCusto";
 			this->numCusto->Size = System::Drawing::Size(150, 26);
@@ -118,7 +138,6 @@ namespace InfoBuraco {
 			// 
 			// txtUM
 			// 
-			this->txtUM->Enabled = false;
 			this->txtUM->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->txtUM->Location = System::Drawing::Point(170, 104);
@@ -142,7 +161,7 @@ namespace InfoBuraco {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(15, 138);
+			this->label5->Location = System::Drawing::Point(15, 143);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(120, 20);
@@ -189,7 +208,7 @@ namespace InfoBuraco {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(530, 295);
+			this->ClientSize = System::Drawing::Size(530, 284);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -214,17 +233,34 @@ namespace InfoBuraco {
 		this->Close();
 	}
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-		txtNome->Text = "";
+		if (txtNome->Enabled)
+			txtNome->Text = "";
 		txtUM->Text = "";
 		numCusto->Value = 0;
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+		
+		mat = new Material();
+		mat->setnomematerial(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
+		mat->setunidademedida(msclr::interop::marshal_as<std::string>(this->txtUM->Text));
+		mat->setcusto(Convert::ToDouble(numCusto->Value));
+		this->Hide();
+
 		/*
-		MaterialDAO * batata = new MaterialDAO();
-		std::string nome = msclr::interop::marshal_as<std::string>(this->txtNome->Text);
-		std::string um = msclr::interop::marshal_as<std::string>(this->txtUM->Text);
-		int valor = (int)numCusto->Value;
-		batata->criarMaterial(nome, um, valor);
+
+		MaterialDAO * matDAO = new MaterialDAO();
+		if (novo)
+		{
+			// ** INSERT **
+			std::string nome = msclr::interop::marshal_as<std::string>(this->txtNome->Text);
+			std::string um = msclr::interop::marshal_as<std::string>(this->txtUM->Text);
+			int valor = (int)numCusto->Value;
+			batata->criarMaterial(nome, um, valor);
+		}
+		else
+		{
+			// **UPDATE** 
+		}
 		*/
 
 	}

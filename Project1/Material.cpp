@@ -10,32 +10,32 @@ Material::~Material()
 
 }
 
-string getnomematerial()
+string Material::getnomematerial()
 {
 	return this->nomematerial;
 }
 
-void setnomematerial(string nome)
+void Material::setnomematerial(string nome)
 {
 	this->nomematerial = nome;
 }
 
-string getunidademedida()
+string Material::getunidademedida()
 {
 	return this->unidademedida;
 }
 
-void setunidademedida(string unidade)
+void Material::setunidademedida(string unidade)
 {
 	this->unidademedida = unidade;
 }
 
-float getcusto()
+float Material::getcusto()
 {
 	return this->custo;
 }
 
-void setcusto(float custo)
+void Material::setcusto(float custo)
 {
 	this->custo = custo;
 }

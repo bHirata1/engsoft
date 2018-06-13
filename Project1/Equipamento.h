@@ -7,18 +7,22 @@ using namespace std;
 class Equipamento
 {
 private:
-	int idequipamento;
+	float custo;
+	string id;
 	string nome;
 
 public:
 	Equipamento();
 	virtual ~Equipamento();
 
-	int getidequipamento();
-	void setidequipamento(int id);
+	float getcusto();
+	void setcusto(float c);
 
 	string getnome();
 	void setnome(string nome);
+
+	string getid();
+	void setid(string id);
 };
 
 #endif

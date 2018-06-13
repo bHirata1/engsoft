@@ -1,5 +1,6 @@
 #pragma once
-
+#include "Equipamento.h"
+#include <msclr\marshal_cppstd.h>
 namespace InfoBuraco {
 
 	using namespace System;
@@ -22,6 +23,19 @@ namespace InfoBuraco {
 			//TODO: Add the constructor code here
 			//
 		}
+		GerenciarEquipamentos(Equipamento * e)
+		{
+			InitializeComponent();
+			String ^str = gcnew String(e->getnome().c_str());
+			txtNome->Text = str;
+			str = gcnew String(e->getid().c_str());
+			txtId->Text = str;
+			numCusto->Value = (System::Decimal)e->getcusto();
+			txtId->Enabled = false;
+			//
+			//TODO: Add the constructor code here
+			//
+		}
 
 	protected:
 		/// <summary>
@@ -36,6 +50,11 @@ namespace InfoBuraco {
 		}
 	private: System::Windows::Forms::Button^  button4;
 	protected:
+	public: Equipamento * retorno()
+	{
+		return eq;
+	}
+	private: Equipamento * eq = NULL;
 	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::NumericUpDown^  numCusto;
@@ -43,6 +62,8 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TextBox^  txtId;
+	private: System::Windows::Forms::Label^  label3;
 
 	private:
 		/// <summary>
@@ -65,6 +86,8 @@ namespace InfoBuraco {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numCusto))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -76,6 +99,7 @@ namespace InfoBuraco {
 			this->button4->TabIndex = 25;
 			this->button4->Text = L"Cancelar";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &GerenciarEquipamentos::button4_Click);
 			// 
 			// button3
 			// 
@@ -94,12 +118,14 @@ namespace InfoBuraco {
 			this->button2->TabIndex = 23;
 			this->button2->Text = L"Confirmar";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &GerenciarEquipamentos::button2_Click);
 			// 
 			// numCusto
 			// 
 			this->numCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->numCusto->Location = System::Drawing::Point(195, 129);
+			this->numCusto->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 65536 });
+			this->numCusto->Location = System::Drawing::Point(554, 129);
 			this->numCusto->Name = L"numCusto";
 			this->numCusto->Size = System::Drawing::Size(120, 26);
 			this->numCusto->TabIndex = 22;
@@ -119,7 +145,7 @@ namespace InfoBuraco {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(49, 131);
+			this->label5->Location = System::Drawing::Point(408, 131);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(122, 20);
@@ -150,11 +176,35 @@ namespace InfoBuraco {
 			this->label1->TabIndex = 13;
 			this->label1->Text = L"Cadastrar Equipamento";
 			// 
+			// txtId
+			// 
+			this->txtId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtId->Location = System::Drawing::Point(199, 128);
+			this->txtId->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(176, 26);
+			this->txtId->TabIndex = 27;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(65, 131);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(122, 20);
+			this->label3->TabIndex = 26;
+			this->label3->Text = L"Id Equipamento";
+			// 
 			// GerenciarEquipamentos
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(697, 283);
+			this->Controls->Add(this->txtId);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -173,5 +223,15 @@ namespace InfoBuraco {
 
 		}
 #pragma endregion
-	};
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+		eq = new Equipamento();
+		eq->setnome(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
+		eq->setid(msclr::interop::marshal_as<std::string>(this->txtId->Text));
+		eq->setcusto(Convert::ToDouble(numCusto->Value));
+		this->Close();
+	}
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Hide();
+	}
+};
 }

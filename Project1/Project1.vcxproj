@@ -145,11 +145,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adicionar_Ordem.cpp" />
     <ClCompile Include="Buraco.cpp" />
-    <ClCompile Include="CadastroBuracoAssessor.cpp" />
     <ClCompile Include="Cidadao.cpp" />
     <ClCompile Include="Custo.cpp" />
-    <ClCompile Include="DashboardAssessor.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
     <ClCompile Include="Equipamento.cpp" />
@@ -160,22 +159,19 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Notificacao.cpp" />
-    <ClCompile Include="NotificacoesAssessor.cpp" />
     <ClCompile Include="Ordem_de_Servico.cpp" />
     <ClCompile Include="Saida.cpp" />
     <ClCompile Include="Usuario.cpp" />
-    <ClCompile Include="VerEquipe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adicionar_Ordem.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Buraco.h" />
-    <ClInclude Include="CadastroBuracoAssessor.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Cidadao.h" />
+    <ClInclude Include="Conv.h" />
     <ClInclude Include="Custo.h" />
-    <ClInclude Include="DashboardAssessor.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
+    <ClInclude Include="DashboardAssessor.h" />
     <ClInclude Include="DashboardDespachador.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -199,9 +195,6 @@
     </ClInclude>
     <ClInclude Include="Material.h" />
     <ClInclude Include="Notificacao.h" />
-    <ClInclude Include="NotificacoesAssessor.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="Ordem_de_Servico.h" />
     <ClInclude Include="Saida.h" />
     <ClInclude Include="SaidaOS.h" />
@@ -216,10 +209,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CadastroBuracoAssessor.resx" />
-    <EmbeddedResource Include="DashboardAssessor.resx">
-      <DependentUpon>DashboardAssessor.h</DependentUpon>
+    <EmbeddedResource Include="Adicionar_Ordem.resx">
+      <DependentUpon>Adicionar_Ordem.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CadastroBuracoAssessor.resx" />
     <EmbeddedResource Include="DashboardDespachador.resx" />
     <EmbeddedResource Include="DashboardGestor.resx" />
     <EmbeddedResource Include="GerenciarEquipamentos.resx">

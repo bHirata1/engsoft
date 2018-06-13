@@ -5,18 +5,18 @@ Equipamento::Equipamento()
 
 }
 
-virtual Equipamento::~Equipamento();
+Equipamento::~Equipamento()
 {
 
 }
 
-int Equipamento::getidequipamento();
+float Equipamento::getcusto()
 {
-	return this->idequipamento();
+	return custo;
 }
-void Equipamento::setidequipamento(int id)
+void Equipamento::setcusto(float id)
 {
-	this->idequipamento = id;
+	this->custo = id;
 }
 
 string Equipamento::getnome()
@@ -28,4 +28,16 @@ void Equipamento::setnome(string nome)
 {
 	this->nome = nome;
 }
+
+string Equipamento::getid()
+{
+	return this->id;
+}
+
+void Equipamento::setid(string id)
+{
+	this->id = id;
+}
+
+
 

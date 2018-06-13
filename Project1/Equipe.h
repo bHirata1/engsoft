@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class Equipe()
+class Equipe
 {
 private:
 	string nomeequipe;
@@ -28,6 +28,6 @@ public:
 
 	float getcusto();
 	void setcusto(float custo);
-}
+};
 
 #endif

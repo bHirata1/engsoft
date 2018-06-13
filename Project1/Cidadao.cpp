@@ -10,42 +10,42 @@ Cidadao::~Cidadao()
 
 }
 
-string getcpf()
+string Cidadao::getcpf()
 {
 	return this->cpf;
 }
 
-void setcpf(string cpf)
+void Cidadao::setcpf(string cpf)
 {
 	this->cpf = cpf;
 }
 
-string getnome()
+string Cidadao::getnome()
 {
 	return this->nome;
 }
 
-void setnome(string nome)
+void Cidadao::setnome(string nome)
 {
 	this->nome = nome;
 }
 
-string getcanal()
+string Cidadao::getcanal()
 {
 	return this->canal;
 }
 
-void setcanal(string canal)
+void Cidadao::setcanal(string canal)
 {
 	this->canal = canal;
 }
 
-string getcontato()
+string Cidadao::getcontato()
 {
 	return this->contato;
 }
 
-void setcontato(string contato)
+void Cidadao::setcontato(string contato)
 {
 	this->contato = contato;
 }

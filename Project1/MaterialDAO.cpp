@@ -1,5 +1,4 @@
 #include "MaterialDAO.h"
-//#include "Material.h"
 #include <stdio.h>
 #include "MySQLDAO.h"
 #include <string>
@@ -67,7 +66,7 @@ void MaterialDAO::editarMaterial(string nomematerial, string unidademedida, int 
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("UPDATE material SET unidademedida = ?, custo = ? WHERE nomematerial = ?");
 				
-		preparedStatement->setString(1, unidademedida.c_str);
+		preparedStatement->setString(1, unidademedida.c_str());
 		preparedStatement->setInt(2, custo);
 		preparedStatement->setString(3, nomematerial.c_str());
 		resultSet = preparedStatement->executeQuery();
@@ -79,10 +78,10 @@ void MaterialDAO::editarMaterial(string nomematerial, string unidademedida, int 
 	}
 }
 
-Material MaterialDAO::buscarMaterial(string nomematerial)
+Material* MaterialDAO::buscarMaterial(string nomematerial)
 {
 	string log;
-	Material * material = nullptr;
+	Material * material;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -96,10 +95,10 @@ Material MaterialDAO::buscarMaterial(string nomematerial)
 		resultSet = preparedStatement->executeQuery();
 
 		if (resultSet->next()) {
-			material = new Material();
-			material->setNomeMaterial(resultSet->getString(1).c_str());
-			material->setUnidadeMedida(resultSet->getInt(2));	
-			material->setCusto(resultSet->getInt(3));
+			material= new Material();
+			material->setnomematerial(resultSet->getString(1).c_str());
+			material->setunidademedida(resultSet->getString(2).c_str());	
+			material->setcusto(resultSet->getInt(3));
 		}
 	}
 	catch (sql::SQLException e)

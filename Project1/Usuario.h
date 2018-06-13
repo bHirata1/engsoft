@@ -1,6 +1,7 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -9,7 +10,7 @@ class Usuario
 {
 private:
 	string login;
-	strign senha;
+	string senha;
 	int tipo;
 	string regional;
 
@@ -28,6 +29,6 @@ public:
 
 	string getregional();
 	void setregional(string regional);
-}
+};
 
 #endif
