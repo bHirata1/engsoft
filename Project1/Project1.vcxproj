@@ -165,8 +165,10 @@
     <ClCompile Include="MySQLDAO.cpp" />
     <ClCompile Include="Notificacao.cpp" />
     <ClCompile Include="Ordem_de_Servico.cpp" />
+    <ClCompile Include="Ordem_de_ServicoDAO.cpp" />
     <ClCompile Include="Saida.cpp" />
     <ClCompile Include="Usuario.cpp" />
+    <ClCompile Include="UsuarioDAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adicionar_Ordem.h">
@@ -206,9 +208,11 @@
     <ClInclude Include="MySQLDAO.h" />
     <ClInclude Include="Notificacao.h" />
     <ClInclude Include="Ordem_de_Servico.h" />
+    <ClInclude Include="Ordem_de_ServicoDAO.h" />
     <ClInclude Include="Saida.h" />
     <ClInclude Include="SaidaOS.h" />
     <ClInclude Include="Usuario.h" />
+    <ClInclude Include="UsuarioDAO.h" />
     <ClInclude Include="VerEquipe.h">
       <FileType>CppForm</FileType>
     </ClInclude>
