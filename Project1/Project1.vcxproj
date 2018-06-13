@@ -158,6 +158,7 @@
     <ClCompile Include="GerenciarMateriais.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialDAO.cpp" />
     <ClCompile Include="MySQLDAO.cpp" />
     <ClCompile Include="Notificacao.cpp" />
     <ClCompile Include="Ordem_de_Servico.cpp" />
@@ -195,6 +196,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialDAO.h" />
     <ClInclude Include="MySQLDAO.h" />
     <ClInclude Include="Notificacao.h" />
     <ClInclude Include="Ordem_de_Servico.h" />

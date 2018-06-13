@@ -8,6 +8,8 @@
 #include "Conv.h"
 #include "Ordem_de_Servico.h"
 #include <msclr\marshal_cppstd.h>
+#include "MaterialDAO.h"
+
 namespace InfoBuraco {
 
 	using namespace System;
@@ -1126,6 +1128,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 		}
 #pragma endregion
 	private: System::Void DashboardDespachador_Load(System::Object^  sender, System::EventArgs^  e) {
+		int i = 0;
 		this->dgvEquipe->Rows->Add("Alpha", "Joãozinho", "5", "75.00");
 		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125.00");
 		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25.00");
@@ -1139,9 +1142,18 @@ private: System::Windows::Forms::Button^  btnSaida;
 		this->cmbEquipe->Items->Add("Equipe 3");
 		this->cmbEquipe->Items->Add("Equipe 4");
 
-		this->dgvMaterial->Rows->Add("Cimento", "Kg", "10.00");
-		this->dgvMaterial->Rows->Add("Água", "Litro", "3.00");
-		this->dgvMaterial->Rows->Add("Areia", "Metro Cúbico", "4.50");
+		Material ** m = MaterialDAO::SelecionarTudo();
+		while (m[i] != NULL)
+		{
+			String^ str1 = gcnew String(m[i]->getnomematerial().c_str());
+			String^ str2 = gcnew String(m[i]->getunidademedida().c_str());
+			dgvMaterial->Rows->Add(str1, str2, m[i]->getcusto().ToString());
+			i++;
+		}
+
+		//this->dgvMaterial->Rows->Add("Cimento", "Kg", "10.00");
+		//this->dgvMaterial->Rows->Add("Água", "Litro", "3.00");
+		//this->dgvMaterial->Rows->Add("Areia", "Metro Cúbico", "4.50");
 
 		if (this->cmbEquipe->Items->Count > 0)
 			cmbEquipe->SelectedIndex = 0;
@@ -1284,6 +1296,8 @@ private: System::Void btnMatEdit_Click(System::Object^  sender, System::EventArg
 			str = gcnew String(m->getunidademedida().c_str());
 			dgvMaterial->SelectedRows[0]->Cells[1]->Value = str;
 			dgvMaterial->SelectedRows[0]->Cells[2]->Value = m->getcusto().ToString();
+			MaterialDAO::editarMaterial(m->getnomematerial(), m->getunidademedida(), m->getcusto());
+
 		}
 	}
 }
@@ -1299,6 +1313,10 @@ private: System::Void btnMatNovo_Click(System::Object^  sender, System::EventArg
 		String^ str1 = gcnew String(m->getnomematerial().c_str());
 		String^ str2 = gcnew String(m->getunidademedida().c_str());
 		dgvMaterial->Rows->Add(str1, str2, m->getcusto().ToString());
+		//MaterialDAO * mdao = new MaterialDAO();
+		//mdao->criarMaterial(m->getnomematerial, m->getunidademedida, m->getcusto());
+		MaterialDAO::criarMaterial(m->getnomematerial(), m->getunidademedida(), m->getcusto());
+
 	}
 }
 private: System::Void btnEqNovo_Click(System::Object^  sender, System::EventArgs^  e) {

@@ -80,6 +80,7 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tb_login = (gcnew System::Windows::Forms::TextBox());
 			this->lb_login = (gcnew System::Windows::Forms::Label());
 			this->lb_senha = (gcnew System::Windows::Forms::Label());
@@ -150,6 +151,7 @@ namespace InfoBuraco {
 			// 
 			// pictureBox1
 			// 
+			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(23, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(368, 382);
