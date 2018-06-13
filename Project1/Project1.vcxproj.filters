@@ -69,10 +69,7 @@
     <ClCompile Include="MySQLDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\MaterialDAO.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\CANON\EquipeDAO.cpp">
+    <ClCompile Include="MaterialDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -146,10 +143,7 @@
     <ClInclude Include="MySQLDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\MaterialDAO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Desktop\CANON\EquipeDAO.h">
+    <ClInclude Include="MaterialDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

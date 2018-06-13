@@ -8,8 +8,9 @@ class MaterialDAO
 
 public:
 	MaterialDAO();
-	void MaterialDAO::criarMaterial(string nomematerial, string unidademedida, int custo);
-	void MaterialDAO::deletarMaterial(string nomematerial);
-	void MaterialDAO::editarMaterial(string nomematerial, string unidademedida, int custo);
-	Material* MaterialDAO::buscarMaterial(string nomematerial);
+	static void criarMaterial(string nomematerial, string unidademedida, float custo);
+	static void MaterialDAO::deletarMaterial(string nomematerial);
+	static void MaterialDAO::editarMaterial(string nomematerial, string unidademedida, float custo);
+	static Material* MaterialDAO::buscarMaterial(string nomematerial);
+	static Material** MaterialDAO::SelecionarTudo();
 };
