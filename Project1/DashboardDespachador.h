@@ -969,7 +969,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// dataGridViewTextBoxColumn5
 			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"Unidade de Medida";
+			this->dataGridViewTextBoxColumn5->HeaderText = L"unidademedida de Medida";
 			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
 			this->dataGridViewTextBoxColumn5->ReadOnly = true;
 			this->dataGridViewTextBoxColumn5->Width = 150;
