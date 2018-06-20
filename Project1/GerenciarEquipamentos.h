@@ -106,7 +106,7 @@ namespace InfoBuraco {
 			this->button3->Location = System::Drawing::Point(195, 200);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(134, 40);
-			this->button3->TabIndex = 24;
+			this->button3->TabIndex = 22;
 			this->button3->Text = L"Limpar";
 			this->button3->UseVisualStyleBackColor = true;
 			// 
@@ -115,7 +115,7 @@ namespace InfoBuraco {
 			this->button2->Location = System::Drawing::Point(53, 200);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(134, 40);
-			this->button2->TabIndex = 23;
+			this->button2->TabIndex = 21;
 			this->button2->Text = L"Confirmar";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &GerenciarEquipamentos::button2_Click);
@@ -128,7 +128,7 @@ namespace InfoBuraco {
 			this->numCusto->Location = System::Drawing::Point(554, 129);
 			this->numCusto->Name = L"numCusto";
 			this->numCusto->Size = System::Drawing::Size(120, 26);
-			this->numCusto->TabIndex = 22;
+			this->numCusto->TabIndex = 20;
 			// 
 			// txtNome
 			// 
@@ -180,11 +180,11 @@ namespace InfoBuraco {
 			// 
 			this->txtId->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtId->Location = System::Drawing::Point(199, 128);
+			this->txtId->Location = System::Drawing::Point(195, 128);
 			this->txtId->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(176, 26);
-			this->txtId->TabIndex = 27;
+			this->txtId->TabIndex = 19;
 			// 
 			// label3
 			// 

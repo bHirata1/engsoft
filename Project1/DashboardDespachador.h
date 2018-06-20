@@ -9,6 +9,8 @@
 #include "Ordem_de_Servico.h"
 #include <msclr\marshal_cppstd.h>
 #include "MaterialDAO.h"
+#include "EquipeDAO.h"
+#include "EquipamentoDAO.h"
 
 namespace InfoBuraco {
 
@@ -47,6 +49,15 @@ namespace InfoBuraco {
 
 
 	private: System::Windows::Forms::Button^  btnEqpEdit;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+
+
+
 
 
 	private: Equipe * equipe;
@@ -104,9 +115,9 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::DataGridView^  dgvEquipamento;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn4;
+
+
+
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 
@@ -114,9 +125,9 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::DataGridView^  dgvMaterial;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+
+
+
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::Label^  label13;
@@ -228,9 +239,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnMatEdit = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dgvMaterial = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->tpCM = (gcnew System::Windows::Forms::TabPage());
@@ -241,6 +249,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -302,9 +313,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->textBox3->Enabled = false;
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(423, 233);
+			this->textBox3->Location = System::Drawing::Point(410, 225);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(53, 38);
+			this->textBox3->Size = System::Drawing::Size(50, 38);
 			this->textBox3->TabIndex = 9;
 			this->textBox3->Text = L"0";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -314,20 +325,21 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(290, 236);
+			this->label5->Location = System::Drawing::Point(276, 232);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(341, 31);
 			this->label5->TabIndex = 8;
 			this->label5->Text = L"das quais           agendadas";
+			this->label5->Click += gcnew System::EventHandler(this, &DashboardDespachador::label5_Click);
 			// 
 			// textBox2
 			// 
 			this->textBox2->Enabled = false;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(423, 172);
+			this->textBox2->Location = System::Drawing::Point(410, 165);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(53, 38);
+			this->textBox2->Size = System::Drawing::Size(50, 38);
 			this->textBox2->TabIndex = 6;
 			this->textBox2->Text = L"0";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -337,9 +349,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->textBox1->Enabled = false;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(423, 104);
+			this->textBox1->Location = System::Drawing::Point(410, 105);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(53, 38);
+			this->textBox1->Size = System::Drawing::Size(50, 38);
 			this->textBox1->TabIndex = 5;
 			this->textBox1->Text = L"0";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
@@ -350,7 +362,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(311, 175);
+			this->label4->Location = System::Drawing::Point(300, 170);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(586, 31);
 			this->label4->TabIndex = 4;
@@ -361,7 +373,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(311, 107);
+			this->label3->Location = System::Drawing::Point(300, 110);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(375, 31);
 			this->label3->TabIndex = 3;
@@ -369,9 +381,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(61, 117);
+			this->pictureBox1->Location = System::Drawing::Point(30, 100);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(141, 150);
+			this->pictureBox1->Size = System::Drawing::Size(192, 192);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
@@ -381,7 +393,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->lblNome->AutoSize = true;
 			this->lblNome->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblNome->Location = System::Drawing::Point(190, 24);
+			this->lblNome->Location = System::Drawing::Point(180, 30);
 			this->lblNome->Name = L"lblNome";
 			this->lblNome->Size = System::Drawing::Size(232, 31);
 			this->lblNome->TabIndex = 1;
@@ -392,11 +404,12 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(28, 24);
+			this->label1->Location = System::Drawing::Point(30, 30);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(156, 31);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Bem vindo, ";
+			this->label1->Click += gcnew System::EventHandler(this, &DashboardDespachador::label1_Click);
 			// 
 			// tpSaida
 			// 
@@ -629,7 +642,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label14->AutoSize = true;
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(27, 31);
+			this->label14->Location = System::Drawing::Point(30, 30);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(278, 31);
 			this->label14->TabIndex = 3;
@@ -661,7 +674,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnEqpNovo
 			// 
-			this->btnEqpNovo->Location = System::Drawing::Point(257, 343);
+			this->btnEqpNovo->Location = System::Drawing::Point(250, 350);
 			this->btnEqpNovo->Name = L"btnEqpNovo";
 			this->btnEqpNovo->Size = System::Drawing::Size(105, 38);
 			this->btnEqpNovo->TabIndex = 27;
@@ -671,16 +684,17 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnEqpDel
 			// 
-			this->btnEqpDel->Location = System::Drawing::Point(479, 343);
+			this->btnEqpDel->Location = System::Drawing::Point(472, 350);
 			this->btnEqpDel->Name = L"btnEqpDel";
 			this->btnEqpDel->Size = System::Drawing::Size(105, 38);
 			this->btnEqpDel->TabIndex = 26;
 			this->btnEqpDel->Text = L"Deletar";
 			this->btnEqpDel->UseVisualStyleBackColor = true;
+			this->btnEqpDel->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqpDel_Click);
 			// 
 			// btnEqpEdit
 			// 
-			this->btnEqpEdit->Location = System::Drawing::Point(368, 343);
+			this->btnEqpEdit->Location = System::Drawing::Point(361, 350);
 			this->btnEqpEdit->Name = L"btnEqpEdit";
 			this->btnEqpEdit->Size = System::Drawing::Size(105, 38);
 			this->btnEqpEdit->TabIndex = 25;
@@ -693,11 +707,12 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(253, 89);
+			this->label6->Location = System::Drawing::Point(246, 77);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(72, 20);
 			this->label6->TabIndex = 4;
 			this->label6->Text = L"Consulta";
+			this->label6->Click += gcnew System::EventHandler(this, &DashboardDespachador::label6_Click);
 			// 
 			// dgvEquipe
 			// 
@@ -710,7 +725,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 				this->colNome, this->colEncarregado,
 					this->colNumProf, this->colCusto
 			});
-			this->dgvEquipe->Location = System::Drawing::Point(243, 112);
+			this->dgvEquipe->Location = System::Drawing::Point(250, 100);
 			this->dgvEquipe->MultiSelect = false;
 			this->dgvEquipe->Name = L"dgvEquipe";
 			this->dgvEquipe->ReadOnly = true;
@@ -752,7 +767,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(16, 34);
+			this->label2->Location = System::Drawing::Point(30, 30);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(305, 31);
 			this->label2->TabIndex = 2;
@@ -760,9 +775,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// pictureBox2
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(34, 89);
+			this->pictureBox2->Location = System::Drawing::Point(30, 100);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(177, 169);
+			this->pictureBox2->Size = System::Drawing::Size(192, 192);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
@@ -785,7 +800,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnEqNovo
 			// 
-			this->btnEqNovo->Location = System::Drawing::Point(275, 340);
+			this->btnEqNovo->Location = System::Drawing::Point(250, 350);
 			this->btnEqNovo->Name = L"btnEqNovo";
 			this->btnEqNovo->Size = System::Drawing::Size(105, 38);
 			this->btnEqNovo->TabIndex = 24;
@@ -795,16 +810,17 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnEqDel
 			// 
-			this->btnEqDel->Location = System::Drawing::Point(497, 340);
+			this->btnEqDel->Location = System::Drawing::Point(472, 350);
 			this->btnEqDel->Name = L"btnEqDel";
 			this->btnEqDel->Size = System::Drawing::Size(105, 38);
 			this->btnEqDel->TabIndex = 23;
 			this->btnEqDel->Text = L"Deletar";
 			this->btnEqDel->UseVisualStyleBackColor = true;
+			this->btnEqDel->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnEqDel_Click);
 			// 
 			// btnEqEdit
 			// 
-			this->btnEqEdit->Location = System::Drawing::Point(386, 340);
+			this->btnEqEdit->Location = System::Drawing::Point(361, 350);
 			this->btnEqEdit->Name = L"btnEqEdit";
 			this->btnEqEdit->Size = System::Drawing::Size(105, 38);
 			this->btnEqEdit->TabIndex = 22;
@@ -817,7 +833,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(258, 86);
+			this->label7->Location = System::Drawing::Point(246, 77);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(72, 20);
 			this->label7->TabIndex = 11;
@@ -834,13 +850,13 @@ private: System::Windows::Forms::Button^  btnSaida;
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn4
 			});
-			this->dgvEquipamento->Location = System::Drawing::Point(248, 109);
+			this->dgvEquipamento->Location = System::Drawing::Point(250, 100);
 			this->dgvEquipamento->MultiSelect = false;
 			this->dgvEquipamento->Name = L"dgvEquipamento";
 			this->dgvEquipamento->ReadOnly = true;
 			this->dgvEquipamento->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvEquipamento->ShowEditingIcon = false;
-			this->dgvEquipamento->Size = System::Drawing::Size(644, 225);
+			this->dgvEquipamento->Size = System::Drawing::Size(713, 225);
 			this->dgvEquipamento->TabIndex = 10;
 			// 
 			// dataGridViewTextBoxColumn1
@@ -848,28 +864,28 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dataGridViewTextBoxColumn1->HeaderText = L"Número de Identificação";
 			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
 			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			this->dataGridViewTextBoxColumn1->Width = 200;
+			this->dataGridViewTextBoxColumn1->Width = 220;
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
 			this->dataGridViewTextBoxColumn2->HeaderText = L"Descrição";
 			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
 			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			this->dataGridViewTextBoxColumn2->Width = 280;
+			this->dataGridViewTextBoxColumn2->Width = 310;
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
 			this->dataGridViewTextBoxColumn4->HeaderText = L"Custo (R$/hora)";
 			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
 			this->dataGridViewTextBoxColumn4->ReadOnly = true;
-			this->dataGridViewTextBoxColumn4->Width = 120;
+			this->dataGridViewTextBoxColumn4->Width = 140;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(21, 31);
+			this->label8->Location = System::Drawing::Point(30, 30);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(380, 31);
 			this->label8->TabIndex = 9;
@@ -877,9 +893,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// pictureBox3
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(39, 86);
+			this->pictureBox3->Location = System::Drawing::Point(30, 100);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(177, 169);
+			this->pictureBox3->Size = System::Drawing::Size(192, 192);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox3->TabIndex = 8;
 			this->pictureBox3->TabStop = false;
@@ -902,7 +918,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnMatNovo
 			// 
-			this->btnMatNovo->Location = System::Drawing::Point(274, 340);
+			this->btnMatNovo->Location = System::Drawing::Point(250, 350);
 			this->btnMatNovo->Name = L"btnMatNovo";
 			this->btnMatNovo->Size = System::Drawing::Size(105, 38);
 			this->btnMatNovo->TabIndex = 21;
@@ -912,7 +928,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnMatDel
 			// 
-			this->btnMatDel->Location = System::Drawing::Point(496, 340);
+			this->btnMatDel->Location = System::Drawing::Point(472, 350);
 			this->btnMatDel->Name = L"btnMatDel";
 			this->btnMatDel->Size = System::Drawing::Size(105, 38);
 			this->btnMatDel->TabIndex = 20;
@@ -922,7 +938,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnMatEdit
 			// 
-			this->btnMatEdit->Location = System::Drawing::Point(385, 340);
+			this->btnMatEdit->Location = System::Drawing::Point(361, 350);
 			this->btnMatEdit->Name = L"btnMatEdit";
 			this->btnMatEdit->Size = System::Drawing::Size(105, 38);
 			this->btnMatEdit->TabIndex = 19;
@@ -935,7 +951,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(270, 86);
+			this->label9->Location = System::Drawing::Point(246, 77);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(72, 20);
 			this->label9->TabIndex = 17;
@@ -952,42 +968,21 @@ private: System::Windows::Forms::Button^  btnSaida;
 				this->dataGridViewTextBoxColumn3,
 					this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6
 			});
-			this->dgvMaterial->Location = System::Drawing::Point(264, 109);
+			this->dgvMaterial->Location = System::Drawing::Point(250, 100);
 			this->dgvMaterial->MultiSelect = false;
 			this->dgvMaterial->Name = L"dgvMaterial";
 			this->dgvMaterial->ReadOnly = true;
 			this->dgvMaterial->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvMaterial->ShowEditingIcon = false;
-			this->dgvMaterial->Size = System::Drawing::Size(544, 225);
+			this->dgvMaterial->Size = System::Drawing::Size(713, 225);
 			this->dgvMaterial->TabIndex = 16;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Nome";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 200;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"unidademedida de Medida";
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			this->dataGridViewTextBoxColumn5->Width = 150;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"Custo (R$/u.m.)";
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			this->dataGridViewTextBoxColumn6->Width = 150;
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(33, 31);
+			this->label10->Location = System::Drawing::Point(30, 30);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(317, 31);
 			this->label10->TabIndex = 15;
@@ -995,9 +990,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// pictureBox4
 			// 
-			this->pictureBox4->Location = System::Drawing::Point(51, 86);
+			this->pictureBox4->Location = System::Drawing::Point(30, 100);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(177, 169);
+			this->pictureBox4->Size = System::Drawing::Size(192, 192);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox4->TabIndex = 14;
 			this->pictureBox4->TabStop = false;
@@ -1023,7 +1018,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label13->AutoSize = true;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(489, 133);
+			this->label13->Location = System::Drawing::Point(406, 133);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(55, 20);
 			this->label13->TabIndex = 27;
@@ -1034,7 +1029,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->txtCusto->Enabled = false;
 			this->txtCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtCusto->Location = System::Drawing::Point(383, 130);
+			this->txtCusto->Location = System::Drawing::Point(300, 130);
 			this->txtCusto->Name = L"txtCusto";
 			this->txtCusto->Size = System::Drawing::Size(100, 26);
 			this->txtCusto->TabIndex = 26;
@@ -1042,7 +1037,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnAlteraMob
 			// 
-			this->btnAlteraMob->Location = System::Drawing::Point(438, 217);
+			this->btnAlteraMob->Location = System::Drawing::Point(410, 190);
 			this->btnAlteraMob->Name = L"btnAlteraMob";
 			this->btnAlteraMob->Size = System::Drawing::Size(105, 38);
 			this->btnAlteraMob->TabIndex = 25;
@@ -1053,7 +1048,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// btnConfirmaMob
 			// 
 			this->btnConfirmaMob->Enabled = false;
-			this->btnConfirmaMob->Location = System::Drawing::Point(304, 217);
+			this->btnConfirmaMob->Location = System::Drawing::Point(300, 190);
 			this->btnConfirmaMob->Name = L"btnConfirmaMob";
 			this->btnConfirmaMob->Size = System::Drawing::Size(105, 38);
 			this->btnConfirmaMob->TabIndex = 24;
@@ -1066,7 +1061,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(343, 86);
+			this->label11->Location = System::Drawing::Point(296, 80);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(199, 20);
 			this->label11->TabIndex = 23;
@@ -1077,7 +1072,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label12->AutoSize = true;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(35, 31);
+			this->label12->Location = System::Drawing::Point(30, 30);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(273, 31);
 			this->label12->TabIndex = 21;
@@ -1085,12 +1080,33 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// pictureBox5
 			// 
-			this->pictureBox5->Location = System::Drawing::Point(41, 86);
+			this->pictureBox5->Location = System::Drawing::Point(30, 100);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(177, 169);
+			this->pictureBox5->Size = System::Drawing::Size(192, 192);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox5->TabIndex = 20;
 			this->pictureBox5->TabStop = false;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Nome";
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 220;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"Unidade de Medida";
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
+			this->dataGridViewTextBoxColumn5->ReadOnly = true;
+			this->dataGridViewTextBoxColumn5->Width = 310;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"Custo (R$/u.m.)";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			this->dataGridViewTextBoxColumn6->ReadOnly = true;
+			this->dataGridViewTextBoxColumn6->Width = 140;
 			// 
 			// DashboardDespachador
 			// 
@@ -1133,15 +1149,31 @@ private: System::Windows::Forms::Button^  btnSaida;
 		dgvEquipamento->Rows->Clear();
 		dgvEquipe->Rows->Clear();
 		dgvMaterial->Rows->Clear();
+		dgvCSEquip->Rows->Clear();
 
-		this->dgvEquipe->Rows->Add("Alpha", "Joãozinho", "5", "75.00");
-		this->dgvEquipe->Rows->Add("Bravo", "Batatinha", "7", "125.00");
-		this->dgvEquipamento->Rows->Add("26562", "BC bobcat", "25.00");
+		Equipe ** eq = EquipeDAO::SelecionarTudo();
+		while (eq[i] != NULL)
+		{
+			String^ str1 = gcnew String(eq[i]->getnomeequipe().c_str());
+			String^ str2 = gcnew String(eq[i]->getencarregado().c_str());
+			dgvEquipe->Rows->Add(str1, str2, eq[i]->gettamanho().ToString(), eq[i]->getcusto().ToString());
+			i++;
+		}
 
-		this->dgvCSEquip->Rows->Add(false, "BC bobcat");
-		this->dgvCSEquip->Rows->Add(false, "Equipamento 1");
-		this->dgvCSEquip->Rows->Add(false, "Equipamento 2");
-		this->dgvCSEquip->Rows->Add(false, "Equipamento 3");
+		i = 0;
+
+		Equipamento ** eqp = EquipamentoDAO::SelecionarTudo();
+		while (eqp[i] != NULL)
+		{
+			String^ str1 = gcnew String(eqp[i]->getnome().c_str());
+			String^ str2 = gcnew String(eqp[i]->getid().c_str());
+			dgvEquipamento->Rows->Add(str2, str1, eqp[i]->getcusto().ToString());
+			dgvCSEquip->Rows->Add(false, str1);
+			i++;
+		}
+
+		i = 0;
+
 		this->cmbEquipe->Items->Add("Equipe 1");
 		this->cmbEquipe->Items->Add("Equipe 2");
 		this->cmbEquipe->Items->Add("Equipe 3");
@@ -1316,7 +1348,7 @@ private: System::Void btnEqNovo_Click(System::Object^  sender, System::EventArgs
 	ger->Close();
 	if (eq != NULL)
 	{
-
+		EquipamentoDAO::criarEquipamento(eq->getid(), eq->getnome(), eq->getcusto());
 	}
 	this->DashboardDespachador_Load(sender, e);
 }
@@ -1334,7 +1366,7 @@ private: System::Void btnEqEdit_Click(System::Object^  sender, System::EventArgs
 		ger->Close();
 		if (eq != NULL)
 		{
-
+			EquipamentoDAO::editarEquipamento(eq->getnome(), eq->getcusto(), eq->getid());
 		}
 
 		this->DashboardDespachador_Load(sender, e);
@@ -1355,7 +1387,7 @@ private: System::Void btnEqpEdit_Click(System::Object^  sender, System::EventArg
 		ger->Close();
 		if (eq != NULL)
 		{
-
+			EquipeDAO::editarEquipe(eq->getnomeequipe(), eq->gettamanho(), eq->getcusto(), eq->getencarregado());
 		}
 		this->DashboardDespachador_Load(sender, e);
 	}
@@ -1369,7 +1401,7 @@ private: System::Void btnEqpNovo_Click(System::Object^  sender, System::EventArg
 	ger->Close();
 	if (eq != NULL)
 	{
-
+		EquipeDAO::criarEquipe(eq->getnomeequipe(), eq->gettamanho(), eq->getcusto(), eq->getencarregado());
 	}
 
 	this->DashboardDespachador_Load(sender, e);
@@ -1377,9 +1409,28 @@ private: System::Void btnEqpNovo_Click(System::Object^  sender, System::EventArg
 }
 private: System::Void btnMatDel_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	MaterialDAO::deletarMaterial(msclr::interop::marshal_as<std::string>(dgvMaterial->SelectedRows[0]->Cells[0]->Value->ToString()));
+	if (dgvMaterial->SelectedRows->Count == 1)
+		MaterialDAO::deletarMaterial(msclr::interop::marshal_as<std::string>(dgvMaterial->SelectedRows[0]->Cells[0]->Value->ToString()));
 	this->DashboardDespachador_Load(sender, e);
 
+}
+private: System::Void btnEqpDel_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	if (dgvEquipe->SelectedRows->Count == 1)
+		EquipeDAO::deletarEquipe(msclr::interop::marshal_as<std::string>(dgvEquipe->SelectedRows[0]->Cells[0]->Value->ToString()));
+	this->DashboardDespachador_Load(sender, e);
+}
+private: System::Void btnEqDel_Click(System::Object^  sender, System::EventArgs^  e) {
+	
+	if (dgvEquipamento->SelectedRows->Count == 1)
+		EquipamentoDAO::deletarEquipamento(msclr::interop::marshal_as<std::string>(dgvEquipamento->SelectedRows[0]->Cells[0]->Value->ToString()));
+	this->DashboardDespachador_Load(sender, e);
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
