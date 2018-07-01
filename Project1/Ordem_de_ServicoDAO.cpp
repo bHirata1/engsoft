@@ -2,13 +2,14 @@
 #include <stdio.h>
 #include "MySQLDAO.h"
 #include <string>
+#include "BuracoDAO.h"
 using namespace std;
 
-Ordem_de_ServicoDAO::Ordem_de_ServicoDAO()
+Ordem_De_ServicoDAO::Ordem_De_ServicoDAO()
 {
 }
 
-void Ordem_de_ServicoDAO::criarOrdemDeServico(string nome, float custo)
+void Ordem_De_ServicoDAO::criarOrdemDeServico(string nome, float custo)
 {
 	string log;
 	sql::Connection * connection;
@@ -31,7 +32,7 @@ void Ordem_de_ServicoDAO::criarOrdemDeServico(string nome, float custo)
 	}
 }
 
-void Ordem_de_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
+void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
 {
 	string log;
 	sql::Connection * connection;
@@ -53,7 +54,7 @@ void Ordem_de_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
 	}
 }
 
-void Ordem_de_ServicoDAO::editarOrdemDeServico(string nome, float custo, int idordemDeServico)
+void Ordem_De_ServicoDAO::editarOrdemDeServico(string nome, float custo, int idordemDeServico)
 {
 	string log;
 	sql::Connection * connection;
@@ -77,10 +78,10 @@ void Ordem_de_ServicoDAO::editarOrdemDeServico(string nome, float custo, int ido
 	}
 }
 
-OrdemDeServico* Ordem_de_ServicoDAO::buscarOrdemDeServico(int idordemDeServico)
+Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico)
 {
 	string log;
-	OrdemDeServico * ordemDeServico;
+	Ordem_de_Servico * ordemDeServico;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -94,9 +95,9 @@ OrdemDeServico* Ordem_de_ServicoDAO::buscarOrdemDeServico(int idordemDeServico)
 		resultSet = preparedStatement->executeQuery();
 
 		if (resultSet->next()) {
-			ordemDeServico = new OrdemDeServico();
-			ordemDeServico->setnome(resultSet->getString(1).c_str());
-			ordemDeServico->setcusto(resultSet->getDouble(2));
+			ordemDeServico = new Ordem_de_Servico();
+			//ordemDeServico->(resultSet->getString(1).c_str());
+			//ordemDeServico->setcusto(resultSet->getDouble(2));
 		}
 	}
 	catch (sql::SQLException e)
@@ -107,10 +108,10 @@ OrdemDeServico* Ordem_de_ServicoDAO::buscarOrdemDeServico(int idordemDeServico)
 	return ordemDeServico;
 }
 
-OrdemDeServico** Ordem_de_ServicoDAO::SelecionarTudo()
+Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarTudo()
 {
 	string log;
-	OrdemDeServico ** ordemDeServico;
+	Ordem_de_Servico ** ordemDeServico;
 	sql::Connection * connection;
 	int i = 0, t;
 	sql::Statement* statement;
@@ -122,12 +123,12 @@ OrdemDeServico** Ordem_de_ServicoDAO::SelecionarTudo()
 		preparedStatement = connection->prepareStatement("SELECT nome, custo FROM OrdemDeServico");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
-		ordemDeServico = new OrdemDeServico*[t];
+		ordemDeServico = new Ordem_de_Servico*[t];
 		while (resultSet->next()) {
 
-			ordemDeServico[i] = new OrdemDeServico();
-			ordemDeServico[i]->setnome(resultSet->getString(1).c_str());
-			ordemDeServico[i]->setcusto(resultSet->getDouble(2));
+			ordemDeServico[i] = new Ordem_de_Servico();
+			//ordemDeServico[i]->setnome(resultSet->getString(1).c_str());
+			//ordemDeServico[i]->setcusto(resultSet->getDouble(2));
 			i++;
 		}
 		ordemDeServico[i] = NULL;

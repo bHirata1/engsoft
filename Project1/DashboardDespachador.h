@@ -1269,8 +1269,8 @@ private: System::Windows::Forms::Button^  btnSaida;
 	private: System::Void button7_Click_1(System::Object^  sender, System::EventArgs^  e) {
 		Project1::Adicionar_Ordem^ add = gcnew Project1::Adicionar_Ordem();
 		add->ShowDialog();
-		ltbOrdem->Items->Add(add->id());
-		ltbDetalhes->Items->Add(add->detalhes());
+		//ltbOrdem->Items->Add(add->id());
+		//ltbDetalhes->Items->Add(add->detalhes());
 		add->Close();
 	}
 	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {

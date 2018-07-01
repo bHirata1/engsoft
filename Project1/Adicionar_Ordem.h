@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string.h>
+#include "VerFoto.h"
 #include <msclr\marshal_cppstd.h>
 #include "Ordem_de_Servico.h"
 
@@ -78,6 +79,7 @@ namespace Project1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColPrior;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
+	private: System::Windows::Forms::Button^  button1;
 
 
 
@@ -108,6 +110,7 @@ namespace Project1 {
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -211,11 +214,22 @@ namespace Project1 {
 			this->label8->TabIndex = 17;
 			this->label8->Text = L"Selecionar Ordens de Serviço";
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(257, 512);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(148, 35);
+			this->button1->TabIndex = 18;
+			this->button1->Text = L"Ver Foto";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Adicionar_Ordem::button1_Click_1);
+			// 
 			// Adicionar_Ordem
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(951, 581);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnAdd);
@@ -254,6 +268,13 @@ private: System::Void btnAdd_Click(System::Object^  sender, System::EventArgs^  
 	this->Close();
 }
 private: System::Void btnFilt_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+
+	this->Hide();
+	VerFoto ^vf = gcnew VerFoto("batata");
+	vf->ShowDialog();
+	this->Show();
 }
 };
 }

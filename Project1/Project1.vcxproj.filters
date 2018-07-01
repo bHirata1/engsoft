@@ -87,6 +87,9 @@
     <ClCompile Include="Ordem_de_ServicoDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VerFoto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -176,6 +179,9 @@
     <ClInclude Include="Ordem_de_ServicoDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VerFoto.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
@@ -209,6 +215,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Adicionar_Ordem.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerFoto.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
