@@ -90,6 +90,9 @@
     <ClCompile Include="VerFoto.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DashboardEncarregado.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -182,6 +185,9 @@
     <ClInclude Include="VerFoto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DashboardEncarregado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
@@ -218,6 +224,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="VerFoto.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DashboardAssessor.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

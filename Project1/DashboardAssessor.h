@@ -38,14 +38,14 @@ namespace Project1 {
 	protected:
 
 	protected:
-	private: System::Windows::Forms::Button^  btnMatNovo;
-	private: System::Windows::Forms::Button^  btnMatDel;
-	private: System::Windows::Forms::Button^  btnMatEdit;
-	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::DataGridView^  dgvMaterial;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+
+
+
+
+
+
+
+
 
 
 
@@ -60,12 +60,12 @@ namespace Project1 {
 
 
 	private: System::Windows::Forms::TabPage^  tp1;
-	private: System::Windows::Forms::TextBox^  textBox3;
-	private: System::Windows::Forms::TextBox^  textBox2;
-	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Label^  label3;
+
+
+
+
+
+
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::Label^  lblNome;
 	private: System::Windows::Forms::Label^  label1;
@@ -97,6 +97,9 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Label^  label13;
+	private: System::Windows::Forms::Label^  label14;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::Label^  label3;
 
 	private:
 		/// <summary>
@@ -112,23 +115,9 @@ namespace Project1 {
 		void InitializeComponent(void)
 		{
 			this->tpNot = (gcnew System::Windows::Forms::TabPage());
-			this->btnMatNovo = (gcnew System::Windows::Forms::Button());
-			this->btnMatDel = (gcnew System::Windows::Forms::Button());
-			this->btnMatEdit = (gcnew System::Windows::Forms::Button());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->dgvMaterial = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->tp1 = (gcnew System::Windows::Forms::TabPage());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -152,8 +141,10 @@ namespace Project1 {
 			this->maskedTextBox1 = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->tpNot->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -166,11 +157,7 @@ namespace Project1 {
 			// 
 			// tpNot
 			// 
-			this->tpNot->Controls->Add(this->btnMatNovo);
-			this->tpNot->Controls->Add(this->btnMatDel);
-			this->tpNot->Controls->Add(this->btnMatEdit);
 			this->tpNot->Controls->Add(this->label9);
-			this->tpNot->Controls->Add(this->dgvMaterial);
 			this->tpNot->Controls->Add(this->label10);
 			this->tpNot->Controls->Add(this->pictureBox4);
 			this->tpNot->Location = System::Drawing::Point(4, 79);
@@ -179,85 +166,6 @@ namespace Project1 {
 			this->tpNot->TabIndex = 4;
 			this->tpNot->Text = L"NOTIFICAÇÃO";
 			this->tpNot->UseVisualStyleBackColor = true;
-			// 
-			// btnMatNovo
-			// 
-			this->btnMatNovo->Location = System::Drawing::Point(250, 350);
-			this->btnMatNovo->Name = L"btnMatNovo";
-			this->btnMatNovo->Size = System::Drawing::Size(105, 38);
-			this->btnMatNovo->TabIndex = 21;
-			this->btnMatNovo->Text = L"Novo";
-			this->btnMatNovo->UseVisualStyleBackColor = true;
-			// 
-			// btnMatDel
-			// 
-			this->btnMatDel->Location = System::Drawing::Point(472, 350);
-			this->btnMatDel->Name = L"btnMatDel";
-			this->btnMatDel->Size = System::Drawing::Size(105, 38);
-			this->btnMatDel->TabIndex = 20;
-			this->btnMatDel->Text = L"Deletar";
-			this->btnMatDel->UseVisualStyleBackColor = true;
-			// 
-			// btnMatEdit
-			// 
-			this->btnMatEdit->Location = System::Drawing::Point(361, 350);
-			this->btnMatEdit->Name = L"btnMatEdit";
-			this->btnMatEdit->Size = System::Drawing::Size(105, 38);
-			this->btnMatEdit->TabIndex = 19;
-			this->btnMatEdit->Text = L"Editar";
-			this->btnMatEdit->UseVisualStyleBackColor = true;
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(246, 77);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(72, 20);
-			this->label9->TabIndex = 17;
-			this->label9->Text = L"Consulta";
-			// 
-			// dgvMaterial
-			// 
-			this->dgvMaterial->AllowUserToAddRows = false;
-			this->dgvMaterial->AllowUserToDeleteRows = false;
-			this->dgvMaterial->AllowUserToResizeColumns = false;
-			this->dgvMaterial->AllowUserToResizeRows = false;
-			this->dgvMaterial->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvMaterial->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
-				this->dataGridViewTextBoxColumn3,
-					this->dataGridViewTextBoxColumn5, this->dataGridViewTextBoxColumn6
-			});
-			this->dgvMaterial->Location = System::Drawing::Point(250, 100);
-			this->dgvMaterial->MultiSelect = false;
-			this->dgvMaterial->Name = L"dgvMaterial";
-			this->dgvMaterial->ReadOnly = true;
-			this->dgvMaterial->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dgvMaterial->ShowEditingIcon = false;
-			this->dgvMaterial->Size = System::Drawing::Size(713, 225);
-			this->dgvMaterial->TabIndex = 16;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Nome";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 220;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"Unidade de Medida";
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			this->dataGridViewTextBoxColumn5->Width = 310;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"Custo (R$/u.m.)";
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			this->dataGridViewTextBoxColumn6->Width = 140;
 			// 
 			// label10
 			// 
@@ -281,11 +189,6 @@ namespace Project1 {
 			// 
 			// tp1
 			// 
-			this->tp1->Controls->Add(this->textBox3);
-			this->tp1->Controls->Add(this->textBox2);
-			this->tp1->Controls->Add(this->textBox1);
-			this->tp1->Controls->Add(this->label5);
-			this->tp1->Controls->Add(this->label4);
 			this->tp1->Controls->Add(this->label3);
 			this->tp1->Controls->Add(this->pictureBox1);
 			this->tp1->Controls->Add(this->lblNome);
@@ -297,75 +200,6 @@ namespace Project1 {
 			this->tp1->TabIndex = 0;
 			this->tp1->Text = L"DASHBOARD";
 			this->tp1->UseVisualStyleBackColor = true;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Enabled = false;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(410, 225);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(50, 38);
-			this->textBox3->TabIndex = 9;
-			this->textBox3->Text = L"0";
-			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox2
-			// 
-			this->textBox2->Enabled = false;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(410, 165);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(50, 38);
-			this->textBox2->TabIndex = 6;
-			this->textBox2->Text = L"0";
-			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// textBox1
-			// 
-			this->textBox1->Enabled = false;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(410, 105);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(50, 38);
-			this->textBox1->TabIndex = 5;
-			this->textBox1->Text = L"0";
-			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(276, 232);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(341, 31);
-			this->label5->TabIndex = 8;
-			this->label5->Text = L"das quais           agendadas";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(300, 170);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(586, 31);
-			this->label4->TabIndex = 4;
-			this->label4->Text = L"Existem          ordens de serviço não cumpridas,";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(300, 110);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(375, 31);
-			this->label3->TabIndex = 3;
-			this->label3->Text = L"Existem          buracos abertos";
 			// 
 			// pictureBox1
 			// 
@@ -416,6 +250,7 @@ namespace Project1 {
 			// 
 			// tpBuraco
 			// 
+			this->tpBuraco->Controls->Add(this->label14);
 			this->tpBuraco->Controls->Add(this->label13);
 			this->tpBuraco->Location = System::Drawing::Point(4, 79);
 			this->tpBuraco->Name = L"tpBuraco";
@@ -638,6 +473,34 @@ namespace Project1 {
 			this->label13->TabIndex = 18;
 			this->label13->Text = L"Cadastro de Buraco";
 			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(117, 107);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(252, 13);
+			this->label14->TabIndex = 19;
+			this->label14->Text = L"fazer tela de cadastro de buraco (fonte tamanho 12)";
+			this->label14->Click += gcnew System::EventHandler(this, &DashboardAssessor::label14_Click);
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(268, 100);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(172, 13);
+			this->label9->TabIndex = 20;
+			this->label9->Text = L"fazer tela de resposta a notificação";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(287, 100);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(166, 13);
+			this->label3->TabIndex = 20;
+			this->label3->Text = L"inventa alguma coisa pra por aqui";
+			// 
 			// DashboardAssessor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -649,7 +512,6 @@ namespace Project1 {
 			this->Load += gcnew System::EventHandler(this, &DashboardAssessor::DashboardAssessor_Load);
 			this->tpNot->ResumeLayout(false);
 			this->tpNot->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->tp1->ResumeLayout(false);
 			this->tp1->PerformLayout();
@@ -681,5 +543,7 @@ namespace Project1 {
 		else //cidadao nao encontrado ; nao faz nada
 			;
 	}
+private: System::Void label14_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

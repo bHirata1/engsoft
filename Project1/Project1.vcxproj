@@ -152,6 +152,7 @@
     <ClCompile Include="Cidadao.cpp" />
     <ClCompile Include="Custo.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
+    <ClCompile Include="DashboardEncarregado.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
     <ClCompile Include="Equipamento.cpp" />
     <ClCompile Include="EquipamentoDAO.cpp" />
@@ -185,6 +186,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DashboardDespachador.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DashboardEncarregado.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="DashboardGestor.h">
@@ -238,6 +242,9 @@
       <DependentUpon>DashboardAssessor.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardDespachador.resx" />
+    <EmbeddedResource Include="DashboardEncarregado.resx">
+      <DependentUpon>DashboardEncarregado.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardGestor.resx" />
     <EmbeddedResource Include="GerenciarEquipamentos.resx">
       <DependentUpon>GerenciarEquipamentos.h</DependentUpon>
