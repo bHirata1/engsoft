@@ -76,16 +76,6 @@ void Buraco::setregional(string regional)
 	this->regional = regional;
 }
 
-int Buraco::getreclamacoes()
-{
-	return this->reclamacoes;
-}
-
-void Buraco::setreclamacoes(int reclamacoes)
-{
-	this->reclamacoes = reclamacoes;
-}
-
 int Buraco::getidordem()
 {
 	return this->idordem;

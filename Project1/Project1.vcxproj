@@ -151,6 +151,7 @@
     <ClCompile Include="BuracoDAO.cpp" />
     <ClCompile Include="Cidadao.cpp" />
     <ClCompile Include="Custo.cpp" />
+    <ClCompile Include="CustoDAO.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
     <ClCompile Include="DashboardEncarregado.cpp" />
     <ClCompile Include="DashboardGestor.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Cidadao.h" />
     <ClInclude Include="Conv.h" />
     <ClInclude Include="Custo.h" />
+    <ClInclude Include="CustoDAO.h" />
     <ClInclude Include="DashboardAssessor.h">
       <FileType>CppForm</FileType>
     </ClInclude>

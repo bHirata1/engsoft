@@ -13,4 +13,6 @@ public:
 	static void Ordem_De_ServicoDAO::editarOrdemDeServico(string nome, float custo, int idordemDeServico);
 	static Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico);
 	static Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarTudo();
+	static Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAbertas();
+	static Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemDeServico(string rua);
 };

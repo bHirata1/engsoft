@@ -1,6 +1,7 @@
 #pragma once
 #include "Equipe.h"
 #include <msclr\marshal_cppstd.h>
+#include "UsuarioDAO.h"
 
 namespace InfoBuraco {
 
@@ -20,6 +21,14 @@ namespace InfoBuraco {
 		GerenciarEquipes(void)
 		{
 			InitializeComponent();
+			Usuario ** u = UsuarioDAO::buscarUsuario(2);
+			int i = 0;
+			while (u[i] != NULL)
+			{
+				String^ str = gcnew String(u[i]->getlogin().c_str());
+				cmbEncarregado->Items->Add(str);
+				i++;
+			}
 			//
 			//TODO: Add the constructor code here
 			//
@@ -28,10 +37,18 @@ namespace InfoBuraco {
 		GerenciarEquipes(Equipe * e)
 		{
 			InitializeComponent();
+			Usuario ** u = UsuarioDAO::buscarUsuario(2);
+			int i = 0;
+			while (u[i] != NULL)
+			{
+				String^ str = gcnew String(u[i]->getlogin().c_str());
+				cmbEncarregado->Items->Add(str);
+				i++;
+			}
 			String ^str = gcnew String(e->getnomeequipe().c_str());
 			txtNome->Text = str;
 			str = gcnew String(e->getencarregado().c_str());
-			txtEncarregado->Text = str;
+			cmbEncarregado->Text = str;
 			numCusto->Value = (System::Decimal)e->getcusto();
 			numTamanho->Value = e->gettamanho();
 			txtNome->Enabled = false;
@@ -48,6 +65,10 @@ namespace InfoBuraco {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::ComboBox^  cmbEncarregado;
+	protected:
+
+	protected:
 	private: Equipe * eq = NULL;
 	public: Equipe * retorno()
 	{
@@ -60,10 +81,10 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::TextBox^  txtNome;
-	private: System::Windows::Forms::TextBox^  txtEncarregado;
 
 
-	private: System::Windows::Forms::Button^  button1;
+
+
 	private: System::Windows::Forms::NumericUpDown^  numTamanho;
 	private: System::Windows::Forms::NumericUpDown^  numCusto;
 
@@ -91,13 +112,12 @@ namespace InfoBuraco {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->txtNome = (gcnew System::Windows::Forms::TextBox());
-			this->txtEncarregado = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->numTamanho = (gcnew System::Windows::Forms::NumericUpDown());
 			this->numCusto = (gcnew System::Windows::Forms::NumericUpDown());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->cmbEncarregado = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numTamanho))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numCusto))->BeginInit();
 			this->SuspendLayout();
@@ -170,28 +190,8 @@ namespace InfoBuraco {
 			this->txtNome->Location = System::Drawing::Point(167, 84);
 			this->txtNome->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtNome->Name = L"txtNome";
-			this->txtNome->Size = System::Drawing::Size(518, 26);
+			this->txtNome->Size = System::Drawing::Size(408, 26);
 			this->txtNome->TabIndex = 5;
-			// 
-			// txtEncarregado
-			// 
-			this->txtEncarregado->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->txtEncarregado->Location = System::Drawing::Point(167, 120);
-			this->txtEncarregado->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->txtEncarregado->Name = L"txtEncarregado";
-			this->txtEncarregado->Size = System::Drawing::Size(408, 26);
-			this->txtEncarregado->TabIndex = 6;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(583, 120);
-			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(102, 26);
-			this->button1->TabIndex = 7;
-			this->button1->Text = L"Selecionar";
-			this->button1->UseVisualStyleBackColor = true;
 			// 
 			// numTamanho
 			// 
@@ -210,7 +210,7 @@ namespace InfoBuraco {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(83, 210);
+			this->button2->Location = System::Drawing::Point(26, 222);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(134, 40);
 			this->button2->TabIndex = 10;
@@ -220,7 +220,7 @@ namespace InfoBuraco {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(243, 210);
+			this->button3->Location = System::Drawing::Point(186, 222);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(134, 40);
 			this->button3->TabIndex = 11;
@@ -230,7 +230,7 @@ namespace InfoBuraco {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(551, 210);
+			this->button4->Location = System::Drawing::Point(441, 222);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(134, 40);
 			this->button4->TabIndex = 12;
@@ -238,18 +238,26 @@ namespace InfoBuraco {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &GerenciarEquipes::button4_Click);
 			// 
+			// cmbEncarregado
+			// 
+			this->cmbEncarregado->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbEncarregado->FormattingEnabled = true;
+			this->cmbEncarregado->Location = System::Drawing::Point(167, 120);
+			this->cmbEncarregado->Name = L"cmbEncarregado";
+			this->cmbEncarregado->Size = System::Drawing::Size(408, 28);
+			this->cmbEncarregado->TabIndex = 13;
+			// 
 			// GerenciarEquipes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(714, 283);
+			this->ClientSize = System::Drawing::Size(602, 290);
+			this->Controls->Add(this->cmbEncarregado);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->numCusto);
 			this->Controls->Add(this->numTamanho);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->txtEncarregado);
 			this->Controls->Add(this->txtNome);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -277,8 +285,9 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	txtEncarregado->Text = "";
-	txtNome->Text = "";
+	cmbEncarregado->SelectedIndex = -1;
+	if(txtNome->Enabled)
+		txtNome->Text = "";
 	numCusto->Text = "0";
 	numTamanho->Text = "0";
 }
@@ -286,7 +295,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 
 	eq = new Equipe();
 	eq->setnomeequipe(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
-	eq->setencarregado(msclr::interop::marshal_as<std::string>(this->txtEncarregado->Text));
+	eq->setencarregado(msclr::interop::marshal_as<std::string>(this->cmbEncarregado->Text));
 	eq->setcusto(Convert::ToDouble(numCusto->Value));
 	eq->settamanho(Convert::ToInt32(numTamanho->Value));
 	this->Close();

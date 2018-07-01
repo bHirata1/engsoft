@@ -4,6 +4,7 @@
 #include "VerFoto.h"
 #include <msclr\marshal_cppstd.h>
 #include "Ordem_de_Servico.h"
+#include "Ordem_de_ServicoDAO.h"
 
 
 namespace Project1 {
@@ -80,6 +81,7 @@ namespace Project1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
 	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  button2;
 
 
 
@@ -111,6 +113,7 @@ namespace Project1 {
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -171,14 +174,14 @@ namespace Project1 {
 			// 
 			this->txtRua->Location = System::Drawing::Point(185, 84);
 			this->txtRua->Name = L"txtRua";
-			this->txtRua->Size = System::Drawing::Size(620, 26);
+			this->txtRua->Size = System::Drawing::Size(509, 26);
 			this->txtRua->TabIndex = 13;
 			// 
 			// btnFilt
 			// 
-			this->btnFilt->Location = System::Drawing::Point(811, 84);
+			this->btnFilt->Location = System::Drawing::Point(700, 82);
 			this->btnFilt->Name = L"btnFilt";
-			this->btnFilt->Size = System::Drawing::Size(95, 26);
+			this->btnFilt->Size = System::Drawing::Size(100, 30);
 			this->btnFilt->TabIndex = 14;
 			this->btnFilt->Text = L"Filtrar";
 			this->btnFilt->UseVisualStyleBackColor = true;
@@ -202,6 +205,7 @@ namespace Project1 {
 			this->btnCancel->TabIndex = 16;
 			this->btnCancel->Text = L"Cancelar";
 			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &Adicionar_Ordem::btnCancel_Click);
 			// 
 			// label8
 			// 
@@ -224,11 +228,21 @@ namespace Project1 {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Adicionar_Ordem::button1_Click_1);
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(806, 82);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(100, 30);
+			this->button2->TabIndex = 19;
+			this->button2->Text = L"Ver Todos";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
 			// Adicionar_Ordem
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(951, 581);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->btnCancel);
@@ -254,12 +268,18 @@ namespace Project1 {
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		this->Hide();
 	}
-	private: System::Void Adicionar_Ordem_Load(System::Object^  sender, System::EventArgs^  e) {
-		dgvOrdem->Rows->Add("1", "1", "Rua Alexandre Calame", "80");
-		dgvOrdem->Rows->Add("45", "1", "Rua Alexandre Salame", "30");
-		dgvOrdem->Rows->Add("1231", "1", "Rua Jorge Batista", "45");
-		dgvOrdem->Rows->Add("765", "1", "Av Luciano Gualberto", "78");
-		dgvOrdem->Rows->Add("12", "1", "Rua Alexandre Calame", "101");
+	private: System::Void Adicionar_Ordem_Load(System::Object^  sender, System::EventArgs^  e) 
+	{
+
+		Ordem_de_Servico **os = Ordem_De_ServicoDAO::SelecionarAbertas();
+		int i = 0;
+		while(os[i] != NULL)
+		{
+			System::String^ str = gcnew String(os[i]->getburaco()->getnomerua().c_str());
+			dgvOrdem->Rows->Add(os[i]->getidordem().ToString(), os[i]->getprioridade().ToString(),str, os[i]->getburaco()->getnumero().ToString());
+			i++;
+		}
+
 		
 	}
 	private: System::Void dgvEquipamento_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
@@ -268,6 +288,17 @@ private: System::Void btnAdd_Click(System::Object^  sender, System::EventArgs^  
 	this->Close();
 }
 private: System::Void btnFilt_Click(System::Object^  sender, System::EventArgs^  e) {
+		
+	dgvOrdem->Rows->Clear();
+	Ordem_de_Servico **os = Ordem_De_ServicoDAO::buscarOrdemDeServico(msclr::interop::marshal_as<std::string>(txtRua->Text));
+	int i = 0;
+	while (os[i] != NULL)
+	{
+		System::String^ str = gcnew String(os[i]->getburaco()->getnomerua().c_str());
+		dgvOrdem->Rows->Add(os[i]->getidordem().ToString(), os[i]->getprioridade().ToString(), str, os[i]->getburaco()->getnumero().ToString());
+		i++;
+	}
+
 }
 private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 
@@ -275,6 +306,9 @@ private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs
 	VerFoto ^vf = gcnew VerFoto("batata");
 	vf->ShowDialog();
 	this->Show();
+}
+private: System::Void btnCancel_Click(System::Object^  sender, System::EventArgs^  e) {
+	this->Close();
 }
 };
 }

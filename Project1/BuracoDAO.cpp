@@ -8,7 +8,7 @@ BuracoDAO::BuracoDAO()
 {
 }
 
-void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string regional, int reclamacoes, int idordem, int tamanho)
+void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string regional, int tamanho)
 {
 	string log;
 	sql::Connection * connection;
@@ -18,15 +18,13 @@ void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string re
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("INSERT INTO Buraco (nomerua, numero, posrel, regional, reclamacoes, idordem, tamanho) VALUES (?,?,?,?,?,?,?)");
+		preparedStatement = connection->prepareStatement("INSERT INTO Buraco (nomerua, numero, posrel, regional, tamanho) VALUES (?,?,?,?,?,?,?)");
 
 		preparedStatement->setString(1, nomerua.c_str());
 		preparedStatement->setInt(2, numero);
 		preparedStatement->setString(3, posrel.c_str());
 		preparedStatement->setString(4, regional.c_str());
-		preparedStatement->setInt(5, reclamacoes);
-		preparedStatement->setInt(6, idordem);
-		preparedStatement->setInt(7, tamanho);
+		preparedStatement->setInt(5, tamanho);
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -58,7 +56,7 @@ void BuracoDAO::deletarBuraco(int idburaco)
 	}
 }
 
-void BuracoDAO::editarBuraco(int idburaco, string nomerua, int numero, string posrel, string regional, int reclamacoes, int idordem, int tamanho)
+void BuracoDAO::editarBuraco(int idburaco, string nomerua, int numero, string posrel, string regional,  int tamanho)
 {
 	string log;
 	sql::Connection * connection;
@@ -68,16 +66,14 @@ void BuracoDAO::editarBuraco(int idburaco, string nomerua, int numero, string po
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("UPDATE Buraco SET nomerua = ?, numero = ?, posrel = ?, regional = ?, reclamacoes = ?, idordem = ?, tamanho = ? WHERE idburaco = ?");
+		preparedStatement = connection->prepareStatement("UPDATE Buraco SET nomerua = ?, numero = ?, posrel = ?, regional = ?,tamanho = ? WHERE idburaco = ?");
 
 		preparedStatement->setString(1, nomerua.c_str());
 		preparedStatement->setInt(2, numero);
 		preparedStatement->setString(3, posrel.c_str());
 		preparedStatement->setString(4, regional.c_str());
-		preparedStatement->setInt(5, reclamacoes);
-		preparedStatement->setInt(6, idordem);
-		preparedStatement->setInt(7, tamanho);
-		preparedStatement->setInt(8, idburaco);		
+		preparedStatement->setInt(5, tamanho);
+		preparedStatement->setInt(6, idburaco);		
 	}
 	catch (sql::SQLException e)
 	{
@@ -98,7 +94,8 @@ Buraco** BuracoDAO::buscarBuraco(string nomerua)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, reclamacoes, idordem, tamanho FROM Buraco WHERE nomerua = ?");
+		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, tamanho FROM Buraco WHERE nomerua = ?");
+		preparedStatement->setString(1, nomerua);
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		buraco = new Buraco*[t];
@@ -109,12 +106,46 @@ Buraco** BuracoDAO::buscarBuraco(string nomerua)
 			buraco[i]->setnumero(resultSet->getInt(2));
 			buraco[i]->setposrel(resultSet->getString(3).c_str());
 			buraco[i]->setregional(resultSet->getString(4).c_str());
-			buraco[i]->setreclamacoes(resultSet->getInt(5));
-			buraco[i]->setidordem(resultSet->getInt(6));
-			buraco[i]->settamanho(resultSet->getInt(7));
+			buraco[i]->settamanho(resultSet->getInt(5));
 			i++;
 		}
 		buraco[i] = NULL;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return buraco;
+}
+
+Buraco* BuracoDAO::buscarBuraco(int id)
+{
+	string log;
+	Buraco * buraco;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, tamanho FROM Buraco WHERE idburaco = ?");
+		preparedStatement->setInt(1, id);
+		resultSet = preparedStatement->executeQuery();
+		t = resultSet->rowsCount() + 1;
+		buraco = new Buraco();
+		if(resultSet->next())
+		{
+
+			buraco= new Buraco();
+			buraco->setnomerua(resultSet->getString(1).c_str());
+			buraco->setnumero(resultSet->getInt(2));
+			buraco->setposrel(resultSet->getString(3).c_str());
+			buraco->setregional(resultSet->getString(4).c_str());
+			buraco->settamanho(resultSet->getInt(5));
+		}
 	}
 	catch (sql::SQLException e)
 	{
@@ -136,7 +167,7 @@ Buraco** BuracoDAO::SelecionarTudo()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, reclamacoes, idordem, tamanho, idburaco from Buraco");
+		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, tamanho, idburaco from Buraco");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		buraco = new Buraco*[t];
@@ -147,10 +178,8 @@ Buraco** BuracoDAO::SelecionarTudo()
 			buraco[i]->setnumero(resultSet->getInt(2));
 			buraco[i]->setposrel(resultSet->getString(3).c_str());
 			buraco[i]->setregional(resultSet->getString(4).c_str());
-			buraco[i]->setreclamacoes(resultSet->getInt(5));
-			buraco[i]->setidordem(resultSet->getInt(6));
-			buraco[i]->settamanho(resultSet->getInt(7));
-			buraco[i]->setidburaco(resultSet->getInt(8));
+			buraco[i]->settamanho(resultSet->getInt(5));
+			buraco[i]->setidburaco(resultSet->getInt(6));
 			i++;
 		}
 		buraco[i] = NULL;

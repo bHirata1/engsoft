@@ -12,5 +12,6 @@ public:
 	static void UsuarioDAO::deletarUsuario(string login);
 	static void UsuarioDAO::editarUsuario(string login, string senha, int tipo, string regional);
 	static Usuario* UsuarioDAO::buscarUsuario(string login);
+	static Usuario** UsuarioDAO::buscarUsuario(int tipo);
 	static Usuario** UsuarioDAO::SelecionarTudo();
 };

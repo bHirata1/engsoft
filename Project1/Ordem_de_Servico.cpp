@@ -2,7 +2,7 @@
 
 Ordem_de_Servico::Ordem_de_Servico()
 {
-
+	this->buraco = new Buraco();
 }
 
 Ordem_de_Servico::~Ordem_de_Servico()
@@ -60,12 +60,12 @@ void Ordem_de_Servico::setstatus(string status)
 	this->status = status;
 }
 
-Buraco Ordem_de_Servico::getburaco()
+Buraco* Ordem_de_Servico::getburaco()
 {
 	return this->buraco;
 }
 
-void Ordem_de_Servico::setburaco(Buraco buraco)
+void Ordem_de_Servico::setburaco(Buraco* buraco)
 {
 	this->buraco = buraco;
 }

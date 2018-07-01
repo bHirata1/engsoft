@@ -39,9 +39,6 @@ public:
 	string getregional();
 	void setregional(string regional);
 
-	int getreclamacoes();
-	void setreclamacoes(int reclamacoes);
-
 	int getidordem();
 	void setidordem(int id);
 

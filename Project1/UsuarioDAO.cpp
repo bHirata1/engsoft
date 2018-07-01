@@ -111,6 +111,38 @@ Usuario* UsuarioDAO::buscarUsuario(string login)
 	return usuario;
 }
 
+Usuario** UsuarioDAO::buscarUsuario(int tipo)
+{
+	string log;
+	Usuario ** usuario;
+	int t, i = 0;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT login FROM Usuario WHERE tipo = ?");
+		preparedStatement->setInt(1, tipo);
+		resultSet = preparedStatement->executeQuery();
+		t = resultSet->rowsCount() + 1;
+		usuario = new Usuario*[t];
+		while (resultSet->next()) {
+			usuario[i] = new Usuario();
+			usuario[i]->setlogin(resultSet->getString(1).c_str());
+			i++;
+		}
+		usuario[i] = NULL;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return usuario;
+}
+
 Usuario** UsuarioDAO::SelecionarTudo()
 {
 	string log;

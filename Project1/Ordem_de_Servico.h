@@ -17,7 +17,7 @@ private:
 	time_t data;
 	int prioridade;
 	string status;
-protected:	Buraco buraco;
+private:	Buraco *buraco;
 
 public:
 	Ordem_de_Servico();
@@ -38,8 +38,8 @@ public:
 	string getstatus();
 	void setstatus(string status);
 
-	Buraco getburaco();
-	void setburaco(Buraco buraco);
+	Buraco* getburaco();
+	void setburaco(Buraco *buraco);
 };
 
 #endif

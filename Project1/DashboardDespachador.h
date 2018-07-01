@@ -9,6 +9,7 @@
 #include "Ordem_de_Servico.h"
 #include <msclr\marshal_cppstd.h>
 #include "MaterialDAO.h"
+#include "CustoDAO.h"
 #include "EquipeDAO.h"
 #include "EquipamentoDAO.h"
 
@@ -55,6 +56,10 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox5;
+	private: System::Windows::Forms::TextBox^  txtCusto;
+
 
 
 
@@ -131,14 +136,14 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::Label^  label13;
-	private: System::Windows::Forms::TextBox^  txtCusto;
+
 	private: System::Windows::Forms::Button^  btnAlteraMob;
 
 	private: System::Windows::Forms::Button^  btnConfirmaMob;
 
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::Label^  label12;
-	private: System::Windows::Forms::PictureBox^  pictureBox5;
+
 	private: System::Windows::Forms::LinkLabel^  linkLabel1;
 	private: System::Windows::Forms::ComboBox^  cmbEquipe;
 
@@ -239,19 +244,19 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnMatEdit = (gcnew System::Windows::Forms::Button());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dgvMaterial = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->tpCM = (gcnew System::Windows::Forms::TabPage());
-			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->txtCusto = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->btnAlteraMob = (gcnew System::Windows::Forms::Button());
 			this->btnConfirmaMob = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -977,6 +982,27 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dgvMaterial->Size = System::Drawing::Size(713, 225);
 			this->dgvMaterial->TabIndex = 16;
 			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Nome";
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 220;
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"Unidade de Medida";
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
+			this->dataGridViewTextBoxColumn5->ReadOnly = true;
+			this->dataGridViewTextBoxColumn5->Width = 310;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"Custo (R$/u.m.)";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			this->dataGridViewTextBoxColumn6->ReadOnly = true;
+			this->dataGridViewTextBoxColumn6->Width = 140;
+			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
@@ -999,19 +1025,38 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// tpCM
 			// 
-			this->tpCM->Controls->Add(this->label13);
 			this->tpCM->Controls->Add(this->txtCusto);
+			this->tpCM->Controls->Add(this->pictureBox5);
+			this->tpCM->Controls->Add(this->label13);
 			this->tpCM->Controls->Add(this->btnAlteraMob);
 			this->tpCM->Controls->Add(this->btnConfirmaMob);
 			this->tpCM->Controls->Add(this->label11);
 			this->tpCM->Controls->Add(this->label12);
-			this->tpCM->Controls->Add(this->pictureBox5);
 			this->tpCM->Location = System::Drawing::Point(4, 79);
 			this->tpCM->Name = L"tpCM";
 			this->tpCM->Size = System::Drawing::Size(982, 420);
 			this->tpCM->TabIndex = 5;
 			this->tpCM->Text = L"MOBILIZAÇÃO";
 			this->tpCM->UseVisualStyleBackColor = true;
+			// 
+			// txtCusto
+			// 
+			this->txtCusto->Enabled = false;
+			this->txtCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtCusto->Location = System::Drawing::Point(300, 130);
+			this->txtCusto->Name = L"txtCusto";
+			this->txtCusto->Size = System::Drawing::Size(100, 26);
+			this->txtCusto->TabIndex = 30;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Location = System::Drawing::Point(30, 100);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(192, 192);
+			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox5->TabIndex = 29;
+			this->pictureBox5->TabStop = false;
 			// 
 			// label13
 			// 
@@ -1023,17 +1068,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label13->Size = System::Drawing::Size(55, 20);
 			this->label13->TabIndex = 27;
 			this->label13->Text = L"R$/km";
-			// 
-			// txtCusto
-			// 
-			this->txtCusto->Enabled = false;
-			this->txtCusto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->txtCusto->Location = System::Drawing::Point(300, 130);
-			this->txtCusto->Name = L"txtCusto";
-			this->txtCusto->Size = System::Drawing::Size(100, 26);
-			this->txtCusto->TabIndex = 26;
-			this->txtCusto->Text = L"75,00";
 			// 
 			// btnAlteraMob
 			// 
@@ -1078,36 +1112,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Custo de Mobilização";
 			// 
-			// pictureBox5
-			// 
-			this->pictureBox5->Location = System::Drawing::Point(30, 100);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(192, 192);
-			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox5->TabIndex = 20;
-			this->pictureBox5->TabStop = false;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Nome";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 220;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"Unidade de Medida";
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			this->dataGridViewTextBoxColumn5->Width = 310;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"Custo (R$/u.m.)";
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			this->dataGridViewTextBoxColumn6->Width = 140;
-			// 
 			// DashboardDespachador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1150,6 +1154,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 		dgvEquipe->Rows->Clear();
 		dgvMaterial->Rows->Clear();
 		dgvCSEquip->Rows->Clear();
+		cmbEquipe->Items->Clear();
 
 		Equipe ** eq = EquipeDAO::SelecionarTudo();
 		while (eq[i] != NULL)
@@ -1157,9 +1162,11 @@ private: System::Windows::Forms::Button^  btnSaida;
 			String^ str1 = gcnew String(eq[i]->getnomeequipe().c_str());
 			String^ str2 = gcnew String(eq[i]->getencarregado().c_str());
 			dgvEquipe->Rows->Add(str1, str2, eq[i]->gettamanho().ToString(), eq[i]->getcusto().ToString());
+			cmbEquipe->Items->Add(str1);
 			i++;
 		}
 
+		txtCusto->Text = CustoDAO::getCusto().ToString();
 		i = 0;
 
 		Equipamento ** eqp = EquipamentoDAO::SelecionarTudo();
@@ -1173,11 +1180,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 		}
 
 		i = 0;
-
-		this->cmbEquipe->Items->Add("Equipe 1");
-		this->cmbEquipe->Items->Add("Equipe 2");
-		this->cmbEquipe->Items->Add("Equipe 3");
-		this->cmbEquipe->Items->Add("Equipe 4");
 
 		Material ** m = MaterialDAO::SelecionarTudo();
 		while (m[i] != NULL)
@@ -1220,16 +1222,16 @@ private: System::Windows::Forms::Button^  btnSaida;
 		txtCusto->Enabled = false;
 		btnConfirmaMob->Enabled = false;
 		btnAlteraMob->Enabled = true;
+		System::String^ s = txtCusto->Text;
+		CustoDAO::setCusto(Convert::ToDouble(s->Replace(",", ".")));
 	}
 	private: System::Void linkLabel1_LinkClicked(System::Object^  sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^  e) {
-		Equipe * equipe = new Equipe();
-		equipe->setcusto(45);
-		equipe->setnomeequipe("Jorger");
-		equipe->settamanho(50);
-		equipe->setencarregado("João");
-		VerEquipe^ ver = gcnew VerEquipe(equipe);
-		ver->ShowDialog();
-		ver->Close();
+		if (cmbEquipe->SelectedIndex != -1)
+		{
+			VerEquipe^ ver = gcnew VerEquipe(EquipeDAO::buscarEquipe(msclr::interop::marshal_as<std::string>(cmbEquipe->SelectedItem->ToString())));
+			ver->ShowDialog();
+			ver->Close();
+		}
 
 	}
 	private: System::Void pnlEquipamentos_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
