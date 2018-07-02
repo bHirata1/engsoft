@@ -1,6 +1,7 @@
 #include "Ordem_De_ServicoDAO.h"
 #include <stdio.h>
 #include "MySQLDAO.h"
+#include "Material.h"
 #include <string>
 #include "BuracoDAO.h"
 using namespace std;
@@ -54,6 +55,41 @@ void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
 	}
 }
 
+void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status, int num, string * mat, float* vol, int horas)
+{
+	string log;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET status = ?, horapessoal = ? WHERE idordem = ?");
+
+		preparedStatement->setString(1, status.c_str());
+		preparedStatement->setInt(2, horas);
+		preparedStatement->setInt(3, idordem);
+		resultSet = preparedStatement->executeQuery();
+	
+		int i;
+		for (i=0; i< num; i++)
+		{
+			preparedStatement = connection->prepareStatement("INSERT into MaterialOS (quantidade,nomematerial,idordem) values (?,?,?)");
+			preparedStatement->setDouble(1, vol[i]);
+			preparedStatement->setString(2, mat[i].c_str());
+			preparedStatement->setInt(3, idordem);
+			resultSet = preparedStatement->executeQuery();
+		}
+
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+}
+
 void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status)
 {
 	string log;
@@ -65,9 +101,8 @@ void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status)
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET status = ? WHERE idordem = ?");
-
 		preparedStatement->setString(1, status.c_str());
-		preparedStatement->setInt(2, idordem);
+		preparedStatement->setInt(3, idordem);
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -155,6 +190,43 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAbertas()
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem,nomerua,numero FROM OrdemServico join Buraco using (idburaco) where status='ABERTA'");
+		resultSet = preparedStatement->executeQuery();
+		t = resultSet->rowsCount() + 1;
+		os = new Ordem_de_Servico*[t];
+		while (resultSet->next()) {
+
+			os[i] = new Ordem_de_Servico();
+			//os[i]->setdata()
+			os[i]->setprioridade(resultSet->getInt(2));
+			os[i]->getburaco()->setidburaco(resultSet->getInt(3));
+			os[i]->setidordem(resultSet->getInt(4));
+			os[i]->getburaco()->setnomerua(resultSet->getString(5));
+			os[i]->getburaco()->setnumero(resultSet->getInt(6));
+			i++;
+		}
+		os[i] = NULL;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return os;
+}
+
+Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAgendadas()
+{
+	string log;
+	Ordem_de_Servico ** os;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem,nomerua,numero FROM OrdemServico join Buraco using (idburaco) where status='AGENDADA'");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		os = new Ordem_de_Servico*[t];
@@ -296,4 +368,43 @@ int Ordem_De_ServicoDAO::contarBuracosAbertos()
 		log = e.what();
 	}
 	return 0;
+}
+
+Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemPorSaida(int idsaida)
+{
+	string log;
+	Ordem_de_Servico ** os;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		System::String^ querry;
+		preparedStatement = connection->prepareStatement("SELECT data,OrdemServico.prioridade,idburaco,idordem,nomerua,numero from OrdemServico join SaidaOS using (idordem) join Buraco using (idburaco) where idsaida=?");
+		preparedStatement->setInt(1, idsaida);
+		resultSet = preparedStatement->executeQuery();
+		t = resultSet->rowsCount() + 1;
+		os = new Ordem_de_Servico*[t];
+		while (resultSet->next()) {
+
+			os[i] = new Ordem_de_Servico();
+			os[i]->setprioridade(resultSet->getInt(2));
+			os[i]->getburaco()->setidburaco(resultSet->getInt(3));
+			os[i]->setidordem(resultSet->getInt(4));
+			os[i]->getburaco()->setnomerua(resultSet->getString(5));
+			os[i]->getburaco()->setnumero(resultSet->getInt(6));
+			i++;
+		}
+		os[i] = NULL;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return os;
+
 }

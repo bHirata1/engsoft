@@ -83,7 +83,7 @@ void UsuarioDAO::editarUsuario(string login, string senha, int tipo, string regi
 Usuario* UsuarioDAO::buscarUsuario(string login)
 {
 	string log;
-	Usuario * usuario;
+	Usuario * usuario = NULL;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -98,6 +98,7 @@ Usuario* UsuarioDAO::buscarUsuario(string login)
 
 		if (resultSet->next()) {
 			usuario = new Usuario();
+			usuario->setlogin(login);
 			usuario->setsenha(resultSet->getString(1).c_str());
 			usuario->settipo(resultSet->getInt(2));
 			usuario->setregional(resultSet->getString(3).c_str());

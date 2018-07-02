@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "DashboardDespachador.h"
+#include "DashboardEncarregado.h"
+#include "UsuarioDAO.h"
 
 /*
 Referência: http://www.visualcplusdotnet.com/visualcplusdotnet21.html
@@ -191,13 +193,25 @@ private: System::Void bt_limpar_Click(System::Object^  sender, System::EventArgs
 }
 private: System::Void bt_validar_Click(System::Object^  sender, System::EventArgs^  e) {
 	
-	if (tb_senha->Text == "admin" && tb_login->Text == "admin")
+	Usuario* user = UsuarioDAO::buscarUsuario(msclr::interop::marshal_as<std::string>(tb_login->Text));
+	DashboardDespachador ^ j1;
+	DashboardEncarregado ^ j2;
+	if (user != NULL)
 	{
 		this->Hide();
-		DashboardDespachador^ janela = gcnew DashboardDespachador();
-		janela->ShowDialog();
-		this->Close();
+		switch (user->gettipo())
+		{
+			case 1: j1 = gcnew DashboardDespachador(user->getlogin());
+					j1->ShowDialog();
+					break;
+			case 2: j2 = gcnew DashboardEncarregado(user->getlogin());
+					j2->ShowDialog();
+					break;
+			case 3: break;
+		}
+		Application::Exit();
 	}
+
 }
 private: System::Void bt_janela2_Click(System::Object^  sender, System::EventArgs^  e) {
 }

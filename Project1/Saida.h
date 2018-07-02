@@ -14,7 +14,7 @@ class Saida
 {
 private:
 	int idsaida;
-	time_t data;
+	string data;
 	float distanciapercorrida;
 	string nomeequipe;
 
@@ -25,8 +25,8 @@ public:
 	int getidsaida();
 	void setidsaida(int id);
 
-	time_t getdata();
-	void setdata(time_t data);
+	string getdata();
+	void setdata(string data);
 
 	float getdistanciapercorrida();
 	void setdistanciapercorrida(float distancia);

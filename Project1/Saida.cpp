@@ -22,12 +22,12 @@ void Saida::setidsaida(int id)
 	this->idsaida = id;
 }
 
-time_t Saida::getdata()
+string Saida::getdata()
 {
 	return this->data;
 }
 
-void Saida::setdata(time_t data)
+void Saida::setdata(string data)
 {
 	this->data = data;
 }

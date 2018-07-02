@@ -1,3 +1,8 @@
+#ifndef USUARIODAO_H
+#define USUARIODAO_H
+
+
+
 #include "MySQLDAO.h"
 #include "Usuario.h"
 #include <stdio.h>
@@ -15,3 +20,5 @@ public:
 	static Usuario** UsuarioDAO::buscarUsuario(int tipo);
 	static Usuario** UsuarioDAO::SelecionarTudo();
 };
+
+#endif // !USUARIODAO_H

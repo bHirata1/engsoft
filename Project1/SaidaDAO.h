@@ -14,6 +14,8 @@ ref class SaidaDAO
 public:
 	SaidaDAO();
 
-	static void criarSaida(time_t data, string equipe, Ordem_de_Servico ** os, Equipamento ** eqp);
+	static void criarSaida(string data, string equipe, Ordem_de_Servico ** os, Equipamento ** eqp);
+	static int SaidaDAO::contarSaidasAgendadas(string login);
+	static Saida** SaidaDAO::SelecionarAgendadas(string nome);
 };
 

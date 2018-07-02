@@ -4,7 +4,7 @@
 
 using namespace System;
 
-class conv
+ref class conv
 {
 
 	static DateTime time_t2DateTime(std::time_t date) {

@@ -29,9 +29,11 @@ namespace InfoBuraco {
 	public ref class DashboardDespachador : public System::Windows::Forms::Form
 	{
 	public:
-		DashboardDespachador(void)
+		DashboardDespachador(string login)
 		{
 			InitializeComponent();
+			System::String^ str1 = gcnew String(login.c_str());
+			lblNome->Text = str1;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -1166,6 +1168,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 		dgvCSEquip->Rows->Clear();
 		cmbEquipe->Items->Clear();
 
+
 		lblAg->Text = Ordem_De_ServicoDAO::contarOrdensAgendadas().ToString();
 		lblBuraco->Text = Ordem_De_ServicoDAO::contarBuracosAbertos().ToString();
 		lblAberto->Text = Ordem_De_ServicoDAO::contarOrdensAbertas().ToString();
@@ -1340,7 +1343,13 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 		}
 	}
 	eqp[i] = NULL;
-	SaidaDAO::criarSaida(0, msclr::interop::marshal_as<std::string>(cmbEquipe->Text->ToString()) ,os,eqp);
+	
+	DateTime dt = dtDia->Value;
+	System::String^ y = System::String::Concat(dt.Year.ToString(), "-");
+	System::String^ m = System::String::Concat(dt.Month.ToString(), "-");
+	System::String^ date = System::String::Concat(m, y);
+	date = System::String::Concat(date, dt.Day.ToString());
+	SaidaDAO::criarSaida(msclr::interop::marshal_as<std::string>(date), msclr::interop::marshal_as<std::string>(cmbEquipe->Text->ToString()) ,os,eqp);
 }
 private: System::Void ltbDetalhes_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	ltbOrdem->SelectedIndex = ltbDetalhes->SelectedIndex;

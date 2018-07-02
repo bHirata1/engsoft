@@ -1,3 +1,6 @@
+#ifndef MATERIALDAO_H
+#define MATERIALDAO_H
+
 #include "MySQLDAO.h"
 #include "Material.h"
 #include <stdio.h>
@@ -14,3 +17,5 @@ public:
 	static Material* MaterialDAO::buscarMaterial(string nomematerial);
 	static Material** MaterialDAO::SelecionarTudo();
 };
+
+#endif
