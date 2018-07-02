@@ -96,6 +96,9 @@
     <ClCompile Include="CustoDAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaidaDAO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Login.h">
@@ -192,6 +195,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CustoDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaidaDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

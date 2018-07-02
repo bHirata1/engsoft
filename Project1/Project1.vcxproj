@@ -170,6 +170,7 @@
     <ClCompile Include="Ordem_de_Servico.cpp" />
     <ClCompile Include="Ordem_de_ServicoDAO.cpp" />
     <ClCompile Include="Saida.cpp" />
+    <ClCompile Include="SaidaDAO.cpp" />
     <ClCompile Include="Usuario.cpp" />
     <ClCompile Include="UsuarioDAO.cpp" />
     <ClCompile Include="VerFoto.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Ordem_de_Servico.h" />
     <ClInclude Include="Ordem_de_ServicoDAO.h" />
     <ClInclude Include="Saida.h" />
+    <ClInclude Include="SaidaDAO.h" />
     <ClInclude Include="SaidaOS.h" />
     <ClInclude Include="Usuario.h" />
     <ClInclude Include="UsuarioDAO.h" />

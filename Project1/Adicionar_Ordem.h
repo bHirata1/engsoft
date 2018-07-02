@@ -49,12 +49,15 @@ namespace Project1 {
 	{
 		Ordem_de_Servico ** os = new Ordem_de_Servico*[dgvOrdem->SelectedRows->Count + 1];
 		int i = 0;
-		for each (DataGridViewRow^ row in dgvOrdem->SelectedRows)
+		if (add)
 		{
-			os[i] = new Ordem_de_Servico();
-			os[i]->setidordem(Convert::ToInt32(row->Cells[0]->Value->ToString()));
-			os[i]->setstatus(msclr::interop::marshal_as<std::string>(row->Cells[2]->Value->ToString()));
-			i++;
+			for each (DataGridViewRow^ row in dgvOrdem->SelectedRows)
+			{
+				os[i] = new Ordem_de_Servico();
+				os[i]->setidordem(Convert::ToInt32(row->Cells[0]->Value->ToString()));
+				os[i]->getburaco()->setnomerua(msclr::interop::marshal_as<std::string>(row->Cells[2]->Value->ToString()));
+				i++;
+			}
 		}
 		os[i] = NULL;
 		return os;
@@ -83,7 +86,7 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 
-
+	private: bool add = false;
 
 
 
@@ -285,7 +288,8 @@ namespace Project1 {
 	private: System::Void dgvEquipamento_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 	}
 private: System::Void btnAdd_Click(System::Object^  sender, System::EventArgs^  e) {
-	this->Close();
+		add = true;
+		this->Close();
 }
 private: System::Void btnFilt_Click(System::Object^  sender, System::EventArgs^  e) {
 		

@@ -54,7 +54,7 @@ void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
 	}
 }
 
-void Ordem_De_ServicoDAO::editarOrdemDeServico(string nome, float custo, int idordemDeServico)
+void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status)
 {
 	string log;
 	sql::Connection * connection;
@@ -64,11 +64,10 @@ void Ordem_De_ServicoDAO::editarOrdemDeServico(string nome, float custo, int ido
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET nome = ?, custo = ? WHERE idordem = ?");
+		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET status = ? WHERE idordem = ?");
 
-		preparedStatement->setString(1, nome.c_str());
-		preparedStatement->setDouble(2, custo);
-		preparedStatement->setInt(3, idordemDeServico);
+		preparedStatement->setString(1, status.c_str());
+		preparedStatement->setInt(2, idordem);
 		resultSet = preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
@@ -89,7 +88,7 @@ Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nome, custo FROM OrdemServico WHERE idordemDeServico = ?");
+		preparedStatement = connection->prepareStatement("SELECT idordem FROM OrdemServico WHERE idordemDeServico = ?");
 		preparedStatement->setInt(1, idordemDeServico);
 		resultSet = preparedStatement->executeQuery();
 
@@ -218,4 +217,83 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemDeServico(string rua)
 		log = e.what();
 	}
 	return os;
+}
+
+
+int Ordem_De_ServicoDAO::contarOrdensAbertas()
+{
+	string log;
+	Ordem_de_Servico * ordemDeServico;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT count(*) FROM OrdemServico where status='ABERTA'");
+		resultSet = preparedStatement->executeQuery();
+
+		if (resultSet->next()) {
+			return resultSet->getInt(1);
+		}
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return 0;
+}
+
+int Ordem_De_ServicoDAO::contarOrdensAgendadas()
+{
+	string log;
+	Ordem_de_Servico * ordemDeServico;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT count(*) FROM OrdemServico where status='AGENDADA'");
+		resultSet = preparedStatement->executeQuery();
+
+		if (resultSet->next()) {
+			return resultSet->getInt(1);
+		}
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return 0;
+}
+
+int Ordem_De_ServicoDAO::contarBuracosAbertos()
+{
+	string log;
+	Ordem_de_Servico * ordemDeServico;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT count(*) FROM OrdemServico where status='ABERTA' or status='AGENDADA'");
+		resultSet = preparedStatement->executeQuery();
+
+		if (resultSet->next()) {
+			return resultSet->getInt(1);
+		}
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return 0;
 }
