@@ -1,5 +1,9 @@
 #pragma once
 
+#include "Buraco.h" 
+#include "BuracoDAO.h"
+#include <msclr\marshal_cppstd.h>
+
 namespace Project1 {
 
 	using namespace System;
@@ -97,9 +101,36 @@ namespace Project1 {
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Label^  label13;
+
+
+	private: System::Windows::Forms::Label^  label15;
 	private: System::Windows::Forms::Label^  label14;
-	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::ComboBox^  comboTamanho;
+	private: System::Windows::Forms::ComboBox^  comboPosRel;
+
+
+	private: System::Windows::Forms::TextBox^  textNumero;
+
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::TextBox^  textLogradouro;
+
+
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::TextBox^  textRegional;
+
 	private: System::Windows::Forms::Label^  label3;
+private: System::Windows::Forms::Button^  button2;
+private: System::Windows::Forms::Button^  btnFilt;
+private: System::Windows::Forms::TextBox^  txtRua;
+private: System::Windows::Forms::Label^  label9;
+private: System::Windows::Forms::DataGridView^  dgvOrdem;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColId;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColPrior;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
+
+
 
 	private:
 		/// <summary>
@@ -123,6 +154,18 @@ namespace Project1 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabcontrol = (gcnew System::Windows::Forms::TabControl());
 			this->tpBuraco = (gcnew System::Windows::Forms::TabPage());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textRegional = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->comboTamanho = (gcnew System::Windows::Forms::ComboBox());
+			this->comboPosRel = (gcnew System::Windows::Forms::ComboBox());
+			this->textNumero = (gcnew System::Windows::Forms::TextBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->textLogradouro = (gcnew System::Windows::Forms::TextBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->tpCidadao = (gcnew System::Windows::Forms::TabPage());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->btnCad = (gcnew System::Windows::Forms::Button());
@@ -140,10 +183,15 @@ namespace Project1 {
 			this->btnBusc = (gcnew System::Windows::Forms::Button());
 			this->maskedTextBox1 = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->btnFilt = (gcnew System::Windows::Forms::Button());
+			this->txtRua = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->dgvOrdem = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvColId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvColPrior = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvRua = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvColNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tpNot->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->tp1->SuspendLayout();
@@ -153,11 +201,16 @@ namespace Project1 {
 			this->tpCidadao->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->pnlCidadao->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tpNot
 			// 
+			this->tpNot->Controls->Add(this->button2);
+			this->tpNot->Controls->Add(this->btnFilt);
+			this->tpNot->Controls->Add(this->txtRua);
 			this->tpNot->Controls->Add(this->label9);
+			this->tpNot->Controls->Add(this->dgvOrdem);
 			this->tpNot->Controls->Add(this->label10);
 			this->tpNot->Controls->Add(this->pictureBox4);
 			this->tpNot->Location = System::Drawing::Point(4, 79);
@@ -189,7 +242,6 @@ namespace Project1 {
 			// 
 			// tp1
 			// 
-			this->tp1->Controls->Add(this->label3);
 			this->tp1->Controls->Add(this->pictureBox1);
 			this->tp1->Controls->Add(this->lblNome);
 			this->tp1->Controls->Add(this->label1);
@@ -250,7 +302,17 @@ namespace Project1 {
 			// 
 			// tpBuraco
 			// 
+			this->tpBuraco->Controls->Add(this->button1);
+			this->tpBuraco->Controls->Add(this->textRegional);
+			this->tpBuraco->Controls->Add(this->label3);
+			this->tpBuraco->Controls->Add(this->label15);
 			this->tpBuraco->Controls->Add(this->label14);
+			this->tpBuraco->Controls->Add(this->comboTamanho);
+			this->tpBuraco->Controls->Add(this->comboPosRel);
+			this->tpBuraco->Controls->Add(this->textNumero);
+			this->tpBuraco->Controls->Add(this->label5);
+			this->tpBuraco->Controls->Add(this->label4);
+			this->tpBuraco->Controls->Add(this->textLogradouro);
 			this->tpBuraco->Controls->Add(this->label13);
 			this->tpBuraco->Location = System::Drawing::Point(4, 79);
 			this->tpBuraco->Name = L"tpBuraco";
@@ -259,6 +321,139 @@ namespace Project1 {
 			this->tpBuraco->TabIndex = 6;
 			this->tpBuraco->Text = L"BURACO";
 			this->tpBuraco->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(195, 223);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(100, 36);
+			this->button1->TabIndex = 30;
+			this->button1->Text = L"CADASTRAR";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &DashboardAssessor::button1_Click);
+			// 
+			// textRegional
+			// 
+			this->textRegional->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textRegional->Location = System::Drawing::Point(195, 182);
+			this->textRegional->Name = L"textRegional";
+			this->textRegional->Size = System::Drawing::Size(350, 26);
+			this->textRegional->TabIndex = 29;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(24, 185);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(165, 20);
+			this->label3->TabIndex = 28;
+			this->label3->Text = L"Regional responsável:";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->Location = System::Drawing::Point(340, 145);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(80, 20);
+			this->label15->TabIndex = 27;
+			this->label15->Text = L"Tamanho:";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->Location = System::Drawing::Point(66, 145);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(123, 20);
+			this->label14->TabIndex = 26;
+			this->label14->Text = L"Posição relativa:";
+			// 
+			// comboTamanho
+			// 
+			this->comboTamanho->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboTamanho->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboTamanho->FormattingEnabled = true;
+			this->comboTamanho->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8",
+					L"9", L"10"
+			});
+			this->comboTamanho->Location = System::Drawing::Point(426, 142);
+			this->comboTamanho->Name = L"comboTamanho";
+			this->comboTamanho->Size = System::Drawing::Size(40, 28);
+			this->comboTamanho->TabIndex = 25;
+			// 
+			// comboPosRel
+			// 
+			this->comboPosRel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->comboPosRel->FormattingEnabled = true;
+			this->comboPosRel->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Meio da rua", L"Junto à guia", L"Em uma das pistas" });
+			this->comboPosRel->Location = System::Drawing::Point(195, 142);
+			this->comboPosRel->Name = L"comboPosRel";
+			this->comboPosRel->Size = System::Drawing::Size(116, 28);
+			this->comboPosRel->TabIndex = 24;
+			this->comboPosRel->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardAssessor::comboBox2_SelectedIndexChanged);
+			// 
+			// textNumero
+			// 
+			this->textNumero->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textNumero->Location = System::Drawing::Point(646, 102);
+			this->textNumero->Name = L"textNumero";
+			this->textNumero->Size = System::Drawing::Size(40, 26);
+			this->textNumero->TabIndex = 23;
+			this->textNumero->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(571, 105);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(69, 20);
+			this->label5->TabIndex = 22;
+			this->label5->Text = L"Número:";
+			this->label5->Click += gcnew System::EventHandler(this, &DashboardAssessor::label5_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(94, 105);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(95, 20);
+			this->label4->TabIndex = 21;
+			this->label4->Text = L"Logradouro:";
+			// 
+			// textLogradouro
+			// 
+			this->textLogradouro->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textLogradouro->Location = System::Drawing::Point(195, 102);
+			this->textLogradouro->Name = L"textLogradouro";
+			this->textLogradouro->Size = System::Drawing::Size(350, 26);
+			this->textLogradouro->TabIndex = 19;
+			this->textLogradouro->TextChanged += gcnew System::EventHandler(this, &DashboardAssessor::textBox1_TextChanged);
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label13->Location = System::Drawing::Point(30, 30);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(255, 31);
+			this->label13->TabIndex = 18;
+			this->label13->Text = L"Cadastro de Buraco";
 			// 
 			// tpCidadao
 			// 
@@ -462,44 +657,82 @@ namespace Project1 {
 			this->label11->TabIndex = 25;
 			this->label11->Text = L"Buscar por CPF:\r\n";
 			// 
-			// label13
+			// button2
 			// 
-			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(30, 30);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(255, 31);
-			this->label13->TabIndex = 18;
-			this->label13->Text = L"Cadastro de Buraco";
+			this->button2->Location = System::Drawing::Point(864, 82);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(100, 30);
+			this->button2->TabIndex = 24;
+			this->button2->Text = L"Ver Todos";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
-			// label14
+			// btnFilt
 			// 
-			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(117, 107);
-			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(252, 13);
-			this->label14->TabIndex = 19;
-			this->label14->Text = L"fazer tela de cadastro de buraco (fonte tamanho 12)";
-			this->label14->Click += gcnew System::EventHandler(this, &DashboardAssessor::label14_Click);
+			this->btnFilt->Location = System::Drawing::Point(758, 82);
+			this->btnFilt->Name = L"btnFilt";
+			this->btnFilt->Size = System::Drawing::Size(100, 30);
+			this->btnFilt->TabIndex = 23;
+			this->btnFilt->Text = L"Filtrar";
+			this->btnFilt->UseVisualStyleBackColor = true;
+			// 
+			// txtRua
+			// 
+			this->txtRua->Location = System::Drawing::Point(243, 84);
+			this->txtRua->Name = L"txtRua";
+			this->txtRua->Size = System::Drawing::Size(509, 20);
+			this->txtRua->TabIndex = 22;
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(268, 100);
+			this->label9->Location = System::Drawing::Point(130, 87);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(172, 13);
-			this->label9->TabIndex = 20;
-			this->label9->Text = L"fazer tela de resposta a notificação";
+			this->label9->Size = System::Drawing::Size(71, 13);
+			this->label9->TabIndex = 21;
+			this->label9->Text = L"Filtrar por rua:";
 			// 
-			// label3
+			// dgvOrdem
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(287, 100);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(166, 13);
-			this->label3->TabIndex = 20;
-			this->label3->Text = L"inventa alguma coisa pra por aqui";
+			this->dgvOrdem->AllowUserToAddRows = false;
+			this->dgvOrdem->AllowUserToDeleteRows = false;
+			this->dgvOrdem->AllowUserToResizeColumns = false;
+			this->dgvOrdem->AllowUserToResizeRows = false;
+			this->dgvOrdem->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvOrdem->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+				this->dgvColId, this->dgvColPrior,
+					this->dgvRua, this->dgvColNum
+			});
+			this->dgvOrdem->Location = System::Drawing::Point(120, 121);
+			this->dgvOrdem->Name = L"dgvOrdem";
+			this->dgvOrdem->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dgvOrdem->ShowEditingIcon = false;
+			this->dgvOrdem->Size = System::Drawing::Size(844, 370);
+			this->dgvOrdem->TabIndex = 20;
+			// 
+			// dgvColId
+			// 
+			this->dgvColId->HeaderText = L"Id Ordem";
+			this->dgvColId->Name = L"dgvColId";
+			this->dgvColId->ReadOnly = true;
+			// 
+			// dgvColPrior
+			// 
+			this->dgvColPrior->HeaderText = L"Prioridade";
+			this->dgvColPrior->Name = L"dgvColPrior";
+			this->dgvColPrior->ReadOnly = true;
+			// 
+			// dgvRua
+			// 
+			this->dgvRua->HeaderText = L"Logradouro";
+			this->dgvRua->Name = L"dgvRua";
+			this->dgvRua->ReadOnly = true;
+			this->dgvRua->Width = 500;
+			// 
+			// dgvColNum
+			// 
+			this->dgvColNum->HeaderText = L"Número";
+			this->dgvColNum->Name = L"dgvColNum";
+			this->dgvColNum->ReadOnly = true;
 			// 
 			// DashboardAssessor
 			// 
@@ -524,6 +757,7 @@ namespace Project1 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->pnlCidadao->ResumeLayout(false);
 			this->pnlCidadao->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -544,6 +778,23 @@ namespace Project1 {
 			;
 	}
 private: System::Void label14_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				
+	Buraco* buraco = new Buraco();
+	buraco->setnomerua(msclr::interop::marshal_as<std::string>(this->textLogradouro->Text));
+	buraco->setnumero(Convert::ToInt(this->textNumero->Text));
+	buraco->setposrel(msclr::interop::marshal_as<std::string>(this->comboPosRel->SelectedItem));
+	buraco->settamanho(Convert::ToInt(this->comboTamanho->SelectedItem));
+	buraco->setregional(msclr::interop::marshal_as<std::string>(this->textRegional->Text));
+	this->Close();
+
 }
 };
 }
