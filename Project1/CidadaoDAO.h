@@ -1,3 +1,7 @@
+#ifndef CIDADAODAO_H
+#define CIDADAODAO_H
+
+
 #include "MySQLDAO.h"
 #include "Cidadao.h"
 #include <stdio.h>
@@ -9,10 +13,11 @@ class CidadaoDAO
 
 public:
 	CidadaoDAO();
-	static void criarCidadao(string nome, string canal, string contato);
-	static void CidadaoDAO::deletarCidadao(int cpf);
-	static void CidadaoDAO::editarCidadao(int cpf, string nome, string canal, string contato);
-	static Cidadao* CidadaoDAO::buscarCidadao(int cpf);
-	static Cidadao** CidadaoDAO::buscarCidadao(string nome);
+	static void criarCidadao(string nome, string canal, string contato, string cpf);
+	static void deletarCidadao(string cpf);
+	static void editarCidadao(string cpf, string nome, string canal, string contato);
+	static Cidadao* CidadaoDAO::buscarCidadao(string nome);
 	static Cidadao** CidadaoDAO::SelecionarTudo();
 };
+
+#endif

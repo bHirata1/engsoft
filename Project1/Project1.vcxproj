@@ -150,6 +150,7 @@
     <ClCompile Include="Buraco.cpp" />
     <ClCompile Include="BuracoDAO.cpp" />
     <ClCompile Include="Cidadao.cpp" />
+    <ClCompile Include="CidadaoDAO.cpp" />
     <ClCompile Include="Custo.cpp" />
     <ClCompile Include="CustoDAO.cpp" />
     <ClCompile Include="DashboardDespachador.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="MaterialDAO.cpp" />
     <ClCompile Include="MySQLDAO.cpp" />
     <ClCompile Include="Notificacao.cpp" />
+    <ClCompile Include="NotificacaoDAO.cpp" />
     <ClCompile Include="Ordem_de_Servico.cpp" />
     <ClCompile Include="Ordem_de_ServicoDAO.cpp" />
     <ClCompile Include="Saida.cpp" />
@@ -182,6 +184,7 @@
     <ClInclude Include="Buraco.h" />
     <ClInclude Include="BuracoDAO.h" />
     <ClInclude Include="Cidadao.h" />
+    <ClInclude Include="CidadaoDAO.h" />
     <ClInclude Include="Conv.h" />
     <ClInclude Include="Custo.h" />
     <ClInclude Include="CustoDAO.h" />
@@ -218,6 +221,7 @@
     <ClInclude Include="MaterialDAO.h" />
     <ClInclude Include="MySQLDAO.h" />
     <ClInclude Include="Notificacao.h" />
+    <ClInclude Include="NotificacaoDAO.h" />
     <ClInclude Include="Ordem_de_Servico.h" />
     <ClInclude Include="Ordem_de_ServicoDAO.h" />
     <ClInclude Include="Saida.h" />

@@ -223,7 +223,7 @@ namespace Project1 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(257, 512);
+			this->button1->Location = System::Drawing::Point(245, 512);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(148, 35);
 			this->button1->TabIndex = 18;

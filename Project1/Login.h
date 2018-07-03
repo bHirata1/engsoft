@@ -3,6 +3,7 @@
 #include "DashboardDespachador.h"
 #include "DashboardEncarregado.h"
 #include "UsuarioDAO.h"
+#include "DashboardAssessor.h"
 
 /*
 Referência: http://www.visualcplusdotnet.com/visualcplusdotnet21.html
@@ -196,6 +197,7 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 	Usuario* user = UsuarioDAO::buscarUsuario(msclr::interop::marshal_as<std::string>(tb_login->Text));
 	DashboardDespachador ^ j1;
 	DashboardEncarregado ^ j2;
+	DashboardAssessor ^ j3;
 	if (user != NULL)
 	{
 		this->Hide();
@@ -207,7 +209,9 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 			case 2: j2 = gcnew DashboardEncarregado(user->getlogin());
 					j2->ShowDialog();
 					break;
-			case 3: break;
+			case 3: j3 = gcnew DashboardAssessor(user->getlogin());
+				j3->ShowDialog();
+					break;
 		}
 		Application::Exit();
 	}

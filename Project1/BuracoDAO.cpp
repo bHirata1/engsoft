@@ -1,14 +1,10 @@
 #include "BuracoDAO.h"
-#include <stdio.h>
-#include "MySQLDAO.h"
-#include <string>
-using namespace std;
 
 BuracoDAO::BuracoDAO()
 {
 }
 
-void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string regional, int tamanho)
+void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string regional, int tamanho, string cpf)
 {
 	string log;
 	sql::Connection * connection;
@@ -18,7 +14,7 @@ void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string re
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("INSERT INTO Buraco (nomerua, numero, posrel, regional, tamanho) VALUES (?,?,?,?,?,?,?)");
+		preparedStatement = connection->prepareStatement("INSERT INTO Buraco (nomerua, numero, posrel, regional, tamanho) VALUES (?,?,?,?,?)");
 
 		preparedStatement->setString(1, nomerua.c_str());
 		preparedStatement->setInt(2, numero);
@@ -26,6 +22,32 @@ void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string re
 		preparedStatement->setString(4, regional.c_str());
 		preparedStatement->setInt(5, tamanho);
 		resultSet = preparedStatement->executeQuery();
+
+		preparedStatement = connection->prepareStatement("select max(idburaco) from Buraco");
+		resultSet = preparedStatement->executeQuery();
+		if (!resultSet->next()) return;
+		int id = resultSet->getInt(1);
+		int p = tamanho / 2;
+		if (posrel == "Meio da rua") p += 3;
+		if (p >= 8) p = 8;
+
+		preparedStatement = connection->prepareStatement("insert into OrdemServico (data,prioridade,status,idburaco) values (?,?,'ABERTA',?)");
+		
+		System::DateTime dt;
+		string data = to_string(dt.Now.Year) + "-" + to_string(dt.Now.Month) + "-" + to_string(dt.Now.Day);
+		string hora = to_string(dt.Now.Hour) + ":" + to_string(dt.Now.Minute) + ":" + to_string(dt.Now.Second);
+		preparedStatement->setString(1,data);
+		preparedStatement->setInt(2,1);
+		preparedStatement->setInt(3,id);
+		preparedStatement->executeQuery();
+
+		preparedStatement = connection->prepareStatement("insert into Notificacao (data,hora,status,cpf,idordem) values (?,?,'ESPERA',?,?)");
+		preparedStatement->setString(1, data);
+		preparedStatement->setString(2, hora);
+		preparedStatement->setString(3, cpf);
+		preparedStatement->setInt(4, id);
+		preparedStatement->executeQuery();
+		
 	}
 	catch (sql::SQLException e)
 	{
@@ -94,7 +116,8 @@ Buraco** BuracoDAO::buscarBuraco(string nomerua)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, tamanho FROM Buraco WHERE nomerua = ?");
+		nomerua = "%" + nomerua + "%";
+		preparedStatement = connection->prepareStatement("SELECT nomerua, numero, posrel, regional, tamanho, idburaco FROM Buraco WHERE nomerua like ?");
 		preparedStatement->setString(1, nomerua);
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
@@ -107,6 +130,7 @@ Buraco** BuracoDAO::buscarBuraco(string nomerua)
 			buraco[i]->setposrel(resultSet->getString(3).c_str());
 			buraco[i]->setregional(resultSet->getString(4).c_str());
 			buraco[i]->settamanho(resultSet->getInt(5));
+			buraco[i]->setidburaco(resultSet->getInt(6));
 			i++;
 		}
 		buraco[i] = NULL;
@@ -145,6 +169,7 @@ Buraco* BuracoDAO::buscarBuraco(int id)
 			buraco->setposrel(resultSet->getString(3).c_str());
 			buraco->setregional(resultSet->getString(4).c_str());
 			buraco->settamanho(resultSet->getInt(5));
+			buraco->setidburaco(id);
 		}
 	}
 	catch (sql::SQLException e)

@@ -15,6 +15,7 @@ public:
 	static void criarOrdemDeServico(string nome, float custo);
 	static void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico);
 	static void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status);
+	static void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, int p, string status);
 	static void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status, int num, string * mat, float* vol, int horas);
 	static Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico);
 	static Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemPorSaida(int idsaida);

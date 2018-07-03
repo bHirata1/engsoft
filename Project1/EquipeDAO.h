@@ -1,3 +1,6 @@
+#ifndef EQUIPEDAO_H
+#define EQUIPEDAO_H
+
 #include "MySQLDAO.h"
 #include "Equipe.h"
 #include <stdio.h>
@@ -14,3 +17,5 @@ public:
 	static Equipe* EquipeDAO::buscarEquipe(string nomeEquipe);
 	static Equipe** EquipeDAO::SelecionarTudo();
 };
+
+#endif

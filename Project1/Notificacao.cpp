@@ -10,51 +10,51 @@ Notificacao::~Notificacao()
 
 }
 
-time_t Notificacao::getdata()
+string Notificacao::getdata()
 {
 	return this->data;
 }
 
-void Notificacao::setdata(time_t data)
+void Notificacao::setdata(string data)
 {
 	this->data = data;
 }
 
-time_t Notificacao::gethora()
+string Notificacao::gethora()
 {
 	return this->hora;
 }
 
-void Notificacao::sethora(time_t hora)
+void Notificacao::sethora(string hora)
 {
 	this->hora = hora;
 }
 
-int Notificacao::getstatus()
+string Notificacao::getstatus()
 {
 	return this->status;
 }
 
-void Notificacao::setstatus(int status)
+void Notificacao::setstatus(string status)
 {
 	this->status = status;
 }
 
-Cidadao Notificacao::getcpf()
+Cidadao* Notificacao::getcpf()
 {
 	return this->cidadao;
 }
-void Notificacao::setcpf(Cidadao cpf)
+void Notificacao::setcpf(Cidadao* cpf)
 {
 	this->cidadao = cpf;
 }
 
-Ordem_de_Servico Notificacao::getidordem()
+Ordem_de_Servico* Notificacao::getidordem()
 {
 	return this->ordem;
 }
 
-void Notificacao::setidordem(Ordem_de_Servico idordem)
+void Notificacao::setidordem(Ordem_de_Servico* idordem)
 {
 	this->ordem = idordem;
 }

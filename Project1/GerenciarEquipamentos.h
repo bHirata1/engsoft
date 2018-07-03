@@ -202,7 +202,7 @@ namespace InfoBuraco {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(697, 283);
+			this->ClientSize = System::Drawing::Size(697, 268);
 			this->Controls->Add(this->txtId);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button4);
@@ -224,10 +224,13 @@ namespace InfoBuraco {
 		}
 #pragma endregion
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+		if (MessageBox::Show("Deseja incluir esses dados?", "Confirma Inclusão", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::No)
+			return;
 		eq = new Equipamento();
 		eq->setnome(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
 		eq->setid(msclr::interop::marshal_as<std::string>(this->txtId->Text));
 		eq->setcusto(Convert::ToDouble(numCusto->Value));
+		MessageBox::Show("Dados Salvos com Sucesso!", "Salvar Dados", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Close();
 	}
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {

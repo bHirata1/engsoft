@@ -292,12 +292,14 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	numTamanho->Text = "0";
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	if (MessageBox::Show("Deseja incluir esses dados?", "Confirma Inclusão", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::No)
+		return;
 	eq = new Equipe();
 	eq->setnomeequipe(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
 	eq->setencarregado(msclr::interop::marshal_as<std::string>(this->cmbEncarregado->Text));
 	eq->setcusto(Convert::ToDouble(numCusto->Value));
 	eq->settamanho(Convert::ToInt32(numTamanho->Value));
+	MessageBox::Show("Dados Salvos com Sucesso!", "Salvar Dados", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	this->Close();
 }
 private: System::Void GerenciarEquipes_Load(System::Object^  sender, System::EventArgs^  e) {

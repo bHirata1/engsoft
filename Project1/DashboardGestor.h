@@ -186,13 +186,6 @@ namespace InfoBuraco {
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -200,13 +193,20 @@ namespace InfoBuraco {
 			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
 			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -250,7 +250,7 @@ namespace InfoBuraco {
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
 			this->tabPage2->Size = System::Drawing::Size(773, 491);
 			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"SERVIÇOS";
+			this->tabPage2->Text = L"PRIORIDADE";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
 			// dataGridView1
@@ -265,6 +265,42 @@ namespace InfoBuraco {
 			this->dataGridView1->Size = System::Drawing::Size(743, 393);
 			this->dataGridView1->TabIndex = 14;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardGestor::dataGridView1_CellContentClick_3);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Imagem";
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Local";
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Data de adição";
+			this->Column3->Name = L"Column3";
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"nº de reclamações";
+			this->Column4->Name = L"Column4";
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Prioridade";
+			this->Column5->Name = L"Column5";
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"Alterar";
+			this->Column7->Name = L"Column7";
+			this->Column7->Text = L"";
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Estado";
+			this->Column6->Name = L"Column6";
 			// 
 			// comboBox3
 			// 
@@ -339,88 +375,17 @@ namespace InfoBuraco {
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Size = System::Drawing::Size(773, 491);
 			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"GERENCIAMENTO";
+			this->tabPage3->Text = L"RELATÓRIOS";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
-			// Column1
+			// button7
 			// 
-			this->Column1->HeaderText = L"Imagem";
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Local";
-			this->Column2->Name = L"Column2";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Data de adição";
-			this->Column3->Name = L"Column3";
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"nº de reclamações";
-			this->Column4->Name = L"Column4";
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Prioridade";
-			this->Column5->Name = L"Column5";
-			// 
-			// Column7
-			// 
-			this->Column7->HeaderText = L"Alterar";
-			this->Column7->Name = L"Column7";
-			this->Column7->Text = L"";
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Estado";
-			this->Column6->Name = L"Column6";
-			// 
-			// textBox4
-			// 
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Location = System::Drawing::Point(74, 22);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 13);
-			this->textBox4->TabIndex = 6;
-			this->textBox4->Text = L"Fatura";
-			// 
-			// textBox6
-			// 
-			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox6->Location = System::Drawing::Point(355, 22);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(100, 13);
-			this->textBox6->TabIndex = 7;
-			this->textBox6->Text = L"Relatórios";
-			// 
-			// button5
-			// 
-			this->button5->Location = System::Drawing::Point(37, 62);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(100, 50);
-			this->button5->TabIndex = 8;
-			this->button5->Text = L"Ver Fatura Fechada";
-			this->button5->UseVisualStyleBackColor = true;
-			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(355, 62);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 21);
-			this->comboBox2->TabIndex = 9;
-			// 
-			// textBox7
-			// 
-			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox7->Location = System::Drawing::Point(272, 65);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(77, 13);
-			this->textBox7->TabIndex = 10;
-			this->textBox7->Text = L"Selecionar ID:";
+			this->button7->Location = System::Drawing::Point(395, 116);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(100, 50);
+			this->button7->TabIndex = 12;
+			this->button7->Text = L"Judicial";
+			this->button7->UseVisualStyleBackColor = true;
 			// 
 			// button6
 			// 
@@ -431,14 +396,49 @@ namespace InfoBuraco {
 			this->button6->Text = L"Financeiro";
 			this->button6->UseVisualStyleBackColor = true;
 			// 
-			// button7
+			// textBox7
 			// 
-			this->button7->Location = System::Drawing::Point(395, 116);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(100, 50);
-			this->button7->TabIndex = 12;
-			this->button7->Text = L"Judicial";
-			this->button7->UseVisualStyleBackColor = true;
+			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox7->Location = System::Drawing::Point(272, 65);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(77, 13);
+			this->textBox7->TabIndex = 10;
+			this->textBox7->Text = L"Selecionar ID:";
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(355, 62);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(121, 21);
+			this->comboBox2->TabIndex = 9;
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(37, 62);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(100, 50);
+			this->button5->TabIndex = 8;
+			this->button5->Text = L"Ver Fatura Fechada";
+			this->button5->UseVisualStyleBackColor = true;
+			// 
+			// textBox6
+			// 
+			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox6->Location = System::Drawing::Point(355, 22);
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(100, 13);
+			this->textBox6->TabIndex = 7;
+			this->textBox6->Text = L"Relatórios";
+			// 
+			// textBox4
+			// 
+			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->textBox4->Location = System::Drawing::Point(74, 22);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(100, 13);
+			this->textBox4->TabIndex = 6;
+			this->textBox4->Text = L"Fatura";
 			// 
 			// DashboardGestor
 			// 

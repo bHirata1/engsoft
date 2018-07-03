@@ -107,6 +107,43 @@ Equipamento* EquipamentoDAO::buscarEquipamento(string idequipamento)
 	return equipamento;
 }
 
+Equipamento ** EquipamentoDAO::buscarEquipamento(int idsaida)
+{
+	string log;
+	Equipamento ** equipamento;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("select idequipamento,nome, custo from Equipamento join SaidaEquipamento using (idequipamento) where idsaida=?");
+		preparedStatement->setInt(1,idsaida);
+		resultSet = preparedStatement->executeQuery();
+		t = resultSet->rowsCount() + 1;
+		equipamento = new Equipamento*[t];
+		while (resultSet->next()) {
+
+			equipamento[i] = new Equipamento();
+			equipamento[i]->setid(resultSet->getString(1));
+			equipamento[i]->setnome(resultSet->getString(2));
+			equipamento[i]->setcusto(resultSet->getDouble(3));
+			i++;
+		}
+		equipamento[i] = NULL;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return equipamento;
+
+	return nullptr;
+}
+
 Equipamento** EquipamentoDAO::SelecionarTudo()
 {
 	string log;

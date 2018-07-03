@@ -46,10 +46,6 @@ void SaidaDAO::criarSaida(string data, string equipe, Ordem_de_Servico ** os, Eq
 			resultSet = preparedStatement->executeQuery();
 			i++;
 		}
-
-
-
-
 	}
 	catch (sql::SQLException e)
 	{
@@ -98,7 +94,7 @@ Saida** SaidaDAO::SelecionarAgendadas(string nome)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("select idsaida,data from Saida join Equipe using (nomeequipe) where encarregado = ? and statussaida='AGENDADA'");
+		preparedStatement = connection->prepareStatement("select idsaida,data,nomeequipe from Saida join Equipe using (nomeequipe) where encarregado = ? and statussaida='AGENDADA'");
 		preparedStatement->setString(1,nome);
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
@@ -107,6 +103,7 @@ Saida** SaidaDAO::SelecionarAgendadas(string nome)
 
 			os[i] = new Saida();
 			os[i]->setdata(resultSet->getString(2));
+			os[i]->setnomeequipe(resultSet->getString(3));
 			os[i]->setidsaida(resultSet->getInt(1));
 			i++;
 		}
@@ -118,4 +115,29 @@ Saida** SaidaDAO::SelecionarAgendadas(string nome)
 		log = e.what();
 	}
 	return os;
+}
+
+void SaidaDAO::editarSaida(int idsaida, string status, float dist)
+{
+	string log;
+	Saida ** os;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("update Saida set statussaida=?, distanciapercorrida=? where idsaida=?");
+		preparedStatement->setInt(3, idsaida);
+		preparedStatement->setDouble(2, idsaida);
+		preparedStatement->setString(1, status);
+		resultSet = preparedStatement->executeQuery();
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
 }

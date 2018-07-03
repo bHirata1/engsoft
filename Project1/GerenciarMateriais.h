@@ -239,11 +239,13 @@ namespace InfoBuraco {
 		numCusto->Value = 0;
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-		
+		if (MessageBox::Show("Deseja incluir esses dados?", "Confirma Inclusão", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::No)
+			return;
 		mat = new Material();
 		mat->setnomematerial(msclr::interop::marshal_as<std::string>(this->txtNome->Text));
 		mat->setunidademedida(msclr::interop::marshal_as<std::string>(this->txtUM->Text));
 		mat->setcusto(Convert::ToDouble(numCusto->Value));
+		MessageBox::Show("Dados Salvos com Sucesso!", "Salvar Dados", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		this->Hide();
 
 		/*

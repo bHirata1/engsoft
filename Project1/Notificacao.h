@@ -15,30 +15,30 @@ using namespace std;
 class Notificacao
 {
 private:
-	time_t data;
-	time_t hora;
-	int status;
-	Cidadao cidadao;
-	Ordem_de_Servico ordem;
+	string data;
+	string hora;
+	string status;
+	Cidadao *cidadao;
+	Ordem_de_Servico *ordem;
 
 public:
 	Notificacao();
 	virtual ~Notificacao();
 
-	time_t getdata();
-	void setdata(time_t data);
+	string getdata();
+	void setdata(string data);
 
-	time_t gethora();
-	void sethora(time_t hora);
+	string gethora();
+	void sethora(string hora);
 
-	int getstatus();
-	void setstatus(int status);
+	string getstatus();
+	void setstatus(string status);
 
-	Cidadao getcpf();
-	void setcpf(Cidadao cpf);
+	Cidadao* getcpf();
+	void setcpf(Cidadao*cpf);
 
-	Ordem_de_Servico getidordem();
-	void setidordem(Ordem_de_Servico idordem);
+	Ordem_de_Servico* getidordem();
+	void setidordem(Ordem_de_Servico* idordem);
 };
 
 #endif

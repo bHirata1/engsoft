@@ -102,6 +102,29 @@ void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status)
 		connection = mysqldao->getConnection();
 		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET status = ? WHERE idordem = ?");
 		preparedStatement->setString(1, status.c_str());
+		preparedStatement->setInt(2, idordem);
+		resultSet = preparedStatement->executeQuery();
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+}
+
+void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, int p, string status)
+{
+	string log;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("UPDATE OrdemServico SET prioridade = ?, status=? WHERE idordem = ?");
+		preparedStatement->setInt(1, p);
+		preparedStatement->setString(2, status);
 		preparedStatement->setInt(3, idordem);
 		resultSet = preparedStatement->executeQuery();
 	}
@@ -115,7 +138,7 @@ void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status)
 Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico)
 {
 	string log;
-	Ordem_de_Servico * ordemDeServico;
+	Ordem_de_Servico * os;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -123,14 +146,19 @@ Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT idordem FROM OrdemServico WHERE idordemDeServico = ?");
+		preparedStatement = connection->prepareStatement("select horapessoal,data,prioridade,status,idburaco from OrdemServico where idordem=?");
 		preparedStatement->setInt(1, idordemDeServico);
 		resultSet = preparedStatement->executeQuery();
 
 		if (resultSet->next()) {
-			ordemDeServico = new Ordem_de_Servico();
-			//ordemDeServico->(resultSet->getString(1).c_str());
-			//ordemDeServico->setcusto(resultSet->getDouble(2));
+			os = new Ordem_de_Servico();
+			os->sethorapessoal(resultSet->getInt(1));
+			os->setdata(resultSet->getString(2));
+			os->setprioridade(resultSet->getInt(3));
+			os->setstatus(resultSet->getString(4));
+			Buraco * b = BuracoDAO::buscarBuraco(resultSet->getInt(5));
+			os->setburaco(b);
+			os->setidordem(idordemDeServico);
 		}
 	}
 	catch (sql::SQLException e)
@@ -138,7 +166,7 @@ Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico
 		connection->close();
 		log = e.what();
 	}
-	return ordemDeServico;
+	return os;
 }
 
 Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarTudo()
@@ -189,7 +217,7 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAbertas()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem,nomerua,numero FROM OrdemServico join Buraco using (idburaco) where status='ABERTA'");
+		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem,nomerua,numero FROM OrdemServico join Buraco using (idburaco) where status='ABERTA' or status='ADIADA'");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		os = new Ordem_de_Servico*[t];
@@ -383,7 +411,7 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemPorSaida(int idsaida)
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
 		System::String^ querry;
-		preparedStatement = connection->prepareStatement("SELECT data,OrdemServico.prioridade,idburaco,idordem,nomerua,numero from OrdemServico join SaidaOS using (idordem) join Buraco using (idburaco) where idsaida=?");
+		preparedStatement = connection->prepareStatement("SELECT data,OrdemServico.prioridade,idburaco,idordem,nomerua,numero from OrdemServico join SaidaOS using (idordem) join Buraco using (idburaco) where idsaida=? and OrdemServico.status = 'AGENDADA'");
 		preparedStatement->setInt(1, idsaida);
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;

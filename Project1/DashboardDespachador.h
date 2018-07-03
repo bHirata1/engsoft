@@ -59,15 +59,26 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+	private: System::Windows::Forms::PictureBox^  picmobi;
 
-	private: System::Windows::Forms::PictureBox^  pictureBox5;
+
 	private: System::Windows::Forms::TextBox^  txtCusto;
-	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  clmEquip;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmNome;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmId;
+
+
+
 	private: System::Windows::Forms::Label^  lblAg;
 	private: System::Windows::Forms::Label^  lblAberto;
 	private: System::Windows::Forms::Label^  lblBuraco;
+	private: System::Windows::Forms::Button^  btnLimpar;
+	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  clmEquip;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmNome;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmId;
+
+
+
+
+
+
 
 
 
@@ -105,7 +116,8 @@ namespace InfoBuraco {
 
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::PictureBox^  picUser;
+
 	private: System::Windows::Forms::Label^  lblNome;
 
 
@@ -117,7 +129,8 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::DataGridView^  dgvEquipe;
 
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::PictureBox^  picEqp;
+
 
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  colNome;
@@ -133,7 +146,8 @@ namespace InfoBuraco {
 
 
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::PictureBox^  pictureBox3;
+private: System::Windows::Forms::PictureBox^  picEq;
+
 
 
 	private: System::Windows::Forms::Label^  label9;
@@ -143,7 +157,8 @@ namespace InfoBuraco {
 
 
 	private: System::Windows::Forms::Label^  label10;
-	private: System::Windows::Forms::PictureBox^  pictureBox4;
+private: System::Windows::Forms::PictureBox^  picMat;
+
 	private: System::Windows::Forms::Label^  label13;
 
 	private: System::Windows::Forms::Button^  btnAlteraMob;
@@ -200,10 +215,11 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->picUser = (gcnew System::Windows::Forms::PictureBox());
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tpSaida = (gcnew System::Windows::Forms::TabPage());
+			this->btnLimpar = (gcnew System::Windows::Forms::Button());
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->ltbDetalhes = (gcnew System::Windows::Forms::ListBox());
@@ -214,9 +230,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnUp = (gcnew System::Windows::Forms::Button());
 			this->ltbOrdem = (gcnew System::Windows::Forms::ListBox());
 			this->dgvCSEquip = (gcnew System::Windows::Forms::DataGridView());
-			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->clmId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
@@ -236,7 +249,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->colNumProf = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->colCusto = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->picEqp = (gcnew System::Windows::Forms::PictureBox());
 			this->tpEquips = (gcnew System::Windows::Forms::TabPage());
 			this->btnEqNovo = (gcnew System::Windows::Forms::Button());
 			this->btnEqDel = (gcnew System::Windows::Forms::Button());
@@ -247,7 +260,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->picEq = (gcnew System::Windows::Forms::PictureBox());
 			this->tpMateriais = (gcnew System::Windows::Forms::TabPage());
 			this->btnMatNovo = (gcnew System::Windows::Forms::Button());
 			this->btnMatDel = (gcnew System::Windows::Forms::Button());
@@ -258,31 +271,34 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->picMat = (gcnew System::Windows::Forms::PictureBox());
 			this->tpCM = (gcnew System::Windows::Forms::TabPage());
 			this->txtCusto = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->picmobi = (gcnew System::Windows::Forms::PictureBox());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->btnAlteraMob = (gcnew System::Windows::Forms::Button());
 			this->btnConfirmaMob = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->clmId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->BeginInit();
 			this->tpSaida->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCSEquip))->BeginInit();
 			this->tpEquipes->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipe))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picEqp))->BeginInit();
 			this->tpEquips->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipamento))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picEq))->BeginInit();
 			this->tpMateriais->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picMat))->BeginInit();
 			this->tpCM->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picmobi))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabcontrol
@@ -311,7 +327,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tp1->Controls->Add(this->label5);
 			this->tp1->Controls->Add(this->label4);
 			this->tp1->Controls->Add(this->label3);
-			this->tp1->Controls->Add(this->pictureBox1);
+			this->tp1->Controls->Add(this->picUser);
 			this->tp1->Controls->Add(this->lblNome);
 			this->tp1->Controls->Add(this->label1);
 			this->tp1->Location = System::Drawing::Point(4, 79);
@@ -390,14 +406,14 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Existem          buracos abertos;";
 			// 
-			// pictureBox1
+			// picUser
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(30, 100);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(192, 192);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox1->TabIndex = 2;
-			this->pictureBox1->TabStop = false;
+			this->picUser->Location = System::Drawing::Point(30, 100);
+			this->picUser->Name = L"picUser";
+			this->picUser->Size = System::Drawing::Size(192, 192);
+			this->picUser->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picUser->TabIndex = 2;
+			this->picUser->TabStop = false;
 			// 
 			// lblNome
 			// 
@@ -424,6 +440,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->btnLimpar);
 			this->tpSaida->Controls->Add(this->label20);
 			this->tpSaida->Controls->Add(this->label19);
 			this->tpSaida->Controls->Add(this->ltbDetalhes);
@@ -450,12 +467,22 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tpSaida->Text = L"COMPOR SAÍDA";
 			this->tpSaida->UseVisualStyleBackColor = true;
 			// 
+			// btnLimpar
+			// 
+			this->btnLimpar->Location = System::Drawing::Point(313, 361);
+			this->btnLimpar->Name = L"btnLimpar";
+			this->btnLimpar->Size = System::Drawing::Size(152, 34);
+			this->btnLimpar->TabIndex = 22;
+			this->btnLimpar->Text = L"Limpar";
+			this->btnLimpar->UseVisualStyleBackColor = true;
+			this->btnLimpar->Click += gcnew System::EventHandler(this, &DashboardDespachador::btnLimpar_Click);
+			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
 			this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label20->Location = System::Drawing::Point(590, 151);
+			this->label20->Location = System::Drawing::Point(588, 151);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(73, 20);
 			this->label20->TabIndex = 21;
@@ -466,7 +493,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label19->AutoSize = true;
 			this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label19->Location = System::Drawing::Point(533, 151);
+			this->label19->Location = System::Drawing::Point(531, 151);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(23, 20);
 			this->label19->TabIndex = 20;
@@ -478,7 +505,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 				static_cast<System::Byte>(0)));
 			this->ltbDetalhes->FormattingEnabled = true;
 			this->ltbDetalhes->ItemHeight = 20;
-			this->ltbDetalhes->Location = System::Drawing::Point(594, 174);
+			this->ltbDetalhes->Location = System::Drawing::Point(592, 174);
 			this->ltbDetalhes->Name = L"ltbDetalhes";
 			this->ltbDetalhes->Size = System::Drawing::Size(303, 164);
 			this->ltbDetalhes->TabIndex = 19;
@@ -498,7 +525,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button8->Location = System::Drawing::Point(903, 217);
+			this->button8->Location = System::Drawing::Point(901, 217);
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(29, 29);
 			this->button8->TabIndex = 17;
@@ -510,7 +537,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button7->Location = System::Drawing::Point(903, 174);
+			this->button7->Location = System::Drawing::Point(901, 174);
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(29, 29);
 			this->button7->TabIndex = 16;
@@ -520,7 +547,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnDown
 			// 
-			this->btnDown->Location = System::Drawing::Point(903, 309);
+			this->btnDown->Location = System::Drawing::Point(901, 309);
 			this->btnDown->Name = L"btnDown";
 			this->btnDown->Size = System::Drawing::Size(29, 29);
 			this->btnDown->TabIndex = 15;
@@ -530,7 +557,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnUp
 			// 
-			this->btnUp->Location = System::Drawing::Point(903, 264);
+			this->btnUp->Location = System::Drawing::Point(901, 264);
 			this->btnUp->Name = L"btnUp";
 			this->btnUp->Size = System::Drawing::Size(29, 29);
 			this->btnUp->TabIndex = 14;
@@ -544,7 +571,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 				static_cast<System::Byte>(0)));
 			this->ltbOrdem->FormattingEnabled = true;
 			this->ltbOrdem->ItemHeight = 20;
-			this->ltbOrdem->Location = System::Drawing::Point(532, 174);
+			this->ltbOrdem->Location = System::Drawing::Point(530, 174);
 			this->ltbOrdem->Name = L"ltbOrdem";
 			this->ltbOrdem->Size = System::Drawing::Size(56, 164);
 			this->ltbOrdem->TabIndex = 13;
@@ -570,26 +597,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dgvCSEquip->TabIndex = 12;
 			this->dgvCSEquip->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardDespachador::dataGridView1_CellContentClick_1);
 			// 
-			// clmEquip
-			// 
-			this->clmEquip->Frozen = true;
-			this->clmEquip->HeaderText = L"";
-			this->clmEquip->Name = L"clmEquip";
-			this->clmEquip->Width = 30;
-			// 
-			// clmNome
-			// 
-			this->clmNome->HeaderText = L"";
-			this->clmNome->Name = L"clmNome";
-			this->clmNome->ReadOnly = true;
-			this->clmNome->Width = 252;
-			// 
-			// clmId
-			// 
-			this->clmId->HeaderText = L"id";
-			this->clmId->Name = L"clmId";
-			this->clmId->Visible = false;
-			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
@@ -606,7 +613,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label17->Location = System::Drawing::Point(33, 189);
+			this->label17->Location = System::Drawing::Point(27, 189);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(112, 40);
 			this->label17->TabIndex = 9;
@@ -615,7 +622,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Location = System::Drawing::Point(177, 163);
+			this->linkLabel1->Location = System::Drawing::Point(182, 170);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(65, 13);
 			this->linkLabel1->TabIndex = 8;
@@ -626,10 +633,12 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// cmbEquipe
 			// 
 			this->cmbEquipe->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbEquipe->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->cmbEquipe->FormattingEnabled = true;
 			this->cmbEquipe->Location = System::Drawing::Point(171, 139);
 			this->cmbEquipe->Name = L"cmbEquipe";
-			this->cmbEquipe->Size = System::Drawing::Size(294, 21);
+			this->cmbEquipe->Size = System::Drawing::Size(294, 28);
 			this->cmbEquipe->TabIndex = 7;
 			// 
 			// label16
@@ -637,7 +646,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label16->AutoSize = true;
 			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label16->Location = System::Drawing::Point(7, 137);
+			this->label16->Location = System::Drawing::Point(27, 142);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(138, 20);
 			this->label16->TabIndex = 6;
@@ -648,7 +657,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label15->AutoSize = true;
 			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label15->Location = System::Drawing::Point(36, 98);
+			this->label15->Location = System::Drawing::Point(27, 100);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(109, 20);
 			this->label15->TabIndex = 5;
@@ -667,9 +676,11 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// dtDia
 			// 
-			this->dtDia->Location = System::Drawing::Point(171, 100);
+			this->dtDia->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->dtDia->Location = System::Drawing::Point(171, 95);
 			this->dtDia->Name = L"dtDia";
-			this->dtDia->Size = System::Drawing::Size(294, 20);
+			this->dtDia->Size = System::Drawing::Size(294, 26);
 			this->dtDia->TabIndex = 0;
 			// 
 			// tpEquipes
@@ -680,7 +691,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tpEquipes->Controls->Add(this->label6);
 			this->tpEquipes->Controls->Add(this->dgvEquipe);
 			this->tpEquipes->Controls->Add(this->label2);
-			this->tpEquipes->Controls->Add(this->pictureBox2);
+			this->tpEquipes->Controls->Add(this->picEqp);
 			this->tpEquipes->Location = System::Drawing::Point(4, 79);
 			this->tpEquipes->Name = L"tpEquipes";
 			this->tpEquipes->Size = System::Drawing::Size(982, 420);
@@ -790,14 +801,14 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Gerenciador de Equipes";
 			// 
-			// pictureBox2
+			// picEqp
 			// 
-			this->pictureBox2->Location = System::Drawing::Point(30, 100);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(192, 192);
-			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox2->TabIndex = 1;
-			this->pictureBox2->TabStop = false;
+			this->picEqp->Location = System::Drawing::Point(30, 100);
+			this->picEqp->Name = L"picEqp";
+			this->picEqp->Size = System::Drawing::Size(192, 192);
+			this->picEqp->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picEqp->TabIndex = 1;
+			this->picEqp->TabStop = false;
 			// 
 			// tpEquips
 			// 
@@ -807,7 +818,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tpEquips->Controls->Add(this->label7);
 			this->tpEquips->Controls->Add(this->dgvEquipamento);
 			this->tpEquips->Controls->Add(this->label8);
-			this->tpEquips->Controls->Add(this->pictureBox3);
+			this->tpEquips->Controls->Add(this->picEq);
 			this->tpEquips->Location = System::Drawing::Point(4, 79);
 			this->tpEquips->Name = L"tpEquips";
 			this->tpEquips->Size = System::Drawing::Size(982, 420);
@@ -908,14 +919,14 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label8->TabIndex = 9;
 			this->label8->Text = L"Gerenciador de Equipamentos";
 			// 
-			// pictureBox3
+			// picEq
 			// 
-			this->pictureBox3->Location = System::Drawing::Point(30, 100);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(192, 192);
-			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox3->TabIndex = 8;
-			this->pictureBox3->TabStop = false;
+			this->picEq->Location = System::Drawing::Point(30, 100);
+			this->picEq->Name = L"picEq";
+			this->picEq->Size = System::Drawing::Size(192, 192);
+			this->picEq->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picEq->TabIndex = 8;
+			this->picEq->TabStop = false;
 			// 
 			// tpMateriais
 			// 
@@ -925,7 +936,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tpMateriais->Controls->Add(this->label9);
 			this->tpMateriais->Controls->Add(this->dgvMaterial);
 			this->tpMateriais->Controls->Add(this->label10);
-			this->tpMateriais->Controls->Add(this->pictureBox4);
+			this->tpMateriais->Controls->Add(this->picMat);
 			this->tpMateriais->Location = System::Drawing::Point(4, 79);
 			this->tpMateriais->Name = L"tpMateriais";
 			this->tpMateriais->Size = System::Drawing::Size(982, 420);
@@ -1026,19 +1037,19 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label10->TabIndex = 15;
 			this->label10->Text = L"Gerenciador de Materiais";
 			// 
-			// pictureBox4
+			// picMat
 			// 
-			this->pictureBox4->Location = System::Drawing::Point(30, 100);
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(192, 192);
-			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox4->TabIndex = 14;
-			this->pictureBox4->TabStop = false;
+			this->picMat->Location = System::Drawing::Point(30, 100);
+			this->picMat->Name = L"picMat";
+			this->picMat->Size = System::Drawing::Size(192, 192);
+			this->picMat->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picMat->TabIndex = 14;
+			this->picMat->TabStop = false;
 			// 
 			// tpCM
 			// 
 			this->tpCM->Controls->Add(this->txtCusto);
-			this->tpCM->Controls->Add(this->pictureBox5);
+			this->tpCM->Controls->Add(this->picmobi);
 			this->tpCM->Controls->Add(this->label13);
 			this->tpCM->Controls->Add(this->btnAlteraMob);
 			this->tpCM->Controls->Add(this->btnConfirmaMob);
@@ -1061,14 +1072,14 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->txtCusto->Size = System::Drawing::Size(100, 26);
 			this->txtCusto->TabIndex = 30;
 			// 
-			// pictureBox5
+			// picmobi
 			// 
-			this->pictureBox5->Location = System::Drawing::Point(30, 100);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(192, 192);
-			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pictureBox5->TabIndex = 29;
-			this->pictureBox5->TabStop = false;
+			this->picmobi->Location = System::Drawing::Point(30, 100);
+			this->picmobi->Name = L"picmobi";
+			this->picmobi->Size = System::Drawing::Size(192, 192);
+			this->picmobi->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picmobi->TabIndex = 29;
+			this->picmobi->TabStop = false;
 			// 
 			// label13
 			// 
@@ -1124,12 +1135,34 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Custo de Mobilização";
 			// 
+			// clmEquip
+			// 
+			this->clmEquip->Frozen = true;
+			this->clmEquip->HeaderText = L"";
+			this->clmEquip->Name = L"clmEquip";
+			this->clmEquip->Width = 30;
+			// 
+			// clmNome
+			// 
+			this->clmNome->HeaderText = L"";
+			this->clmNome->Name = L"clmNome";
+			this->clmNome->ReadOnly = true;
+			this->clmNome->Width = 260;
+			// 
+			// clmId
+			// 
+			this->clmId->HeaderText = L"id";
+			this->clmId->Name = L"clmId";
+			this->clmId->ReadOnly = true;
+			this->clmId->Visible = false;
+			// 
 			// DashboardDespachador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(986, 503);
 			this->Controls->Add(this->tabcontrol);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"DashboardDespachador";
 			this->Text = L"DashboardDespachador";
 			this->Load += gcnew System::EventHandler(this, &DashboardDespachador::DashboardDespachador_Load);
@@ -1137,30 +1170,36 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->tabcontrol->ResumeLayout(false);
 			this->tp1->ResumeLayout(false);
 			this->tp1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->EndInit();
 			this->tpSaida->ResumeLayout(false);
 			this->tpSaida->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCSEquip))->EndInit();
 			this->tpEquipes->ResumeLayout(false);
 			this->tpEquipes->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipe))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picEqp))->EndInit();
 			this->tpEquips->ResumeLayout(false);
 			this->tpEquips->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvEquipamento))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picEq))->EndInit();
 			this->tpMateriais->ResumeLayout(false);
 			this->tpMateriais->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvMaterial))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picMat))->EndInit();
 			this->tpCM->ResumeLayout(false);
 			this->tpCM->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picmobi))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void DashboardDespachador_Load(System::Object^  sender, System::EventArgs^  e) {
+
+		this->picEq->Image = gcnew Bitmap("images\\equipamento.jpg");
+		this->picEqp->Image = gcnew Bitmap("images\\equipe.jpg");
+		this->picUser->Image = gcnew Bitmap("images\\user.jpg");
+		this->picMat->Image = gcnew Bitmap("images\\material.jpg");
+		this->picmobi->Image = gcnew Bitmap("images\\mobi.jpg");
 		int i = 0;
 		dgvEquipamento->Rows->Clear();
 		dgvEquipe->Rows->Clear();
@@ -1321,7 +1360,8 @@ private: System::Windows::Forms::Button^  btnSaida;
 		}
 	}
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	if (MessageBox::Show("Deseja incluir esses dados?", "Confirma Inclusão", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::No)
+		return;
 	Equipamento ** eqp = new Equipamento*[dgvCSEquip->RowCount];
 	Ordem_de_Servico ** os = new Ordem_de_Servico*[ltbOrdem->Items->Count];
 	int i = 0;
@@ -1345,11 +1385,13 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 	eqp[i] = NULL;
 	
 	DateTime dt = dtDia->Value;
-	System::String^ y = System::String::Concat(dt.Year.ToString(), "-");
-	System::String^ m = System::String::Concat(dt.Month.ToString(), "-");
-	System::String^ date = System::String::Concat(m, y);
-	date = System::String::Concat(date, dt.Day.ToString());
-	SaidaDAO::criarSaida(msclr::interop::marshal_as<std::string>(date), msclr::interop::marshal_as<std::string>(cmbEquipe->Text->ToString()) ,os,eqp);
+	string data;
+	data = to_string(dt.Year) + "-" + to_string(dt.Month) + "-" + to_string(dt.Day);
+	SaidaDAO::criarSaida(data, msclr::interop::marshal_as<std::string>(cmbEquipe->Text->ToString()) ,os,eqp);
+
+
+	MessageBox::Show("Dados Salvos com Sucesso!", "Salvar Dados", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	btnLimpar_Click(sender, e);
 }
 private: System::Void ltbDetalhes_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	ltbOrdem->SelectedIndex = ltbDetalhes->SelectedIndex;
@@ -1481,6 +1523,16 @@ private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void btnLimpar_Click(System::Object^  sender, System::EventArgs^  e) {
+	dtDia->Value = DateTime::Now;
+	cmbEquipe->SelectedIndex = -1;
+	ltbDetalhes->Items->Clear();
+	ltbOrdem->Items->Clear();
+	for each  (DataGridViewRow^ row in dgvCSEquip->Rows)
+		row->Cells[0]->Value = false;
+
+
 }
 };
 }

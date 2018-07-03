@@ -14,7 +14,7 @@ class Ordem_de_Servico
 private:
 	int idordem;
 	int horapessoal;
-	time_t data;
+	string data;
 	int prioridade;
 	string status;
 private:	Buraco *buraco;
@@ -29,8 +29,8 @@ public:
 	int gethorapessoal();
 	void sethorapessoal(int hora);
 
-	time_t getdata();
-	void setdata(time_t data);
+	string getdata();
+	void setdata(string data);
 
 	int getprioridade();
 	void setprioridade(int prioridade);
