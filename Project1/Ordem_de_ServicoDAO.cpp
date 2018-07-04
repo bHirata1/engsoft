@@ -10,9 +10,10 @@ Ordem_De_ServicoDAO::Ordem_De_ServicoDAO()
 {
 }
 
-void Ordem_De_ServicoDAO::criarOrdemDeServico(string nome, float custo)
+int Ordem_De_ServicoDAO::criarOrdemDeServico(int idburaco, int p)
 {
 	string log;
+	int id;
 	sql::Connection * connection;
 	sql::Statement* statement;
 	sql::PreparedStatement * preparedStatement;
@@ -20,17 +21,28 @@ void Ordem_De_ServicoDAO::criarOrdemDeServico(string nome, float custo)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("INSERT INTO OrdemServico (nome, custo) VALUES (?,?)");
 
-		preparedStatement->setString(1, nome.c_str());
-		preparedStatement->setDouble(2, custo);
+		preparedStatement = connection->prepareStatement("insert into OrdemServico (data,prioridade,status,idburaco) values (?,?,'ABERTA',?)");
+
+		System::DateTime dt;
+		string data = to_string(dt.Now.Year) + "-" + to_string(dt.Now.Month) + "-" + to_string(dt.Now.Day);
+		string hora = to_string(dt.Now.Hour) + ":" + to_string(dt.Now.Minute) + ":" + to_string(dt.Now.Second);
+		preparedStatement->setString(1, data);
+		preparedStatement->setInt(2, p);
+		preparedStatement->setInt(3, idburaco);
+		preparedStatement->executeQuery();
+
+		preparedStatement = connection->prepareStatement("select max(idordem) from OrdemServico");
 		resultSet = preparedStatement->executeQuery();
+		if (!resultSet->next()) return 1;
+		id = resultSet->getInt(1);
 	}
 	catch (sql::SQLException e)
 	{
 		connection->close();
 		log = e.what();
 	}
+	return id;
 }
 
 void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico)
@@ -169,6 +181,40 @@ Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServico(int idordemDeServico
 	return os;
 }
 
+Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServicoAberta(int idburaco)
+{
+	string log;
+	Ordem_de_Servico * os = NULL;
+	sql::Connection * connection;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("select horapessoal,data,prioridade,status,idordem from OrdemServico where idburaco=? and status<>'FINALIZADA'");
+		preparedStatement->setInt(1, idburaco);
+		resultSet = preparedStatement->executeQuery();
+
+		if (resultSet->next()) {
+			os = new Ordem_de_Servico();
+			os->sethorapessoal(resultSet->getInt(1));
+			os->setdata(resultSet->getString(2));
+			os->setprioridade(resultSet->getInt(3));
+			os->setstatus(resultSet->getString(4));
+			Buraco * b = BuracoDAO::buscarBuraco(idburaco);
+			os->setburaco(b);
+			os->setidordem(resultSet->getInt(5));
+		}
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return os;
+}
+
 Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarTudo()
 {
 	string log;
@@ -188,7 +234,7 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarTudo()
 		while (resultSet->next()) {
 
 			os[i] = new Ordem_de_Servico();
-			//os[i]->setdata()
+			os[i]->setdata(resultSet->getString(1));
 			os[i]->setprioridade(resultSet->getInt(2));
 			os[i]->setburaco(BuracoDAO::buscarBuraco(resultSet->getInt(3)));
 			os[i]->setstatus(resultSet->getString(4));
@@ -217,19 +263,18 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAbertas()
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem,nomerua,numero FROM OrdemServico join Buraco using (idburaco) where status='ABERTA' or status='ADIADA'");
+		preparedStatement = connection->prepareStatement("SELECT data,prioridade,idburaco,idordem FROM OrdemServico where status='ABERTA' or status='ADIADA'");
 		resultSet = preparedStatement->executeQuery();
 		t = resultSet->rowsCount() + 1;
 		os = new Ordem_de_Servico*[t];
 		while (resultSet->next()) {
 
 			os[i] = new Ordem_de_Servico();
-			//os[i]->setdata()
+			os[i]->setdata(resultSet->getString(1));
 			os[i]->setprioridade(resultSet->getInt(2));
-			os[i]->getburaco()->setidburaco(resultSet->getInt(3));
 			os[i]->setidordem(resultSet->getInt(4));
-			os[i]->getburaco()->setnomerua(resultSet->getString(5));
-			os[i]->getburaco()->setnumero(resultSet->getInt(6));
+			Buraco * b = BuracoDAO::buscarBuraco(resultSet->getInt(3));
+			os[i]->setburaco(b);
 			i++;
 		}
 		os[i] = NULL;
@@ -261,7 +306,7 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::SelecionarAgendadas()
 		while (resultSet->next()) {
 
 			os[i] = new Ordem_de_Servico();
-			//os[i]->setdata()
+			os[i]->setdata(resultSet->getString(1));
 			os[i]->setprioridade(resultSet->getInt(2));
 			os[i]->getburaco()->setidburaco(resultSet->getInt(3));
 			os[i]->setidordem(resultSet->getInt(4));
@@ -301,7 +346,7 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemDeServico(string rua)
 		while (resultSet->next()) {
 
 			os[i] = new Ordem_de_Servico();
-			//os[i]->setdata()
+			os[i]->setdata(resultSet->getString(1));
 			os[i]->setprioridade(resultSet->getInt(2));
 			os[i]->getburaco()->setidburaco(resultSet->getInt(3));
 			os[i]->setidordem(resultSet->getInt(4));
@@ -434,5 +479,34 @@ Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemPorSaida(int idsaida)
 		log = e.what();
 	}
 	return os;
+
+}
+
+int Ordem_De_ServicoDAO::contarporregional(string regional)
+{
+	string log;
+	sql::Connection * connection;
+	int i = 0, t;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		System::String^ querry;
+		preparedStatement = connection->prepareStatement("SELECT count(*) from OrdemServico join Buraco using (idburaco) where regional=?");
+		preparedStatement->setString(1, regional);
+		resultSet = preparedStatement->executeQuery();
+		if (resultSet->next())
+			return resultSet->getInt(1);
+		else
+			return 0;
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return 0;
 
 }

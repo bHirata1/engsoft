@@ -194,9 +194,6 @@
     <ClInclude Include="Ordem_de_ServicoDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VerFoto.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DashboardEncarregado.h">
       <Filter>Header Files</Filter>
     </ClInclude>

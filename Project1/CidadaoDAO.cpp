@@ -148,3 +148,27 @@ Cidadao** CidadaoDAO::SelecionarTudo()
 	}
 	return cidadao;
 }
+
+int CidadaoDAO::contarCidadaos()
+{
+	string log;
+	sql::Connection * connection;
+	int num;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT count(*) from Cidadao");
+		resultSet = preparedStatement->executeQuery();
+		if (resultSet->next())
+			num = resultSet->getInt(1);
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return num;
+}

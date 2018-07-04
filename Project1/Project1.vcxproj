@@ -232,9 +232,6 @@
     <ClInclude Include="VerEquipe.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="VerFoto.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dados\dados.vcxproj">
@@ -267,9 +264,6 @@
     <EmbeddedResource Include="NotificacoesAssessor.resx" />
     <EmbeddedResource Include="VerEquipe.resx">
       <DependentUpon>VerEquipe.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VerFoto.resx">
-      <DependentUpon>VerFoto.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

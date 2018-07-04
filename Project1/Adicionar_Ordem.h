@@ -79,14 +79,19 @@ namespace Project1 {
 	private: System::Windows::Forms::Button^  btnAdd;
 	private: System::Windows::Forms::Button^  btnCancel;
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColId;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColPrior;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
-	private: System::Windows::Forms::Button^  button1;
+
+
+
+
+
 	private: System::Windows::Forms::Button^  button2;
 
 	private: bool add = false;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColPrior;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
 
 
 
@@ -107,6 +112,7 @@ namespace Project1 {
 			this->dgvOrdem = (gcnew System::Windows::Forms::DataGridView());
 			this->dgvColId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvColPrior = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->data = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvRua = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dgvColNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -115,7 +121,6 @@ namespace Project1 {
 			this->btnAdd = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
 			this->SuspendLayout();
@@ -127,15 +132,15 @@ namespace Project1 {
 			this->dgvOrdem->AllowUserToResizeColumns = false;
 			this->dgvOrdem->AllowUserToResizeRows = false;
 			this->dgvOrdem->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvOrdem->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dgvOrdem->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->dgvColId, this->dgvColPrior,
-					this->dgvRua, this->dgvColNum
+					this->data, this->dgvRua, this->dgvColNum
 			});
-			this->dgvOrdem->Location = System::Drawing::Point(62, 121);
+			this->dgvOrdem->Location = System::Drawing::Point(62, 137);
 			this->dgvOrdem->Name = L"dgvOrdem";
 			this->dgvOrdem->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
 			this->dgvOrdem->ShowEditingIcon = false;
-			this->dgvOrdem->Size = System::Drawing::Size(844, 370);
+			this->dgvOrdem->Size = System::Drawing::Size(844, 283);
 			this->dgvOrdem->TabIndex = 11;
 			this->dgvOrdem->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Adicionar_Ordem::dgvEquipamento_CellContentClick);
 			// 
@@ -151,12 +156,18 @@ namespace Project1 {
 			this->dgvColPrior->Name = L"dgvColPrior";
 			this->dgvColPrior->ReadOnly = true;
 			// 
+			// data
+			// 
+			this->data->HeaderText = L"Data";
+			this->data->Name = L"data";
+			this->data->ReadOnly = true;
+			// 
 			// dgvRua
 			// 
 			this->dgvRua->HeaderText = L"Logradouro";
 			this->dgvRua->Name = L"dgvRua";
 			this->dgvRua->ReadOnly = true;
-			this->dgvRua->Width = 500;
+			this->dgvRua->Width = 400;
 			// 
 			// dgvColNum
 			// 
@@ -167,7 +178,7 @@ namespace Project1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(72, 87);
+			this->label1->Location = System::Drawing::Point(73, 93);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(107, 20);
 			this->label1->TabIndex = 12;
@@ -175,14 +186,14 @@ namespace Project1 {
 			// 
 			// txtRua
 			// 
-			this->txtRua->Location = System::Drawing::Point(185, 84);
+			this->txtRua->Location = System::Drawing::Point(186, 90);
 			this->txtRua->Name = L"txtRua";
 			this->txtRua->Size = System::Drawing::Size(509, 26);
 			this->txtRua->TabIndex = 13;
 			// 
 			// btnFilt
 			// 
-			this->btnFilt->Location = System::Drawing::Point(700, 82);
+			this->btnFilt->Location = System::Drawing::Point(701, 88);
 			this->btnFilt->Name = L"btnFilt";
 			this->btnFilt->Size = System::Drawing::Size(100, 30);
 			this->btnFilt->TabIndex = 14;
@@ -192,7 +203,7 @@ namespace Project1 {
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(76, 512);
+			this->btnAdd->Location = System::Drawing::Point(76, 445);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(148, 35);
 			this->btnAdd->TabIndex = 15;
@@ -202,7 +213,7 @@ namespace Project1 {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(738, 512);
+			this->btnCancel->Location = System::Drawing::Point(738, 445);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(148, 35);
 			this->btnCancel->TabIndex = 16;
@@ -215,25 +226,15 @@ namespace Project1 {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(32, 35);
+			this->label8->Location = System::Drawing::Point(30, 29);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(373, 31);
 			this->label8->TabIndex = 17;
 			this->label8->Text = L"Selecionar Ordens de Serviço";
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(245, 512);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(148, 35);
-			this->button1->TabIndex = 18;
-			this->button1->Text = L"Ver Foto";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Adicionar_Ordem::button1_Click_1);
-			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(806, 82);
+			this->button2->Location = System::Drawing::Point(807, 88);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(100, 30);
 			this->button2->TabIndex = 19;
@@ -244,9 +245,8 @@ namespace Project1 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(951, 581);
+			this->ClientSize = System::Drawing::Size(951, 501);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnAdd);
@@ -279,7 +279,7 @@ namespace Project1 {
 		while(os[i] != NULL)
 		{
 			System::String^ str = gcnew String(os[i]->getburaco()->getnomerua().c_str());
-			dgvOrdem->Rows->Add(os[i]->getidordem().ToString(), os[i]->getprioridade().ToString(),str, os[i]->getburaco()->getnumero().ToString());
+			dgvOrdem->Rows->Add(os[i]->getidordem().ToString(), os[i]->getprioridade().ToString(),gcnew String(os[i]->getdata().c_str()),str, os[i]->getburaco()->getnumero().ToString());
 			i++;
 		}
 

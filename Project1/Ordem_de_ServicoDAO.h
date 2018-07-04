@@ -12,7 +12,7 @@ class Ordem_De_ServicoDAO
 
 public:
 	Ordem_De_ServicoDAO();
-	static void criarOrdemDeServico(string nome, float custo);
+	static int Ordem_De_ServicoDAO::criarOrdemDeServico(int idburaco, int p);
 	static void Ordem_De_ServicoDAO::deletarOrdemDeServico(int idordemDeServico);
 	static void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, string status);
 	static void Ordem_De_ServicoDAO::editarOrdemDeServico(int idordem, int p, string status);
@@ -25,7 +25,9 @@ public:
 	static Ordem_de_Servico** Ordem_De_ServicoDAO::buscarOrdemDeServico(string rua);
 	static int Ordem_De_ServicoDAO::contarBuracosAbertos();
 	static int Ordem_De_ServicoDAO::contarOrdensAbertas();
+	static Ordem_de_Servico* Ordem_De_ServicoDAO::buscarOrdemDeServicoAberta(int idburaco);
 	static int Ordem_De_ServicoDAO::contarOrdensAgendadas();
+	static int Ordem_De_ServicoDAO::contarporregional(string regional);
 };
 
 

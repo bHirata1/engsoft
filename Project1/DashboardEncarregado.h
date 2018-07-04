@@ -121,7 +121,10 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  txtDist;
 	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+	private: System::Windows::Forms::ToolTip^  toolTip1;
+
+	private: System::ComponentModel::IContainer^  components;
+
 
 
 
@@ -133,7 +136,7 @@ namespace InfoBuraco {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -142,6 +145,7 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->tabcontrol = (gcnew System::Windows::Forms::TabControl());
 			this->tp1 = (gcnew System::Windows::Forms::TabPage());
 			this->lblNum = (gcnew System::Windows::Forms::Label());
@@ -188,7 +192,7 @@ namespace InfoBuraco {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->BeginInit();
@@ -230,7 +234,6 @@ namespace InfoBuraco {
 			// 
 			// lblNum
 			// 
-			this->lblNum->AutoSize = true;
 			this->lblNum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblNum->Location = System::Drawing::Point(439, 124);
@@ -238,6 +241,7 @@ namespace InfoBuraco {
 			this->lblNum->Size = System::Drawing::Size(52, 31);
 			this->lblNum->TabIndex = 10;
 			this->lblNum->Text = L"XX";
+			this->lblNum->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label3
 			// 
@@ -415,7 +419,6 @@ namespace InfoBuraco {
 			// 
 			// tpSaida
 			// 
-			this->tpSaida->Controls->Add(this->dateTimePicker1);
 			this->tpSaida->Controls->Add(this->label7);
 			this->tpSaida->Controls->Add(this->txtDist);
 			this->tpSaida->Controls->Add(this->label4);
@@ -751,12 +754,10 @@ namespace InfoBuraco {
 			this->label14->Text = L"Concluir Saída";
 			this->label14->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// dateTimePicker1
+			// toolTip1
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(283, 56);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(206, 20);
-			this->dateTimePicker1->TabIndex = 39;
+			this->toolTip1->IsBalloon = true;
+			this->toolTip1->ToolTipIcon = System::Windows::Forms::ToolTipIcon::Info;
 			// 
 			// DashboardEncarregado
 			// 
@@ -785,7 +786,7 @@ namespace InfoBuraco {
 	private: System::Void DashboardEncarregado_Load(System::Object^  sender, System::EventArgs^  e) {
 		this->picSaida->Image = gcnew Bitmap("images\\agenda.jpg");
 		this->picUser->Image = gcnew Bitmap("images\\enc.jpg");
-
+		toolTip1->SetToolTip(btnEstimar, "Depois de finalizar as Ordens de Serviço na lista acima, \ninsira o valor da distância percorrida para finalizar a Saída.");
 		string login = msclr::interop::marshal_as<std::string>(lblNome->Text);
 		ltbDetalhes->Items->Clear();
 		cmbSaid->Items->Clear();

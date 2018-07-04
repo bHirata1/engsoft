@@ -1,4 +1,7 @@
 #pragma once
+#include "Ordem_de_ServicoDAO.h"
+#include <msclr\marshal_cppstd.h>
+#include "UsuarioDAO.h"
 
 namespace InfoBuraco {
 
@@ -15,9 +18,11 @@ namespace InfoBuraco {
 	public ref class DashboardGestor : public System::Windows::Forms::Form
 	{
 	public:
-		DashboardGestor(void)
+		DashboardGestor(string login)
 		{
 			InitializeComponent();
+			lblNome->Text = gcnew String(login.c_str());
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,37 +39,15 @@ namespace InfoBuraco {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TabControl^  tabControl1;
+	private: System::Windows::Forms::TabPage^  tpCidadao;
 	protected:
-	private: System::Windows::Forms::TabPage^  tabPage1;
-	private: System::Windows::Forms::TabPage^  tabPage2;
 
+	private: System::Windows::Forms::Label^  label12;
 
+	private: System::Windows::Forms::PictureBox^  picRel;
 
 
 
-	private: System::Windows::Forms::TabPage^  tabPage3;
-	private: System::Windows::Forms::TextBox^  textBox3;
-	private: System::Windows::Forms::TextBox^  textBox2;
-	private: System::Windows::Forms::ComboBox^  comboBox1;
-	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::ComboBox^  comboBox3;
-	private: System::Windows::Forms::TextBox^  textBox5;
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
-	private: System::Windows::Forms::DataGridViewImageColumn^  Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column5;
-	private: System::Windows::Forms::DataGridViewButtonColumn^  Column7;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
-	private: System::Windows::Forms::Button^  button7;
-	private: System::Windows::Forms::Button^  button6;
-	private: System::Windows::Forms::TextBox^  textBox7;
-	private: System::Windows::Forms::ComboBox^  comboBox2;
-	private: System::Windows::Forms::Button^  button5;
-	private: System::Windows::Forms::TextBox^  textBox6;
-	private: System::Windows::Forms::TextBox^  textBox4;
 
 
 
@@ -77,8 +60,15 @@ namespace InfoBuraco {
 
 
 
+	private: System::Windows::Forms::TabPage^  tpNot;
 
+	private: System::Windows::Forms::Button^  btnResolve;
+	private: System::Windows::Forms::TextBox^  txtNovaP;
+	private: Ordem_de_Servico * * os;
 
+	private: System::Windows::Forms::Label^  label18;
+	private: System::Windows::Forms::Label^  label17;
+	private: System::Windows::Forms::DataGridView^  dgvOrdem;
 
 
 
@@ -86,89 +76,33 @@ namespace InfoBuraco {
 
 
 
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::PictureBox^  picprior;
 
+	private: System::Windows::Forms::TabPage^  tp1;
 
 
 
+	private: System::Windows::Forms::PictureBox^  picPerfil;
+	private: System::Windows::Forms::Label^  lblNome;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::TabControl^  tabcontrol;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Prioridade;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  clmStatusOS;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvRua;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dgvColNum;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Posicao;
+	private: System::Windows::Forms::Button^  button3;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Label^  lblnumb;
+	private: System::Windows::Forms::Label^  lblreg;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	protected:
+	protected:
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -182,279 +116,384 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
-			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewImageColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column7 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
-			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->tabControl1->SuspendLayout();
-			this->tabPage2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			this->tabPage3->SuspendLayout();
+			this->tpCidadao = (gcnew System::Windows::Forms::TabPage());
+			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->picRel = (gcnew System::Windows::Forms::PictureBox());
+			this->tpNot = (gcnew System::Windows::Forms::TabPage());
+			this->btnResolve = (gcnew System::Windows::Forms::Button());
+			this->txtNovaP = (gcnew System::Windows::Forms::TextBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->dgvOrdem = (gcnew System::Windows::Forms::DataGridView());
+			this->Prioridade = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->data = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->clmStatusOS = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvRua = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvColNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Posicao = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->picprior = (gcnew System::Windows::Forms::PictureBox());
+			this->tp1 = (gcnew System::Windows::Forms::TabPage());
+			this->lblnumb = (gcnew System::Windows::Forms::Label());
+			this->lblreg = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->picPerfil = (gcnew System::Windows::Forms::PictureBox());
+			this->lblNome = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->tabcontrol = (gcnew System::Windows::Forms::TabControl());
+			this->tpCidadao->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRel))->BeginInit();
+			this->tpNot->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picprior))->BeginInit();
+			this->tp1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picPerfil))->BeginInit();
+			this->tabcontrol->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// tabControl1
+			// tpCidadao
 			// 
-			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->ItemSize = System::Drawing::Size(100, 75);
-			this->tabControl1->Location = System::Drawing::Point(3, 2);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(781, 574);
-			this->tabControl1->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
-			this->tabControl1->TabIndex = 0;
+			this->tpCidadao->Controls->Add(this->button3);
+			this->tpCidadao->Controls->Add(this->button2);
+			this->tpCidadao->Controls->Add(this->button1);
+			this->tpCidadao->Controls->Add(this->label12);
+			this->tpCidadao->Controls->Add(this->picRel);
+			this->tpCidadao->Location = System::Drawing::Point(4, 79);
+			this->tpCidadao->Name = L"tpCidadao";
+			this->tpCidadao->Padding = System::Windows::Forms::Padding(3);
+			this->tpCidadao->Size = System::Drawing::Size(1011, 499);
+			this->tpCidadao->TabIndex = 5;
+			this->tpCidadao->Text = L"RELATÓRIOS";
+			this->tpCidadao->UseVisualStyleBackColor = true;
 			// 
-			// tabPage1
+			// button3
 			// 
-			this->tabPage1->Location = System::Drawing::Point(4, 79);
-			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(773, 491);
-			this->tabPage1->TabIndex = 0;
-			this->tabPage1->Text = L"INFOBURACO";
-			this->tabPage1->UseVisualStyleBackColor = true;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button3->Location = System::Drawing::Point(290, 252);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(498, 57);
+			this->button3->TabIndex = 20;
+			this->button3->Text = L"Emitir Relatório Físico p/ demanda judicial";
+			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// tabPage2
+			// button2
 			// 
-			this->tabPage2->Controls->Add(this->dataGridView1);
-			this->tabPage2->Controls->Add(this->comboBox3);
-			this->tabPage2->Controls->Add(this->textBox5);
-			this->tabPage2->Controls->Add(this->textBox2);
-			this->tabPage2->Controls->Add(this->comboBox1);
-			this->tabPage2->Controls->Add(this->textBox1);
-			this->tabPage2->Controls->Add(this->textBox3);
-			this->tabPage2->Location = System::Drawing::Point(4, 79);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(773, 491);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"PRIORIDADE";
-			this->tabPage2->UseVisualStyleBackColor = true;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(290, 178);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(498, 57);
+			this->button2->TabIndex = 19;
+			this->button2->Text = L"Emitir Relatório Físico-Financeiro";
+			this->button2->UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
+			// button1
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
-				this->Column1,
-					this->Column2, this->Column3, this->Column4, this->Column5, this->Column7, this->Column6
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(290, 100);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(498, 57);
+			this->button1->TabIndex = 18;
+			this->button1->Text = L"Emitir Fatura Mensal";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->Location = System::Drawing::Point(30, 30);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(335, 31);
+			this->label12->TabIndex = 17;
+			this->label12->Text = L"Emitir Faturas e Relatórios";
+			// 
+			// picRel
+			// 
+			this->picRel->Location = System::Drawing::Point(30, 100);
+			this->picRel->Name = L"picRel";
+			this->picRel->Size = System::Drawing::Size(192, 192);
+			this->picRel->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picRel->TabIndex = 16;
+			this->picRel->TabStop = false;
+			// 
+			// tpNot
+			// 
+			this->tpNot->Controls->Add(this->btnResolve);
+			this->tpNot->Controls->Add(this->txtNovaP);
+			this->tpNot->Controls->Add(this->label18);
+			this->tpNot->Controls->Add(this->label17);
+			this->tpNot->Controls->Add(this->dgvOrdem);
+			this->tpNot->Controls->Add(this->label10);
+			this->tpNot->Controls->Add(this->picprior);
+			this->tpNot->Location = System::Drawing::Point(4, 79);
+			this->tpNot->Name = L"tpNot";
+			this->tpNot->Size = System::Drawing::Size(1011, 499);
+			this->tpNot->TabIndex = 4;
+			this->tpNot->Text = L"PRIORIDADE";
+			this->tpNot->UseVisualStyleBackColor = true;
+			// 
+			// btnResolve
+			// 
+			this->btnResolve->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnResolve->Location = System::Drawing::Point(551, 331);
+			this->btnResolve->Name = L"btnResolve";
+			this->btnResolve->Size = System::Drawing::Size(129, 31);
+			this->btnResolve->TabIndex = 42;
+			this->btnResolve->Text = L"Alterar";
+			this->btnResolve->UseVisualStyleBackColor = true;
+			this->btnResolve->Click += gcnew System::EventHandler(this, &DashboardGestor::btnResolve_Click);
+			// 
+			// txtNovaP
+			// 
+			this->txtNovaP->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtNovaP->Location = System::Drawing::Point(393, 333);
+			this->txtNovaP->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->txtNovaP->Name = L"txtNovaP";
+			this->txtNovaP->Size = System::Drawing::Size(134, 26);
+			this->txtNovaP->TabIndex = 38;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label18->Location = System::Drawing::Point(265, 336);
+			this->label18->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(120, 20);
+			this->label18->TabIndex = 40;
+			this->label18->Text = L"Nova Prioridade";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->Location = System::Drawing::Point(249, 100);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(278, 24);
+			this->label17->TabIndex = 26;
+			this->label17->Text = L"Ordens de Serviço Aguardando";
+			// 
+			// dgvOrdem
+			// 
+			this->dgvOrdem->AllowUserToAddRows = false;
+			this->dgvOrdem->AllowUserToDeleteRows = false;
+			this->dgvOrdem->AllowUserToResizeColumns = false;
+			this->dgvOrdem->AllowUserToResizeRows = false;
+			this->dgvOrdem->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvOrdem->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+				this->Prioridade,
+					this->data, this->clmStatusOS, this->dgvRua, this->dgvColNum, this->Posicao
 			});
-			this->dataGridView1->Location = System::Drawing::Point(20, 70);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(743, 393);
-			this->dataGridView1->TabIndex = 14;
-			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardGestor::dataGridView1_CellContentClick_3);
+			this->dgvOrdem->Location = System::Drawing::Point(241, 136);
+			this->dgvOrdem->MultiSelect = false;
+			this->dgvOrdem->Name = L"dgvOrdem";
+			this->dgvOrdem->ReadOnly = true;
+			this->dgvOrdem->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
+			this->dgvOrdem->ShowEditingIcon = false;
+			this->dgvOrdem->Size = System::Drawing::Size(714, 175);
+			this->dgvOrdem->TabIndex = 20;
 			// 
-			// Column1
+			// Prioridade
 			// 
-			this->Column1->HeaderText = L"Imagem";
-			this->Column1->Name = L"Column1";
+			this->Prioridade->HeaderText = L"Prioridade";
+			this->Prioridade->Name = L"Prioridade";
+			this->Prioridade->ReadOnly = true;
+			this->Prioridade->Width = 70;
 			// 
-			// Column2
+			// data
 			// 
-			this->Column2->HeaderText = L"Local";
-			this->Column2->Name = L"Column2";
+			this->data->HeaderText = L"Data";
+			this->data->Name = L"data";
+			this->data->ReadOnly = true;
+			this->data->Width = 70;
 			// 
-			// Column3
+			// clmStatusOS
 			// 
-			this->Column3->HeaderText = L"Data de adição";
-			this->Column3->Name = L"Column3";
+			this->clmStatusOS->HeaderText = L"Tamanho";
+			this->clmStatusOS->Name = L"clmStatusOS";
+			this->clmStatusOS->ReadOnly = true;
+			this->clmStatusOS->Width = 70;
 			// 
-			// Column4
+			// dgvRua
 			// 
-			this->Column4->HeaderText = L"nº de reclamações";
-			this->Column4->Name = L"Column4";
+			this->dgvRua->HeaderText = L"Logradouro";
+			this->dgvRua->Name = L"dgvRua";
+			this->dgvRua->ReadOnly = true;
+			this->dgvRua->Width = 300;
 			// 
-			// Column5
+			// dgvColNum
 			// 
-			this->Column5->HeaderText = L"Prioridade";
-			this->Column5->Name = L"Column5";
+			this->dgvColNum->HeaderText = L"Número";
+			this->dgvColNum->Name = L"dgvColNum";
+			this->dgvColNum->ReadOnly = true;
+			this->dgvColNum->Width = 60;
 			// 
-			// Column7
+			// Posicao
 			// 
-			this->Column7->HeaderText = L"Alterar";
-			this->Column7->Name = L"Column7";
-			this->Column7->Text = L"";
+			this->Posicao->HeaderText = L"Posição";
+			this->Posicao->Name = L"Posicao";
+			this->Posicao->ReadOnly = true;
 			// 
-			// Column6
+			// label10
 			// 
-			this->Column6->HeaderText = L"Estado";
-			this->Column6->Name = L"Column6";
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(30, 30);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(224, 31);
+			this->label10->TabIndex = 15;
+			this->label10->Text = L"Alterar Prioridade";
+			this->label10->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
-			// comboBox3
+			// picprior
 			// 
-			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
-				L"Tudo", L"7 dias", L"15 dias", L"1 mês", L"3 meses",
-					L"6 meses", L"1 ano"
-			});
-			this->comboBox3->Location = System::Drawing::Point(466, 25);
-			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(121, 21);
-			this->comboBox3->TabIndex = 12;
+			this->picprior->Location = System::Drawing::Point(30, 100);
+			this->picprior->Name = L"picprior";
+			this->picprior->Size = System::Drawing::Size(192, 192);
+			this->picprior->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picprior->TabIndex = 14;
+			this->picprior->TabStop = false;
 			// 
-			// textBox5
+			// tp1
 			// 
-			this->textBox5->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox5->Location = System::Drawing::Point(420, 28);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(40, 13);
-			this->textBox5->TabIndex = 10;
-			this->textBox5->Text = L"Período:";
+			this->tp1->Controls->Add(this->lblnumb);
+			this->tp1->Controls->Add(this->lblreg);
+			this->tp1->Controls->Add(this->label2);
+			this->tp1->Controls->Add(this->label3);
+			this->tp1->Controls->Add(this->picPerfil);
+			this->tp1->Controls->Add(this->lblNome);
+			this->tp1->Controls->Add(this->label1);
+			this->tp1->Location = System::Drawing::Point(4, 79);
+			this->tp1->Name = L"tp1";
+			this->tp1->Padding = System::Windows::Forms::Padding(3);
+			this->tp1->Size = System::Drawing::Size(1011, 499);
+			this->tp1->TabIndex = 0;
+			this->tp1->Text = L"DASHBOARD";
+			this->tp1->UseVisualStyleBackColor = true;
 			// 
-			// textBox2
+			// lblnumb
 			// 
-			this->textBox2->Location = System::Drawing::Point(66, 25);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(150, 20);
-			this->textBox2->TabIndex = 7;
+			this->lblnumb->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblnumb->Location = System::Drawing::Point(408, 184);
+			this->lblnumb->Name = L"lblnumb";
+			this->lblnumb->Size = System::Drawing::Size(52, 31);
+			this->lblnumb->TabIndex = 15;
+			this->lblnumb->Text = L"XX";
+			this->lblnumb->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// comboBox1
+			// lblreg
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
-				L"Finalizado", L"Em andamento", L"Não iniciado",
-					L"Todos"
-			});
-			this->comboBox1->Location = System::Drawing::Point(269, 25);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(121, 21);
-			this->comboBox1->TabIndex = 6;
-			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardGestor::comboBox1_SelectedIndexChanged);
+			this->lblreg->AutoSize = true;
+			this->lblreg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblreg->Location = System::Drawing::Point(418, 119);
+			this->lblreg->Name = L"lblreg";
+			this->lblreg->Size = System::Drawing::Size(52, 31);
+			this->lblreg->TabIndex = 14;
+			this->lblreg->Text = L"XX";
+			this->lblreg->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// textBox1
+			// label2
 			// 
-			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox1->Location = System::Drawing::Point(235, 28);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(30, 13);
-			this->textBox1->TabIndex = 5;
-			this->textBox1->Text = L"Filtrar:";
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(294, 184);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(573, 31);
+			this->label2->TabIndex = 13;
+			this->label2->Text = L"Existem           buracos abertos na sua regional";
 			// 
-			// textBox3
+			// label3
 			// 
-			this->textBox3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox3->Location = System::Drawing::Point(20, 28);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(40, 13);
-			this->textBox3->TabIndex = 8;
-			this->textBox3->Text = L"Buscar:";
-			this->textBox3->TextChanged += gcnew System::EventHandler(this, &DashboardGestor::textBox3_TextChanged);
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(283, 119);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(129, 31);
+			this->label3->TabIndex = 11;
+			this->label3->Text = L"Regional:";
 			// 
-			// tabPage3
+			// picPerfil
 			// 
-			this->tabPage3->Controls->Add(this->button7);
-			this->tabPage3->Controls->Add(this->button6);
-			this->tabPage3->Controls->Add(this->textBox7);
-			this->tabPage3->Controls->Add(this->comboBox2);
-			this->tabPage3->Controls->Add(this->button5);
-			this->tabPage3->Controls->Add(this->textBox6);
-			this->tabPage3->Controls->Add(this->textBox4);
-			this->tabPage3->Location = System::Drawing::Point(4, 79);
-			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(773, 491);
-			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"RELATÓRIOS";
-			this->tabPage3->UseVisualStyleBackColor = true;
+			this->picPerfil->Location = System::Drawing::Point(30, 100);
+			this->picPerfil->Name = L"picPerfil";
+			this->picPerfil->Size = System::Drawing::Size(192, 192);
+			this->picPerfil->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picPerfil->TabIndex = 2;
+			this->picPerfil->TabStop = false;
 			// 
-			// button7
+			// lblNome
 			// 
-			this->button7->Location = System::Drawing::Point(395, 116);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(100, 50);
-			this->button7->TabIndex = 12;
-			this->button7->Text = L"Judicial";
-			this->button7->UseVisualStyleBackColor = true;
+			this->lblNome->AutoSize = true;
+			this->lblNome->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblNome->Location = System::Drawing::Point(180, 30);
+			this->lblNome->Name = L"lblNome";
+			this->lblNome->Size = System::Drawing::Size(232, 31);
+			this->lblNome->TabIndex = 1;
+			this->lblNome->Text = L"insert_name_here";
 			// 
-			// button6
+			// label1
 			// 
-			this->button6->Location = System::Drawing::Point(272, 116);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(100, 50);
-			this->button6->TabIndex = 11;
-			this->button6->Text = L"Financeiro";
-			this->button6->UseVisualStyleBackColor = true;
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(30, 30);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(156, 31);
+			this->label1->TabIndex = 0;
+			this->label1->Text = L"Bem vindo, ";
 			// 
-			// textBox7
+			// tabcontrol
 			// 
-			this->textBox7->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox7->Location = System::Drawing::Point(272, 65);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(77, 13);
-			this->textBox7->TabIndex = 10;
-			this->textBox7->Text = L"Selecionar ID:";
-			// 
-			// comboBox2
-			// 
-			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(355, 62);
-			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(121, 21);
-			this->comboBox2->TabIndex = 9;
-			// 
-			// button5
-			// 
-			this->button5->Location = System::Drawing::Point(37, 62);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(100, 50);
-			this->button5->TabIndex = 8;
-			this->button5->Text = L"Ver Fatura Fechada";
-			this->button5->UseVisualStyleBackColor = true;
-			// 
-			// textBox6
-			// 
-			this->textBox6->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox6->Location = System::Drawing::Point(355, 22);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(100, 13);
-			this->textBox6->TabIndex = 7;
-			this->textBox6->Text = L"Relatórios";
-			// 
-			// textBox4
-			// 
-			this->textBox4->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->textBox4->Location = System::Drawing::Point(74, 22);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(100, 13);
-			this->textBox4->TabIndex = 6;
-			this->textBox4->Text = L"Fatura";
+			this->tabcontrol->Controls->Add(this->tp1);
+			this->tabcontrol->Controls->Add(this->tpNot);
+			this->tabcontrol->Controls->Add(this->tpCidadao);
+			this->tabcontrol->HotTrack = true;
+			this->tabcontrol->ItemSize = System::Drawing::Size(120, 75);
+			this->tabcontrol->Location = System::Drawing::Point(0, 0);
+			this->tabcontrol->Multiline = true;
+			this->tabcontrol->Name = L"tabcontrol";
+			this->tabcontrol->SelectedIndex = 0;
+			this->tabcontrol->Size = System::Drawing::Size(1019, 582);
+			this->tabcontrol->SizeMode = System::Windows::Forms::TabSizeMode::Fixed;
+			this->tabcontrol->TabIndex = 2;
 			// 
 			// DashboardGestor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(788, 576);
-			this->Controls->Add(this->tabControl1);
+			this->ClientSize = System::Drawing::Size(1003, 543);
+			this->Controls->Add(this->tabcontrol);
 			this->Name = L"DashboardGestor";
 			this->Text = L"DashboardGestor";
 			this->Load += gcnew System::EventHandler(this, &DashboardGestor::DashboardGestor_Load);
-			this->tabControl1->ResumeLayout(false);
-			this->tabPage2->ResumeLayout(false);
-			this->tabPage2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			this->tabPage3->ResumeLayout(false);
-			this->tabPage3->PerformLayout();
+			this->tpCidadao->ResumeLayout(false);
+			this->tpCidadao->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picRel))->EndInit();
+			this->tpNot->ResumeLayout(false);
+			this->tpNot->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picprior))->EndInit();
+			this->tp1->ResumeLayout(false);
+			this->tp1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picPerfil))->EndInit();
+			this->tabcontrol->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -475,16 +514,42 @@ private: System::Void textBox14_TextChanged(System::Object^  sender, System::Eve
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-}
+
 private: System::Void dataGridView1_CellContentClick_1(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
 private: System::Void dataGridView1_CellContentClick_2(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 }
 private: System::Void DashboardGestor_Load(System::Object^  sender, System::EventArgs^  e) {
-
+	string login = msclr::interop::marshal_as<std::string>(lblNome->Text);
+	Usuario* u = UsuarioDAO::buscarUsuario(login);
+	lblreg->Text = gcnew String(u->getregional().c_str());
+	lblnumb->Text = Ordem_De_ServicoDAO::contarporregional(u->getregional()).ToString();
+	
+	os = Ordem_De_ServicoDAO::SelecionarAbertas();
+	dgvOrdem->Rows->Clear();
+	int i = 0;
+	while (os[i] != NULL)
+	{
+		Buraco * b = os[i]->getburaco();
+		dgvOrdem->Rows->Add(os[i]->getprioridade().ToString(), gcnew String(os[i]->getdata().c_str()), b->gettamanho().ToString(),
+			gcnew String(b->getnomerua().c_str()), b->getnumero().ToString(), gcnew String(b->getposrel().c_str()));
+		i++;
+	}
+	picPerfil->Image = gcnew Bitmap("images\\gestor.jpg");
+	picprior->Image = gcnew Bitmap("images\\prioridade.jpg");
+	picRel->Image = gcnew Bitmap("images\\relatorio.jpg");
+	
+	dgvOrdem->ClearSelection();
 }
 private: System::Void dataGridView1_CellContentClick_3(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+}
+private: System::Void btnResolve_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (dgvOrdem->SelectedRows->Count == 0) return;
+	int p = Convert::ToInt32(txtNovaP->Text->ToString());
+	if (p < 0 || p> 10) return;
+	Ordem_De_ServicoDAO::editarOrdemDeServico(os[dgvOrdem->SelectedRows[0]->Index]->getidordem(), p, "ABERTA");
+	MessageBox::Show("Prioridade Atualizada com sucesso.", "Mensagem", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	DashboardGestor_Load(sender, e);
 }
 };
 }

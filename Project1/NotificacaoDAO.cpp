@@ -4,7 +4,7 @@ NotificacaoDAO::NotificacaoDAO()
 {
 }
 
-void NotificacaoDAO::criarNotificacao(string data, string hora, string status)
+void NotificacaoDAO::criarNotificacao(string data, string hora, string status,string cpf, int idordem)
 {
 	string log;
 	sql::Connection * connection;
@@ -14,12 +14,12 @@ void NotificacaoDAO::criarNotificacao(string data, string hora, string status)
 	try {
 		MySQLDAO* mysqldao = MySQLDAO::getInstance();
 		connection = mysqldao->getConnection();
-		preparedStatement = connection->prepareStatement("INSERT INTO Notificacao (data, hora, status) VALUES (?,?,?)");
-
-		preparedStatement->setString(1, data.c_str());
-		preparedStatement->setString(2, hora.c_str());
-		preparedStatement->setString(3, status.c_str());
-		resultSet = preparedStatement->executeQuery();
+		preparedStatement = connection->prepareStatement("insert into Notificacao (data,hora,status,cpf,idordem) values (?,?,'ESPERA',?,?)");
+		preparedStatement->setString(1, data);
+		preparedStatement->setString(2, hora);
+		preparedStatement->setString(3, cpf);
+		preparedStatement->setInt(4, idordem);
+		preparedStatement->executeQuery();
 	}
 	catch (sql::SQLException e)
 	{
@@ -221,5 +221,30 @@ Notificacao** NotificacaoDAO::SelecionarEmEspera()
 		log = e.what();
 	}
 	return n;
+
+}
+
+int NotificacaoDAO::ContarEmEspera()
+{
+	string log;
+	sql::Connection * connection;
+	int num = 0;
+	sql::Statement* statement;
+	sql::PreparedStatement * preparedStatement;
+	sql::ResultSet *resultSet;
+	try {
+		MySQLDAO* mysqldao = MySQLDAO::getInstance();
+		connection = mysqldao->getConnection();
+		preparedStatement = connection->prepareStatement("SELECT count(*) from Notificacao where status='ESPERA'");
+		resultSet = preparedStatement->executeQuery();
+		if (resultSet->next())
+			num = resultSet->getInt(1);
+	}
+	catch (sql::SQLException e)
+	{
+		connection->close();
+		log = e.what();
+	}
+	return num;
 
 }

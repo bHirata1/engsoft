@@ -341,7 +341,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// lblAg
 			// 
-			this->lblAg->AutoSize = true;
 			this->lblAg->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblAg->Location = System::Drawing::Point(411, 232);
@@ -349,10 +348,10 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->lblAg->Size = System::Drawing::Size(52, 31);
 			this->lblAg->TabIndex = 11;
 			this->lblAg->Text = L"XX";
+			this->lblAg->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblAberto
 			// 
-			this->lblAberto->AutoSize = true;
 			this->lblAberto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblAberto->Location = System::Drawing::Point(411, 170);
@@ -360,10 +359,10 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->lblAberto->Size = System::Drawing::Size(52, 31);
 			this->lblAberto->TabIndex = 10;
 			this->lblAberto->Text = L"XX";
+			this->lblAberto->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblBuraco
 			// 
-			this->lblBuraco->AutoSize = true;
 			this->lblBuraco->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lblBuraco->Location = System::Drawing::Point(411, 110);
@@ -371,6 +370,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->lblBuraco->Size = System::Drawing::Size(52, 31);
 			this->lblBuraco->TabIndex = 9;
 			this->lblBuraco->Text = L"XX";
+			this->lblBuraco->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// label5
 			// 
@@ -469,6 +469,8 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnLimpar
 			// 
+			this->btnLimpar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnLimpar->Location = System::Drawing::Point(313, 361);
 			this->btnLimpar->Name = L"btnLimpar";
 			this->btnLimpar->Size = System::Drawing::Size(152, 34);
@@ -513,6 +515,8 @@ private: System::Windows::Forms::Button^  btnSaida;
 			// 
 			// btnSaida
 			// 
+			this->btnSaida->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnSaida->Location = System::Drawing::Point(24, 361);
 			this->btnSaida->Name = L"btnSaida";
 			this->btnSaida->Size = System::Drawing::Size(152, 34);
@@ -1397,6 +1401,7 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 
 	MessageBox::Show("Dados Salvos com Sucesso!", "Salvar Dados", MessageBoxButtons::OK, MessageBoxIcon::Information);
 	btnLimpar_Click(sender, e);
+	DashboardDespachador_Load(sender, e);
 }
 private: System::Void ltbDetalhes_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 	ltbOrdem->SelectedIndex = ltbDetalhes->SelectedIndex;

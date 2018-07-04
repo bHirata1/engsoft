@@ -4,6 +4,7 @@
 #include "DashboardEncarregado.h"
 #include "UsuarioDAO.h"
 #include "DashboardAssessor.h"
+#include "DashboardGestor.h"
 
 /*
 Referência: http://www.visualcplusdotnet.com/visualcplusdotnet21.html
@@ -83,7 +84,6 @@ namespace InfoBuraco {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tb_login = (gcnew System::Windows::Forms::TextBox());
 			this->lb_login = (gcnew System::Windows::Forms::Label());
 			this->lb_senha = (gcnew System::Windows::Forms::Label());
@@ -96,37 +96,46 @@ namespace InfoBuraco {
 			// 
 			// tb_login
 			// 
-			this->tb_login->Location = System::Drawing::Point(176, 407);
+			this->tb_login->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_login->Location = System::Drawing::Point(158, 407);
 			this->tb_login->Name = L"tb_login";
-			this->tb_login->Size = System::Drawing::Size(100, 20);
+			this->tb_login->Size = System::Drawing::Size(143, 26);
 			this->tb_login->TabIndex = 4;
+			this->tb_login->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &MyForm::tb_login_KeyPress);
 			// 
 			// lb_login
 			// 
 			this->lb_login->AutoSize = true;
-			this->lb_login->Location = System::Drawing::Point(125, 410);
+			this->lb_login->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_login->Location = System::Drawing::Point(77, 410);
 			this->lb_login->Name = L"lb_login";
-			this->lb_login->Size = System::Drawing::Size(33, 13);
+			this->lb_login->Size = System::Drawing::Size(48, 20);
 			this->lb_login->TabIndex = 5;
 			this->lb_login->Text = L"Login";
 			// 
 			// lb_senha
 			// 
 			this->lb_senha->AutoSize = true;
-			this->lb_senha->Location = System::Drawing::Point(122, 450);
+			this->lb_senha->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_senha->Location = System::Drawing::Point(81, 450);
 			this->lb_senha->Name = L"lb_senha";
-			this->lb_senha->Size = System::Drawing::Size(37, 17);
+			this->lb_senha->Size = System::Drawing::Size(53, 24);
 			this->lb_senha->TabIndex = 6;
 			this->lb_senha->Text = L"Senha";
 			this->lb_senha->UseCompatibleTextRendering = true;
 			// 
 			// tb_senha
 			// 
-			this->tb_senha->Location = System::Drawing::Point(176, 450);
+			this->tb_senha->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_senha->Location = System::Drawing::Point(158, 447);
 			this->tb_senha->Name = L"tb_senha";
 			this->tb_senha->PasswordChar = '*';
 			this->tb_senha->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->tb_senha->Size = System::Drawing::Size(100, 20);
+			this->tb_senha->Size = System::Drawing::Size(143, 26);
 			this->tb_senha->TabIndex = 7;
 			this->tb_senha->UseSystemPasswordChar = true;
 			this->tb_senha->TextChanged += gcnew System::EventHandler(this, &MyForm::tb_senha_TextChanged);
@@ -134,9 +143,11 @@ namespace InfoBuraco {
 			// 
 			// bt_validar
 			// 
-			this->bt_validar->Location = System::Drawing::Point(128, 500);
+			this->bt_validar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->bt_validar->Location = System::Drawing::Point(102, 500);
 			this->bt_validar->Name = L"bt_validar";
-			this->bt_validar->Size = System::Drawing::Size(75, 23);
+			this->bt_validar->Size = System::Drawing::Size(83, 31);
 			this->bt_validar->TabIndex = 8;
 			this->bt_validar->Text = L"Validar";
 			this->bt_validar->UseVisualStyleBackColor = true;
@@ -144,9 +155,11 @@ namespace InfoBuraco {
 			// 
 			// bt_limpar
 			// 
-			this->bt_limpar->Location = System::Drawing::Point(226, 500);
+			this->bt_limpar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->bt_limpar->Location = System::Drawing::Point(218, 500);
 			this->bt_limpar->Name = L"bt_limpar";
-			this->bt_limpar->Size = System::Drawing::Size(75, 23);
+			this->bt_limpar->Size = System::Drawing::Size(83, 31);
 			this->bt_limpar->TabIndex = 9;
 			this->bt_limpar->Text = L"Limpar";
 			this->bt_limpar->UseVisualStyleBackColor = true;
@@ -154,7 +167,6 @@ namespace InfoBuraco {
 			// 
 			// pictureBox1
 			// 
-			//this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(23, 12);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(368, 382);
@@ -198,23 +210,34 @@ private: System::Void bt_validar_Click(System::Object^  sender, System::EventArg
 	DashboardDespachador ^ j1;
 	DashboardEncarregado ^ j2;
 	DashboardAssessor ^ j3;
-	if (user != NULL)
+	DashboardGestor ^j4;
+	if (user == NULL)
 	{
-		this->Hide();
-		switch (user->gettipo())
-		{
-			case 1: j1 = gcnew DashboardDespachador(user->getlogin());
-					j1->ShowDialog();
-					break;
-			case 2: j2 = gcnew DashboardEncarregado(user->getlogin());
-					j2->ShowDialog();
-					break;
-			case 3: j3 = gcnew DashboardAssessor(user->getlogin());
-				j3->ShowDialog();
-					break;
-		}
-		Application::Exit();
+		MessageBox::Show("Login de Usuário não encontrado!", "Erro ao fazer login", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		return;
 	}
+	if (gcnew String(user->getsenha().c_str()) != tb_senha->Text->ToString())
+	{
+		MessageBox::Show("Senha de usuário incorreta!", "Erro ao fazer login", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		return;
+	}
+	this->Hide();
+	switch (user->gettipo())
+	{
+		case 1: j1 = gcnew DashboardDespachador(user->getlogin());
+				j1->ShowDialog();
+				break;
+		case 2: j2 = gcnew DashboardEncarregado(user->getlogin());
+				j2->ShowDialog();
+				break;
+		case 3: j3 = gcnew DashboardAssessor(user->getlogin());
+			j3->ShowDialog();
+			break;
+		case 4: j4 = gcnew DashboardGestor(user->getlogin());
+			j4->ShowDialog();
+			break;
+	}
+	Application::Exit();
 
 }
 private: System::Void bt_janela2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -240,6 +263,10 @@ private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e
 private: System::Void tb_senha_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void tb_senha_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+	if (e->KeyChar == (wchar_t)Keys::Enter)
+		bt_validar_Click(sender, (EventArgs^)e);
+}
+private: System::Void tb_login_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
 	if (e->KeyChar == (wchar_t)Keys::Enter)
 		bt_validar_Click(sender, (EventArgs^)e);
 }

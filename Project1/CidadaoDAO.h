@@ -18,6 +18,7 @@ public:
 	static void editarCidadao(string cpf, string nome, string canal, string contato);
 	static Cidadao* CidadaoDAO::buscarCidadao(string nome);
 	static Cidadao** CidadaoDAO::SelecionarTudo();
+	static int contarCidadaos();
 };
 
 #endif
