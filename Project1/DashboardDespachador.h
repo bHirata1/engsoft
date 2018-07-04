@@ -230,6 +230,9 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnUp = (gcnew System::Windows::Forms::Button());
 			this->ltbOrdem = (gcnew System::Windows::Forms::ListBox());
 			this->dgvCSEquip = (gcnew System::Windows::Forms::DataGridView());
+			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->clmId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
@@ -280,9 +283,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnConfirmaMob = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->clmEquip = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->clmNome = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->clmId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->BeginInit();
@@ -517,7 +517,7 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->btnSaida->Name = L"btnSaida";
 			this->btnSaida->Size = System::Drawing::Size(152, 34);
 			this->btnSaida->TabIndex = 18;
-			this->btnSaida->Text = L"Fechar o Rolê";
+			this->btnSaida->Text = L"Agendar";
 			this->btnSaida->UseVisualStyleBackColor = true;
 			this->btnSaida->Click += gcnew System::EventHandler(this, &DashboardDespachador::button9_Click);
 			// 
@@ -596,6 +596,27 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->dgvCSEquip->Size = System::Drawing::Size(294, 149);
 			this->dgvCSEquip->TabIndex = 12;
 			this->dgvCSEquip->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardDespachador::dataGridView1_CellContentClick_1);
+			// 
+			// clmEquip
+			// 
+			this->clmEquip->Frozen = true;
+			this->clmEquip->HeaderText = L"";
+			this->clmEquip->Name = L"clmEquip";
+			this->clmEquip->Width = 30;
+			// 
+			// clmNome
+			// 
+			this->clmNome->HeaderText = L"";
+			this->clmNome->Name = L"clmNome";
+			this->clmNome->ReadOnly = true;
+			this->clmNome->Width = 260;
+			// 
+			// clmId
+			// 
+			this->clmId->HeaderText = L"id";
+			this->clmId->Name = L"clmId";
+			this->clmId->ReadOnly = true;
+			this->clmId->Visible = false;
 			// 
 			// label18
 			// 
@@ -1135,27 +1156,6 @@ private: System::Windows::Forms::Button^  btnSaida;
 			this->label12->TabIndex = 21;
 			this->label12->Text = L"Custo de Mobilização";
 			// 
-			// clmEquip
-			// 
-			this->clmEquip->Frozen = true;
-			this->clmEquip->HeaderText = L"";
-			this->clmEquip->Name = L"clmEquip";
-			this->clmEquip->Width = 30;
-			// 
-			// clmNome
-			// 
-			this->clmNome->HeaderText = L"";
-			this->clmNome->Name = L"clmNome";
-			this->clmNome->ReadOnly = true;
-			this->clmNome->Width = 260;
-			// 
-			// clmId
-			// 
-			this->clmId->HeaderText = L"id";
-			this->clmId->Name = L"clmId";
-			this->clmId->ReadOnly = true;
-			this->clmId->Visible = false;
-			// 
 			// DashboardDespachador
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1360,6 +1360,11 @@ private: System::Windows::Forms::Button^  btnSaida;
 		}
 	}
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (cmbEquipe->SelectedIndex == -1 || ltbOrdem->Items->Count == 0)
+	{
+		MessageBox::Show("Selecione a equipe e ao menos uma Ordem de Serviço!", "Erro ao Prosseguir", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		return;
+	}
 	if (MessageBox::Show("Deseja incluir esses dados?", "Confirma Inclusão", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::No)
 		return;
 	Equipamento ** eqp = new Equipamento*[dgvCSEquip->RowCount];
