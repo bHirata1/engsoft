@@ -216,6 +216,12 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			this->txtNotCid = (gcnew System::Windows::Forms::TextBox());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->dgvOrdem = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvColId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->cidadao = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->clmStatusOS = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvRua = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dgvColNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->data = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->picNot = (gcnew System::Windows::Forms::PictureBox());
 			this->tp1 = (gcnew System::Windows::Forms::TabPage());
@@ -259,12 +265,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			this->btnEditar = (gcnew System::Windows::Forms::Button());
 			this->btnBusc = (gcnew System::Windows::Forms::Button());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->dgvColId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->cidadao = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->clmStatusOS = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvRua = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dgvColNum = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->data = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tpNot->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvOrdem))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picNot))->BeginInit();
@@ -303,7 +303,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			// 
 			// btnRefresh
 			// 
-			this->btnRefresh->Location = System::Drawing::Point(254, 95);
+			this->btnRefresh->Location = System::Drawing::Point(241, 95);
 			this->btnRefresh->Name = L"btnRefresh";
 			this->btnRefresh->Size = System::Drawing::Size(35, 35);
 			this->btnRefresh->TabIndex = 43;
@@ -421,7 +421,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label17->Location = System::Drawing::Point(308, 100);
+			this->label17->Location = System::Drawing::Point(282, 100);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(305, 24);
 			this->label17->TabIndex = 26;
@@ -447,6 +447,48 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			this->dgvOrdem->TabIndex = 20;
 			this->dgvOrdem->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DashboardAssessor::dgvOrdem_CellContentClick);
 			this->dgvOrdem->SelectionChanged += gcnew System::EventHandler(this, &DashboardAssessor::dgvOrdem_SelectionChanged);
+			// 
+			// dgvColId
+			// 
+			this->dgvColId->FillWeight = 60;
+			this->dgvColId->HeaderText = L"Id Ordem";
+			this->dgvColId->Name = L"dgvColId";
+			this->dgvColId->ReadOnly = true;
+			this->dgvColId->Visible = false;
+			this->dgvColId->Width = 80;
+			// 
+			// cidadao
+			// 
+			this->cidadao->HeaderText = L"CPF Cidadão";
+			this->cidadao->Name = L"cidadao";
+			this->cidadao->ReadOnly = true;
+			// 
+			// clmStatusOS
+			// 
+			this->clmStatusOS->HeaderText = L"Status OS";
+			this->clmStatusOS->Name = L"clmStatusOS";
+			this->clmStatusOS->ReadOnly = true;
+			// 
+			// dgvRua
+			// 
+			this->dgvRua->HeaderText = L"Logradouro";
+			this->dgvRua->Name = L"dgvRua";
+			this->dgvRua->ReadOnly = true;
+			this->dgvRua->Width = 350;
+			// 
+			// dgvColNum
+			// 
+			this->dgvColNum->HeaderText = L"Número";
+			this->dgvColNum->Name = L"dgvColNum";
+			this->dgvColNum->ReadOnly = true;
+			this->dgvColNum->Width = 60;
+			// 
+			// data
+			// 
+			this->data->HeaderText = L"Data";
+			this->data->Name = L"data";
+			this->data->ReadOnly = true;
+			this->data->Width = 70;
 			// 
 			// label10
 			// 
@@ -774,11 +816,11 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			// 
 			this->btnCad->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCad->Location = System::Drawing::Point(789, 89);
+			this->btnCad->Location = System::Drawing::Point(819, 89);
 			this->btnCad->Name = L"btnCad";
 			this->btnCad->Size = System::Drawing::Size(92, 30);
 			this->btnCad->TabIndex = 40;
-			this->btnCad->Text = L"Cadastrar";
+			this->btnCad->Text = L"Novo";
 			this->btnCad->UseVisualStyleBackColor = true;
 			this->btnCad->Click += gcnew System::EventHandler(this, &DashboardAssessor::btnCad_Click);
 			// 
@@ -961,48 +1003,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 			this->label11->TabIndex = 25;
 			this->label11->Text = L"Buscar por CPF:\r\n";
 			// 
-			// dgvColId
-			// 
-			this->dgvColId->FillWeight = 60;
-			this->dgvColId->HeaderText = L"Id Ordem";
-			this->dgvColId->Name = L"dgvColId";
-			this->dgvColId->ReadOnly = true;
-			this->dgvColId->Visible = false;
-			this->dgvColId->Width = 80;
-			// 
-			// cidadao
-			// 
-			this->cidadao->HeaderText = L"CPF Cidadão";
-			this->cidadao->Name = L"cidadao";
-			this->cidadao->ReadOnly = true;
-			// 
-			// clmStatusOS
-			// 
-			this->clmStatusOS->HeaderText = L"Status OS";
-			this->clmStatusOS->Name = L"clmStatusOS";
-			this->clmStatusOS->ReadOnly = true;
-			// 
-			// dgvRua
-			// 
-			this->dgvRua->HeaderText = L"Logradouro";
-			this->dgvRua->Name = L"dgvRua";
-			this->dgvRua->ReadOnly = true;
-			this->dgvRua->Width = 350;
-			// 
-			// dgvColNum
-			// 
-			this->dgvColNum->HeaderText = L"Número";
-			this->dgvColNum->Name = L"dgvColNum";
-			this->dgvColNum->ReadOnly = true;
-			this->dgvColNum->Width = 60;
-			// 
-			// data
-			// 
-			this->data->HeaderText = L"Data";
-			this->data->Name = L"data";
-			this->data->ReadOnly = true;
-			this->data->Width = 70;
-			// 
 			// DashboardAssessor
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1039,7 +1039,7 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 		this->picBuraco->Image = gcnew Bitmap("images\\buraco.jpg");
 		this->picNot->Image = gcnew Bitmap("images\\notificacao.jpg");
 		this->btnRefresh->Image = gcnew Bitmap("images\\refresh.png");
-		btnRefresh_Click(sender, e);
+		//btnRefresh_Click(sender, e);
 	}
 
 	private: System::Void btnBusc_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1047,7 +1047,6 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  data;
 		if (c != NULL) // cidadao encontrado, habilita edição 
 		{
 			btnEditar->Enabled = true;
-			btnCad->Enabled = false;
 			txtNomeCid->Text = gcnew String(c->getnome().c_str());
 			txtCpf->Text = txtCpfBusca->Text;
 			txtContato->Text = gcnew String(c->getcontato().c_str());
@@ -1115,6 +1114,7 @@ private: System::Void btnCancelarCid_Click(System::Object^  sender, System::Even
 
 }
 private: System::Void btnCad_Click(System::Object^  sender, System::EventArgs^  e) {
+	btnCancelarCid_Click(sender, e);
 	txtCpfBusca->Enabled = false;
 	pnlCidadao->Enabled = true;
 	btnEditar->Enabled = false;

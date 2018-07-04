@@ -41,6 +41,11 @@ void BuracoDAO::criarBuraco(string nomerua, int numero, string posrel, string re
 		preparedStatement->setInt(3,id);
 		preparedStatement->executeQuery();
 
+		preparedStatement = connection->prepareStatement("select max(idordem) from OrdemServico");
+		resultSet = preparedStatement->executeQuery();
+		if (!resultSet->next()) return;
+		id = resultSet->getInt(1);
+
 		preparedStatement = connection->prepareStatement("insert into Notificacao (data,hora,status,cpf,idordem) values (?,?,'ESPERA',?,?)");
 		preparedStatement->setString(1, data);
 		preparedStatement->setString(2, hora);

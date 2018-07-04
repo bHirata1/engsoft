@@ -235,6 +235,7 @@ private: System::Void exCaixaDeDialogoToolStripMenuItem_Click(System::Object^  s
 
 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	this->pictureBox1->Image = gcnew Bitmap("images\\login.jpg");
 }
 private: System::Void tb_senha_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }

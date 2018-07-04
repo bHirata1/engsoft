@@ -121,6 +121,7 @@ namespace InfoBuraco {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  txtDist;
 	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 
 
 
@@ -148,6 +149,17 @@ namespace InfoBuraco {
 			this->picUser = (gcnew System::Windows::Forms::PictureBox());
 			this->lblNome = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->btnEquipe = (gcnew System::Windows::Forms::Button());
+			this->btnEstimar = (gcnew System::Windows::Forms::Button());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->ltbServico = (gcnew System::Windows::Forms::ListBox());
+			this->ltbEqp = (gcnew System::Windows::Forms::ListBox());
+			this->cmbVS = (gcnew System::Windows::Forms::ComboBox());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->picSaida = (gcnew System::Windows::Forms::PictureBox());
 			this->tpSaida = (gcnew System::Windows::Forms::TabPage());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->txtDist = (gcnew System::Windows::Forms::TextBox());
@@ -176,24 +188,14 @@ namespace InfoBuraco {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->btnEquipe = (gcnew System::Windows::Forms::Button());
-			this->btnEstimar = (gcnew System::Windows::Forms::Button());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->ltbServico = (gcnew System::Windows::Forms::ListBox());
-			this->ltbEqp = (gcnew System::Windows::Forms::ListBox());
-			this->cmbVS = (gcnew System::Windows::Forms::ComboBox());
-			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->picSaida = (gcnew System::Windows::Forms::PictureBox());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->tabcontrol->SuspendLayout();
 			this->tp1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->BeginInit();
-			this->tpSaida->SuspendLayout();
-			this->pnlMat->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picSaida))->BeginInit();
+			this->tpSaida->SuspendLayout();
+			this->pnlMat->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tabcontrol
@@ -279,8 +281,141 @@ namespace InfoBuraco {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Bem vindo, ";
 			// 
+			// tabPage1
+			// 
+			this->tabPage1->Controls->Add(this->btnEquipe);
+			this->tabPage1->Controls->Add(this->btnEstimar);
+			this->tabPage1->Controls->Add(this->label12);
+			this->tabPage1->Controls->Add(this->label11);
+			this->tabPage1->Controls->Add(this->ltbServico);
+			this->tabPage1->Controls->Add(this->ltbEqp);
+			this->tabPage1->Controls->Add(this->cmbVS);
+			this->tabPage1->Controls->Add(this->label10);
+			this->tabPage1->Controls->Add(this->label9);
+			this->tabPage1->Controls->Add(this->picSaida);
+			this->tabPage1->Location = System::Drawing::Point(4, 79);
+			this->tabPage1->Name = L"tabPage1";
+			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage1->Size = System::Drawing::Size(982, 420);
+			this->tabPage1->TabIndex = 2;
+			this->tabPage1->Text = L"VISUALIZAR";
+			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// btnEquipe
+			// 
+			this->btnEquipe->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnEquipe->Location = System::Drawing::Point(284, 340);
+			this->btnEquipe->Name = L"btnEquipe";
+			this->btnEquipe->Size = System::Drawing::Size(294, 41);
+			this->btnEquipe->TabIndex = 35;
+			this->btnEquipe->Text = L"Ver Dados da Equipe Escalada";
+			this->btnEquipe->UseVisualStyleBackColor = true;
+			this->btnEquipe->Click += gcnew System::EventHandler(this, &DashboardEncarregado::btnEquipe_Click);
+			// 
+			// btnEstimar
+			// 
+			this->btnEstimar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnEstimar->Location = System::Drawing::Point(628, 340);
+			this->btnEstimar->Name = L"btnEstimar";
+			this->btnEstimar->Size = System::Drawing::Size(294, 41);
+			this->btnEstimar->TabIndex = 34;
+			this->btnEstimar->Text = L"Ver Estimativa de Material Necessário";
+			this->btnEstimar->UseVisualStyleBackColor = true;
+			this->btnEstimar->Click += gcnew System::EventHandler(this, &DashboardEncarregado::btnEstimar_Click);
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->Location = System::Drawing::Point(268, 152);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(191, 20);
+			this->label12->TabIndex = 33;
+			this->label12->Text = L"Equipamentos para Levar";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->Location = System::Drawing::Point(624, 151);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(215, 20);
+			this->label11->TabIndex = 32;
+			this->label11->Text = L"Ordens de Serviço p/ Cumprir";
+			// 
+			// ltbServico
+			// 
+			this->ltbServico->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ltbServico->FormattingEnabled = true;
+			this->ltbServico->ItemHeight = 20;
+			this->ltbServico->Location = System::Drawing::Point(628, 175);
+			this->ltbServico->Name = L"ltbServico";
+			this->ltbServico->Size = System::Drawing::Size(312, 144);
+			this->ltbServico->TabIndex = 31;
+			// 
+			// ltbEqp
+			// 
+			this->ltbEqp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->ltbEqp->FormattingEnabled = true;
+			this->ltbEqp->ItemHeight = 20;
+			this->ltbEqp->Location = System::Drawing::Point(273, 175);
+			this->ltbEqp->Name = L"ltbEqp";
+			this->ltbEqp->Size = System::Drawing::Size(321, 144);
+			this->ltbEqp->TabIndex = 30;
+			// 
+			// cmbVS
+			// 
+			this->cmbVS->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->cmbVS->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->cmbVS->FormattingEnabled = true;
+			this->cmbVS->Location = System::Drawing::Point(272, 100);
+			this->cmbVS->Name = L"cmbVS";
+			this->cmbVS->Size = System::Drawing::Size(320, 28);
+			this->cmbVS->TabIndex = 29;
+			this->cmbVS->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardEncarregado::cmbVS_SelectedIndexChanged);
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label10->Location = System::Drawing::Point(269, 77);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(190, 20);
+			this->label10->TabIndex = 28;
+			this->label10->Text = L"Selecionar Data de Saída";
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label9->Location = System::Drawing::Point(30, 30);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(366, 31);
+			this->label9->TabIndex = 4;
+			this->label9->Text = L"Visualizar Saídas Agendadas";
+			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// picSaida
+			// 
+			this->picSaida->Location = System::Drawing::Point(30, 100);
+			this->picSaida->Name = L"picSaida";
+			this->picSaida->Size = System::Drawing::Size(192, 192);
+			this->picSaida->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->picSaida->TabIndex = 3;
+			this->picSaida->TabStop = false;
+			// 
 			// tpSaida
 			// 
+			this->tpSaida->Controls->Add(this->dateTimePicker1);
 			this->tpSaida->Controls->Add(this->label7);
 			this->tpSaida->Controls->Add(this->txtDist);
 			this->tpSaida->Controls->Add(this->label4);
@@ -616,137 +751,12 @@ namespace InfoBuraco {
 			this->label14->Text = L"Concluir Saída";
 			this->label14->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
-			// tabPage1
+			// dateTimePicker1
 			// 
-			this->tabPage1->Controls->Add(this->btnEquipe);
-			this->tabPage1->Controls->Add(this->btnEstimar);
-			this->tabPage1->Controls->Add(this->label12);
-			this->tabPage1->Controls->Add(this->label11);
-			this->tabPage1->Controls->Add(this->ltbServico);
-			this->tabPage1->Controls->Add(this->ltbEqp);
-			this->tabPage1->Controls->Add(this->cmbVS);
-			this->tabPage1->Controls->Add(this->label10);
-			this->tabPage1->Controls->Add(this->label9);
-			this->tabPage1->Controls->Add(this->picSaida);
-			this->tabPage1->Location = System::Drawing::Point(4, 79);
-			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(982, 420);
-			this->tabPage1->TabIndex = 2;
-			this->tabPage1->Text = L"VISUALIZAR";
-			this->tabPage1->UseVisualStyleBackColor = true;
-			// 
-			// btnEquipe
-			// 
-			this->btnEquipe->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnEquipe->Location = System::Drawing::Point(284, 340);
-			this->btnEquipe->Name = L"btnEquipe";
-			this->btnEquipe->Size = System::Drawing::Size(294, 41);
-			this->btnEquipe->TabIndex = 35;
-			this->btnEquipe->Text = L"Ver Dados da Equipe Escalada";
-			this->btnEquipe->UseVisualStyleBackColor = true;
-			this->btnEquipe->Click += gcnew System::EventHandler(this, &DashboardEncarregado::btnEquipe_Click);
-			// 
-			// btnEstimar
-			// 
-			this->btnEstimar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnEstimar->Location = System::Drawing::Point(628, 340);
-			this->btnEstimar->Name = L"btnEstimar";
-			this->btnEstimar->Size = System::Drawing::Size(294, 41);
-			this->btnEstimar->TabIndex = 34;
-			this->btnEstimar->Text = L"Ver Estimativa de Material Necessário";
-			this->btnEstimar->UseVisualStyleBackColor = true;
-			this->btnEstimar->Click += gcnew System::EventHandler(this, &DashboardEncarregado::btnEstimar_Click);
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(268, 152);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(191, 20);
-			this->label12->TabIndex = 33;
-			this->label12->Text = L"Equipamentos para Levar";
-			// 
-			// label11
-			// 
-			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(624, 151);
-			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(215, 20);
-			this->label11->TabIndex = 32;
-			this->label11->Text = L"Ordens de Serviço p/ Cumprir";
-			// 
-			// ltbServico
-			// 
-			this->ltbServico->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->ltbServico->FormattingEnabled = true;
-			this->ltbServico->ItemHeight = 20;
-			this->ltbServico->Location = System::Drawing::Point(628, 175);
-			this->ltbServico->Name = L"ltbServico";
-			this->ltbServico->Size = System::Drawing::Size(312, 144);
-			this->ltbServico->TabIndex = 31;
-			// 
-			// ltbEqp
-			// 
-			this->ltbEqp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->ltbEqp->FormattingEnabled = true;
-			this->ltbEqp->ItemHeight = 20;
-			this->ltbEqp->Location = System::Drawing::Point(273, 175);
-			this->ltbEqp->Name = L"ltbEqp";
-			this->ltbEqp->Size = System::Drawing::Size(321, 144);
-			this->ltbEqp->TabIndex = 30;
-			// 
-			// cmbVS
-			// 
-			this->cmbVS->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->cmbVS->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->cmbVS->FormattingEnabled = true;
-			this->cmbVS->Location = System::Drawing::Point(272, 100);
-			this->cmbVS->Name = L"cmbVS";
-			this->cmbVS->Size = System::Drawing::Size(320, 28);
-			this->cmbVS->TabIndex = 29;
-			this->cmbVS->SelectedIndexChanged += gcnew System::EventHandler(this, &DashboardEncarregado::cmbVS_SelectedIndexChanged);
-			// 
-			// label10
-			// 
-			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(269, 77);
-			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(190, 20);
-			this->label10->TabIndex = 28;
-			this->label10->Text = L"Selecionar Data de Saída";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(30, 30);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(366, 31);
-			this->label9->TabIndex = 4;
-			this->label9->Text = L"Visualizar Saídas Agendadas";
-			this->label9->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
-			// picSaida
-			// 
-			this->picSaida->Location = System::Drawing::Point(30, 100);
-			this->picSaida->Name = L"picSaida";
-			this->picSaida->Size = System::Drawing::Size(192, 192);
-			this->picSaida->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->picSaida->TabIndex = 3;
-			this->picSaida->TabStop = false;
+			this->dateTimePicker1->Location = System::Drawing::Point(283, 56);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(206, 20);
+			this->dateTimePicker1->TabIndex = 39;
 			// 
 			// DashboardEncarregado
 			// 
@@ -761,13 +771,13 @@ namespace InfoBuraco {
 			this->tp1->ResumeLayout(false);
 			this->tp1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picUser))->EndInit();
+			this->tabPage1->ResumeLayout(false);
+			this->tabPage1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picSaida))->EndInit();
 			this->tpSaida->ResumeLayout(false);
 			this->tpSaida->PerformLayout();
 			this->pnlMat->ResumeLayout(false);
 			this->pnlMat->PerformLayout();
-			this->tabPage1->ResumeLayout(false);
-			this->tabPage1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->picSaida))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -802,6 +812,14 @@ namespace InfoBuraco {
 		}
 	}
 	private: System::Void btnSel_Click(System::Object^  sender, System::EventArgs^  e) {
+		DateTimeConverter dtc;
+		DateTime dt = (DateTime)dtc.ConvertFromString(cmbSaid->Text->ToString());
+
+		if (dt > dt.Now)
+		{
+			MessageBox::Show("Não é possível finalizar uma saída antes dela ter sido realizada. Tente novamente mais tarde.", "Atenção", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			return;
+		}
 
 		if (cmbSaid->SelectedIndex == -1) return;
 		os = Ordem_De_ServicoDAO::buscarOrdemPorSaida(s[cmbSaid->SelectedIndex]->getidsaida());
